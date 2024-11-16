@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('fila', 20);
             $table->string('descricao', 20);
             $table->dateTime('abertura');
-            $table->dateTime('fechamento');
+            $table->dateTime('fechamento')->nullable();
             $table->dateTime('ans')->nullable();
         });
     }
