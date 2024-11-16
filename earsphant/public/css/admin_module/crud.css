@@ -1,0 +1,344 @@
+/*Para cotrolar os as abas de barras de navegação*/
+ul {
+    display: flex;
+	flex-direction: row;
+	align-content: space-around;
+}
+
+/*Tamanho a área do conteúdo*/
+main {
+    height: 83vh;
+    width: 100vw;
+}
+
+/*Posicionamento do conteúdo*/
+.element_flex_dad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+}
+
+/*Posicionamento do conteúdo dentro do formulário*/
+#form_active {
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
+	height: 60vh;
+}
+
+#form_service, #form_sector {
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+    align-content: center;
+    justify-content: space-around;
+	height: 60vh;
+}
+
+#form_user {
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
+	height: 60vh;
+}
+
+.section_form{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	align-content: center;	
+}
+
+/*Personalização do conteúdo*/
+.input_text{
+	width: 20vw;
+	height: 4vh;
+	margin: 10px;
+}
+
+.input_date{
+	width: 8vw;
+	height: 4.5vh;
+	margin: 10px;
+}
+
+.input_droplist{
+	width: 15vw;
+	height: 4.8vh;
+	margin: 10px;
+}
+
+h3{
+	color: #25374D;
+    font-size: 1.2em;
+    font-family: "Roboto", "Montserrat", sans-serif;
+}
+
+/*Personalização dos botões*/
+.add_button{
+	width: 10vw;
+	height: 6vh;
+	background-color: #66704b;
+	color: #ffffff;
+	font-size: 1.1;
+	font-weight: bold;
+	margin: 10px;
+	border-radius: 3px 3px 3px 3px;
+	border-color: #ffffff;
+	border: solid 1px;
+}
+
+.cancel_button{
+	width: 10vw;
+	height: 6vh;
+	background-color: #be2d28;
+	color: #ffffff;
+	font-size: 1.1;
+	font-weight: bold;
+	margin: 10px;
+	border-radius: 3px 3px 3px 3px;
+	border-color: #ffffff;
+	border: solid 1px;
+}
+
+.remove_button{
+	width: 10vw;
+	height: 6vh;
+	background-color: #0f0505;
+	color: #ffffff;
+	font-size: 1.1;
+	font-weight: bold;
+	margin: 10px;
+	border-radius: 3px 3px 3px 3px;
+	border-color: #ffffff;
+	border: solid 1px;
+}
+
+.add_button:hover, .add_button:focus{
+	width: 10vw;
+	height: 6vh;
+	background-color: #bbce87;
+	color: #000000;
+	font-size: 1.1;
+	font-weight: bold;
+	margin: 10px;
+	border-radius: 3px 3px 3px 3px;
+}
+
+.cancel_button:hover, .cancel_button:focus{
+	width: 10vw;
+	height: 6vh;
+	background-color: #ff524d;
+	color: #000000;
+	font-size: 1.1;
+	font-weight: bold;
+	margin: 10px;
+	border-radius: 3px 3px 3px 3px;
+	border-width: 1px;
+}
+
+.remove_button:hover, .remove_button:focus{
+	width: 10vw;
+	height: 6vh;
+	background-color: #16070780;
+	color: #000000;
+	font-size: 1.1;
+	font-weight: bold;
+	margin: 10px;
+	border-radius: 3px 3px 3px 3px;
+	border-width: 1px;
+}
+
+.add_button:active{
+	width: 10vw;
+	height: 6vh;
+	background-color: #ffffff;
+	color: #99a774;
+	font-size: 1.1;
+	font-weight: bold;
+	margin: 10px;
+	border-radius: 3px 3px 3px 3px;
+}
+
+.cancel_button:active{
+	width: 10vw;
+	height: 6vh;
+	background-color: #ffffff;
+	color: #d13833;
+	font-size: 1.1;
+	font-weight: bold;
+	margin: 10px;
+	border-radius: 3px 3px 3px 3px;
+}
+
+.remove_button:active{
+	width: 10vw;
+	height: 6vh;
+	background-color: #ffffff;
+	color: #0f0505;
+	font-size: 1.1;
+	font-weight: bold;
+	margin: 10px;
+	border-radius: 3px 3px 3px 3px;
+}
+
+input[type='file']{
+	display: none;
+}
+
+#bunton_choice_picture{
+	background-color: #25374D;
+	border-radius: 5%;
+	color: #ffffff;
+	font-size: 1.0em;
+	font-weight: bold;
+	width: 15vw;
+	height: 4vh;
+	padding: 5px;
+	display: block;
+	cursor: pointer;
+	justify-content: center;
+	text-align: center;
+	align-content: center;
+
+}
+
+#bunton_choice_picture:hover, #bunton_choice_picture:focus{
+	background-color: #324d6e;
+	border-radius: 5%;
+	color: #ffffff;
+	font-size: 1.0em;
+	font-weight: bold;
+	width: 15vw;
+	height: 4vh;
+	padding: 5px;
+	display: block;
+	cursor: pointer;
+	justify-content: center;
+	text-align: center;
+	align-content: center;
+
+}
+
+#bunton_choice_picture:active{
+	background-color: #ffffff;
+	border-radius: 5%;
+	color: #25374D;
+	font-size: 1.0em;
+	font-weight: bold;
+	width: 15vw;
+	height: 4vh;
+	padding: 5px;
+	display: block;
+	cursor: pointer;
+	justify-content: center;
+	text-align: center;
+	align-content: center;
+
+}
+
+
+/*formatação formulário de adicionar usuários*/
+
+#format_form_user{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	align-content: space-around;
+}
+
+#div_details_user{
+	width: 40vw;
+	height: 40vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+	justify-content: center
+	
+}
+
+#div_picture_profile{
+	width: 30vw;
+	height: 40vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: space-around;
+	justify-content: space-around;
+}
+
+#preview{
+	width: 160px;
+	height: 160px;
+	border-width: 1px solid black;
+	padding: 20px;
+}
+
+#input_add_user_password, #input_add_user_login{
+	width: 8vw;
+}
+
+#input_add_user_sector{
+	width: 13vw;
+}
+
+#dropdown_level_access{
+	width: 10w;
+}
+
+#input_add_user_name{
+	width: 23vw;
+}
+
+.format_form_sections{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* formatação tela adicionar novo setor */
+
+
+
+#input_add_sector_id{
+	width: 6vw;
+}
+
+#input_add_sector_name{
+	width: 20.8vw;
+}
+
+/* formatação tela adicionar novo ativo */
+
+#input_add_active_license, #input_add_active_code{
+	width: 35vw;
+}
+
+#format_form_active{
+	width: 60vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+#format_id_active{
+	width: 40vw;
+	display: flex;
+	flex-direction: column;
+}
+
+#input_add_active_type, #input_add_active_brand, #input_add_active_model{
+	width: 10vw;
+}
