@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 // Login
 Route::get('/', [AutenticadorController::class, 'exibirIndex'])->name('index');
-/*Route::post('/', 'AutenticadorController@')->name('index');*/
+Route::post('/', [AutenticadorController::class, 'login'])->name('login');
 
 // Fallback
 Route::fallback(function(){

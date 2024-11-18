@@ -22,12 +22,12 @@
             <br>
             @csrf
             <label class="label_login" for="input_user">Usuário:</label>
-            <input id="input_user" name="user" type="text" value="{{ old('user') }}">
+            <input id="login" name="login" type="text" value="{{ old('user') }}">
             {{ $errors->has('user') ? $errors->first('user') : '' }}
             <br>
 
             <label class="label_login" for="input_password">Senha:</label>
-            <input id="input_password" name="password" type="password" value="{{ old('password') }}">
+            <input id="senha" name="senha" type="password" value="{{ old('password') }}">
             {{ $errors->has('password') ? $errors->first('password') : '' }}
 
             <br>
@@ -44,6 +44,11 @@
             <input id="unique_button" type="submit" value="Acessar">
 
         </form>
+        @if ($errors->any())
+        <div>
+            <strong>{{ $errors->first('login') }}</strong>
+        </div>
+    @endif
         
     </main>
 
