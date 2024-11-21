@@ -28,14 +28,5 @@ class AtendimentoController extends Controller
         return view('usuario.atendimento');
     }
 
-    public function listarAtendimentosHistorico()
-    {
-
-        // Busca os tickets com status "Finalizado" do usuário autenticado
-        $tickets = Atendimento::where('status', 'Finalizado')
-        ->where('usuario', 'login') // Ajuste conforme o valor necessário
-        ->get();
-        // Retorna a view com os dados
-        return view('atendimentos.index', compact('tickets'));
-    }
+  
 }

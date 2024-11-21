@@ -8,9 +8,10 @@ use App\Http\Controllers\SetorController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
-// Login
+// Login e logout
 Route::get('/', [AutenticadorController::class, 'exibirIndex'])->name('index');
 Route::post('/', [AutenticadorController::class, 'login'])->name('login');
+Route::get('/logout', [AutenticadorController::class, 'logout'])->name('logout');
 
 // Fallback
 Route::fallback(function(){
@@ -27,7 +28,8 @@ Route::get('/usuario/abrirAtendimento', [AtendimentoController::class, 'exibirAb
 
 //HistoricoAtendimento
 Route::get('/usuario/historico', [AtendimentoController::class, 'exibirHistorico'])->name('historico');
- 
+
+
 //AtendimentosAbertos
 Route::get('/usuario/atendimentosAbertos', [AtendimentoController::class, 'exibirAtendimentosAbertos'])->name('atendimentosAbertos');
 
@@ -81,3 +83,5 @@ Route::get('/admin_interfaces/search_active', 'SearchController@get_view_search_
 Route::post('/admin_interfaces/search_user', 'SearchController@search_user')->name('search_user');
 
 Route::get('/admin/open_ticket','TicketController@open_ticket_admin')->name('open_ticket_admin');
+
+

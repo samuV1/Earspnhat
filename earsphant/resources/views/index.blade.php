@@ -30,25 +30,14 @@
             <input id="senha" name="senha" type="password" value="{{ old('password') }}">
             {{ $errors->has('password') ? $errors->first('password') : '' }}
 
-            <br>
-
-            <label class="label_login" for="dropdown_type_agent">Você é um usuário ou um administrador?</label>
-            
-            <select id="dropdown_type_agent" name="level_access">
-                <option value="user">Usuário</option>
-                <option value="admin">Administrador</option>
-            </select>
-
-            <br>
-
             <input id="unique_button" type="submit" value="Acessar">
 
         </form>
         @if ($errors->any())
-        <div>
-            <strong>{{ $errors->first('login') }}</strong>
-        </div>
-    @endif
+            <div>
+                <strong>{{ $errors->first('login') }}</strong>
+            </div>
+        @endif
         
     </main>
 

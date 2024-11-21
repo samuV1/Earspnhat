@@ -17,19 +17,7 @@
 
         <h1>Historico</h1>
 
-        @if($tickets->isEmpty())
-            <p>Nenhum atendimento finalizado encontrado.</p>
-        @else
-            <ul>
-                @foreach($tickets as $ticket)
-                    <li>
-                        <a href="{{ route('atendimentos.show', $ticket->id) }}">
-                            Código: {{ $ticket->codigo }} - {{ $ticket->descricao }}
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-        @endif
+       
 
         
     </main>
