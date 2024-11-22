@@ -15,9 +15,22 @@
     <main class="element_flex_dad">
         
 
-        <h1>Historico</h1>
+        <a href="{{ route('atendimentos.finalizados', ['userId' => session('user_id')]) }}">Histórico</a>
 
-       
+        @if($atendimentos->isEmpty())
+        <p>Você não possui atendimentos finalizados.</p>
+        @else
+            <ul>
+                @foreach ($atendimentos as $atendimento)
+                    <li>
+                        <strong>Código:</strong> {{ $atendimento->codigo }} <br>
+                        <strong>Descrição:</strong> {{ $atendimento->descricao }} <br>
+                        <a href="{{ route('tickets.detalhes', $atendimento->codigo) }}">Ver detalhes</a>
+                    </li>
+                    <hr>
+                @endforeach
+            </ul>
+        @endif
 
         
     </main>

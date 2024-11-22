@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('titles', 'Pesquisar ticket')
+@section('titles', 'Pesquisar ativo')
 
 @section('style_page_css')
     <link rel="stylesheet" href={{ asset('css/admin_module/search.css') }}>
@@ -9,7 +9,7 @@
 
 @section('pages')
 
-    @include('admin_interfaces.header')
+@include('administrador.cabecalho')
     
     <main class="element_flex_dad">
         
@@ -17,6 +17,6 @@
         
     </main>
 
-    @include('admin_interfaces.footer')
+    @include('administrador.rodape')
 
 @endsection

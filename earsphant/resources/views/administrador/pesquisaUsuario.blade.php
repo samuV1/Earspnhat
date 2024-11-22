@@ -9,11 +9,11 @@
 
 @section('pages')
 
-    @include('admin_interfaces.header')
+    @include('administrador.cabecalho')
     
     <main class="element_flex_dad">
         
-        <form action={{ route('search_user') }} method="POST">
+        <form action={{ route('pesquisarUsuario') }} method="POST">
             @csrf
 
             <label for="input_add_user_name">Nome:</label>
@@ -72,6 +72,6 @@
 
     </main>
 
-    @include('admin_interfaces.footer')
+    @include('administrador.rodape')
 
 @endsection

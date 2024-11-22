@@ -8,7 +8,7 @@
 
 @section('pages')
 
-    @include('admin_interfaces.header')
+@include('administrador.cabecalho')
     
     <main class="element_flex_dad">
 
@@ -16,7 +16,7 @@
 
         <form id="form_active" action="">
             @csrf
-            <div id="format_form_active" action={{ route('add_active') }} method="POST">
+            <div id="format_form_active" action={{ route('adicionarAtivo') }} method="POST">
                 
                 <label for="input_add_active_license">Licença/Código:</label>
                 <input class="input_text" id="input_add_active_license" name="license" type="text">
@@ -56,6 +56,6 @@
         
     </main>
 
-    @include('admin_interfaces.footer')
+    @include('administrador.rodape')
 
 @endsection

@@ -8,13 +8,13 @@
 
 @section('pages')
 
-    @include('admin_interfaces.header')
+@include('administrador.cabecalho')
     
     <main class="element_flex_dad">
         
         <h1>Adicionar um novo Serviço</h1>
 
-        <form id="form_service" action={{ route('add_service') }} method="POST">
+        <form id="form_service" action={{ route('adicionarServico') }} method="POST">
             @csrf
 
             <section>
@@ -28,14 +28,6 @@
                         <label for="input_add_sector_id">Acordo a nível de serviço:</label>
                         <input class="input_text" id="input_add_sector_id" name="code" type="time">
                     </section>
-
-                    <section class="section_form">
-                        <label for="dropdown_soft_or_hard">Status</label>
-                        <select class="input_droplist" id="dropdown_soft_or_hard" name="category">
-                            <option value="active">Serviço Ativo</option>
-                            <option value="obselete">Serviço Obsoleto</option>
-                        </select>
-                    </section>
                 </section>
             </section>
             
@@ -48,6 +40,6 @@
         
     </main>
 
-    @include('admin_interfaces.footer')
+    @include('administrador.rodape')
 
 @endsection

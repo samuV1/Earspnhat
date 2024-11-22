@@ -9,13 +9,13 @@
 
 @section('pages')
 
-    @include('admin_interfaces.header')
+@include('administrador.cabecalho')
     
     <main class="element_flex_dad">
         
         <h1>Adicionar um Novo Usuário</h1>
 
-        <form id="form_user" action={{ route('add_user') }} method="POST">
+        <form id="form_user" action={{ route('adicionarUsuario') }} method="POST">
             @csrf
             <section id="format_form_user">
 
@@ -83,6 +83,6 @@
         
     </main>
 
-    @include('admin_interfaces.footer')
+    @include('administrador.rodape')
 
 @endsection

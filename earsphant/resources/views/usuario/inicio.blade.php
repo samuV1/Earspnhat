@@ -21,7 +21,7 @@
 
             <a class="choice_user" href="{{ route('atendimentosAbertos') }}">Acompanhar um atendimento em aberto</a>
 
-            <a class="choice_user" href="{{ route('historico') }}">Ver o seu histórico de solicitações</a>
+            <a class="choice_user" href="{{ route('ticket.historico') }}">Ver o seu histórico de solicitações</a>
         </section>
     </main>
 

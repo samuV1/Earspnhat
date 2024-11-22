@@ -8,13 +8,13 @@
 
 @section('pages')
 
-    @include('admin_interfaces.header')
+@include('administrador.cabecalho')
     
     <main class="element_flex_dad">
         
         <h1>Adicionar um Novo Setor</h1>
 
-        <form id="form_sector" action={{ route('add_sector') }} method="POST">
+        <form id="form_sector" action={{ route('adicionarSetor') }} method="POST">
             @csrf
 
             <section>
@@ -41,6 +41,6 @@
         
     </main>
 
-    @include('admin_interfaces.footer')
+    @include('administrador.rodape')
 
 @endsection

@@ -1,23 +1,20 @@
 @extends('base')
 
-@section('titles', 'Início')
+@section('titles', 'Estatísticas')
 
 @section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/home.css') }}>
+    <link rel="stylesheet" href={{ asset('css/admin_module/crud.css') }}>
 @endsection
-
 
 @section('pages')
 
 @include('administrador.cabecalho')
     
     <main class="element_flex_dad">
-        
-        <h1>Inicio</h1>
 
-        <div>Estatísticas</div>
+        <h1>Estatísticas</h1>
 
-        <div>Últimos atendimentos abertos</div>
+   
         
     </main>
 
