@@ -9,6 +9,7 @@ use App\Http\Controllers\SetorController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PesquisaController;
 use App\Http\Controllers\HistoricoController;
+use App\Models\Atendimento;
 use Illuminate\Support\Facades\Route;
 
 // Login e logout
@@ -31,6 +32,8 @@ Route::get('/usuario/abrirAtendimento', [AtendimentoController::class, 'exibirAb
 
 //HistoricoAtendimento
 Route::get('/usuario/historico/', [AtendimentoController::class, 'exibirHistorico'])->name('historico');
+Route::get('/usuario/historico', [HistoricoController::class, 'historico'])->name('tickets.historico');
+Route::get('/historico/{codigo}', [HistoricoController::class, 'detalhes'])->name('tickets.detalhes');
 
 Route::get('/historico/historico/{userId?}', [AtendimentoController::class, 'historicoFinalizados'])->name('atendimentos.finalizados');
 
@@ -39,6 +42,10 @@ Route::get('/usuario/atendimentosAbertos', [AtendimentoController::class, 'exibi
 
 //AtendimentosAbertos
 Route::get('/usuario/atendimentos', [AtendimentoController::class, 'exibirAtendimento'])->name('atendimento');
+Route::get('/usuario/atendimentosAbertos', [HistoricoController::class, 'historicoAbertos'])->name('atendimentoHistoricoAberto');
+
+//Atendimentos
+Route::get('/usuario/atendimento/{codigo}', [AtendimentoController::class, 'atendimento'])->name('atendimento');
 
 // Admin
 Route::get('/administrador/inicio', [AutenticadorController::class, 'exibirInicioAdm'])->name('inicioAdm');
@@ -72,9 +79,9 @@ Route::get('/admin_interfaces/edit_sector', [SetorController::class, 'get_view_e
 Route::post('/admin_interfaces/edit_sector', [SetorController::class, 'edit_sector_db'])->name('edit_sector');
 
 // Pesquisas
-Route::get('/admin_interfaces/pesquisaUsuario', [PesquisaController::class, 'exibirPesquisaUsuario'])->name('pesquisaUsuario');
-Route::get('/admin_interfaces/pesquisaAtendimento', [PesquisaController::class, 'exibirPesquisaAtendimento'])->name('pesquisaAtendimento');
-Route::get('/admin_interfaces/pesquisaAtivo', [PesquisaController::class, 'exibirPesquisaAtivo'])->name('pesquisaAtivo');
+Route::get('/administrador/pesquisaUsuario', [PesquisaController::class, 'exibirPesquisaUsuario'])->name('pesquisaUsuario');
+Route::get('/administrador/pesquisaAtendimento', [PesquisaController::class, 'exibirPesquisaAtendimento'])->name('pesquisaAtendimento');
+Route::get('/administrador/pesquisaAtivo', [PesquisaController::class, 'exibirPesquisaAtivo'])->name('pesquisaAtivo');
 
 Route::post('/admin_interfaces/search_user', [PesquisaController::class, 'search_user'])->name('search_user');
 
@@ -91,5 +98,5 @@ Route::get('/administrador/estatisticas', [EstatisticasController::class, 'exibi
 
 //// testes
 
-Route::get('/usuario/historico', [HistoricoController::class, 'historico'])->name('tickets.historico');
-Route::get('/historico/{codigo}', [HistoricoController::class, 'detalhes'])->name('tickets.detalhes');
+
+

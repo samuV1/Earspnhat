@@ -3,7 +3,7 @@
 @section('titles', 'Histórico')
 
 @section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/user_module/home.css') }}>
+    <link rel="stylesheet" href={{ asset('css/user_module/historico.css') }}>
 @endsection
 
 
@@ -15,22 +15,25 @@
     <main class="element_flex_dad">
         
 
-        <a href="{{ route('atendimentos.finalizados', ['userId' => session('user_id')]) }}">Histórico</a>
+        <h1>Histórico</h1>
 
-        @if($atendimentos->isEmpty())
-        <p>Você não possui atendimentos finalizados.</p>
-        @else
-            <ul>
-                @foreach ($atendimentos as $atendimento)
-                    <li>
-                        <strong>Código:</strong> {{ $atendimento->codigo }} <br>
-                        <strong>Descrição:</strong> {{ $atendimento->descricao }} <br>
-                        <a href="{{ route('tickets.detalhes', $atendimento->codigo) }}">Ver detalhes</a>
-                    </li>
-                    <hr>
-                @endforeach
-            </ul>
-        @endif
+        <div class="areaTicket">
+            @if($atendimentos->isEmpty())
+            <p class="historico">Você não possui atendimentos finalizados.</p>
+            @else
+                <ul class="historico">
+                    @foreach ($atendimentos as $atendimento)
+                        <li class="historico">
+                            <strong class="historico">Código:</strong> {{ $atendimento->codigo }} 
+                            <strong class="historico">| Serviço:</strong> {{ $atendimento->servico }} <br>
+                            <strong class="historico">Data de Fechamento:</strong> {{ $atendimento->fechamento }} <br>
+                            <a class="historico" href="{{ route('atendimento', $atendimento->codigo) }}">Ver detalhes</a>
+                        </li>
+                        <hr class="historico">
+                    @endforeach
+                </ul>
+            @endif
+        </div>
 
         
     </main>

@@ -24,7 +24,7 @@ nav{
 	padding-right: 10px;
 	height: 10vh;
 	padding-top: 5vh;
-	padding-bottom: 3vh;
+	padding-bottom: 3.2vh;
 }
 
 i{
@@ -41,6 +41,7 @@ i{
 	font-size: 1.1em;
 	font-weight: bold;
 	background-color: #F9FBFC;	
+	padding-bottom: 3.2vh;
 }
 
 .nav:active{

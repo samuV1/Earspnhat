@@ -1,0 +1,83 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
+    justify-content: center;
+}
+
+.element_flex_dad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+main {
+    width: 35%;
+    height: 83vh;
+}
+
+.areaTicket{
+    width: 65vw;
+    height: 65vh;
+}
+
+ul.historico {
+    list-style: none; /* Remove os marcadores da lista */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+li.historico {
+    background-color: #f9f9f9; /* Cor de fundo clara */
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 2px solid #e0e0e09f; /* Bordas sutis */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 60vw;
+}
+
+li:hover.historico {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+strong.historico {
+    color: #333; /* Cor de destaque para o texto em negrito */
+    font-weight: 600;
+}
+
+a.historico {
+    color: #007bff; /* Azul moderno */
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+a:hover.historico {
+    color: #0056b3; /* Escurece o azul ao passar o mouse */
+    text-decoration: underline; /* Adiciona sublinhado para indicar interação */
+}
+
+hr.historico {
+    border: none;
+    border-top: 1px solid #e0e0e0; /* Linha divisória suave */
+    margin: 1rem 0;
+}
+
+p.historico {
+    font-style: italic;
+    color: #666; /* Cinza suave para a mensagem */
+    text-align: center;
+    margin-top: 1rem;
+}

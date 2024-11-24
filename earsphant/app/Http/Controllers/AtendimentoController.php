@@ -29,16 +29,12 @@ class AtendimentoController extends Controller
         return view('usuario.atendimento');
     }
 
-    public function historicoFinalizados($userId = null)
+    public function atendimento($codigo)
     {
-        // Usa o valor da sessão caso o parâmetro não seja passado
-        $userId = $userId ?? session('user_id') ?? Auth::id();
-        
-        $atendimentos = Atendimento::where('cliente_id', $userId)
-                                   ->where('status', 'finalizado')
-                                   ->get();
-        
-        return view('atendimentos.historico', compact('atendimentos'));
-        
+        // Busca o primeiro atendimento com o código recebido
+        $atendimento = Atendimento::where('codigo', $codigo)->firstOrFail();
+
+        return view('usuario.atendimento', compact('atendimento'));
     }
+
 }

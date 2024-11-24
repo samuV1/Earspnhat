@@ -19,9 +19,9 @@
         <section id="choices_user">
             <a class="choice_user" href="{{ route('abrirAtendimento') }}">Abrir uma solicitação de atendimento</a>
 
-            <a class="choice_user" href="{{ route('atendimentosAbertos') }}">Acompanhar um atendimento em aberto</a>
+            <a class="choice_user" href="{{ route('atendimentoHistoricoAberto') }}">Acompanhar um atendimento em aberto</a>
 
-            <a class="choice_user" href="{{ route('ticket.historico') }}">Ver o seu histórico de solicitações</a>
+            <a class="choice_user" href="{{ route('tickets.historico') }}">Ver o seu histórico de solicitações</a>
         </section>
     </main>
 
