@@ -9,6 +9,14 @@ class Usuario extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['login', 'senha'];
+    protected $fillable = [
+        'login', 
+        'senha', 
+        'nome', 
+        'setor', 
+        'acesso', 
+        'url_foto'
+    ];
     protected $hidden = ['senha'];
+    
 }

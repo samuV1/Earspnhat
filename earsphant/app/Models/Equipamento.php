@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Equipamento extends Model
 {
     use HasFactory;
+    protected $table = 'equipamentos'; // Nome da tabela
+    protected $fillable = [
+        'setor',
+        'tipo',
+        'marca',
+        'modelo',
+        'patrimonio',
+        'aquisicao',
+        'alugado',
+    ]; // Campos permitidos para preenchimento
 }
