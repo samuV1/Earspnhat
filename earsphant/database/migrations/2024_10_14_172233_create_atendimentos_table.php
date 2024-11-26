@@ -18,11 +18,11 @@ return new class extends Migration
             $table->unsignedBigInteger('setor')->nullable();
             $table->string('usuario');
             $table->unsignedBigInteger('codigo')->unique();
-            $table->string('servico', 20);
-            $table->string('subservico', 20)->nullable();
+            $table->unsignedBigInteger('servico');
+            $table->string('subservico', 50)->nullable();
             $table->string('status', 20);
             $table->string('fila', 20);
-            $table->string('descricao', 20);
+            $table->text('descricao');
             $table->dateTime('abertura');
             $table->dateTime('fechamento')->nullable();
             $table->dateTime('ans')->nullable();

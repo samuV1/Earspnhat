@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('atendimento');
             $table->string('usuario');
             $table->string('descricao');
+            $table->dateTime('data');
         });
     }
 

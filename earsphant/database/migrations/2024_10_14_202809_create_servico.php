@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use function Laravel\Prompts\table;
+
 return new class extends Migration
 {
     /**
@@ -11,11 +13,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('anexos', function (Blueprint $table) {
+        Schema::create('servico', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('atendimento');
-            $table->text('url_arquivo');
+            $table->string('servico', 50);
+            $table->string('status', 20);
+            $table->unsignedBigInteger('codigo')->unique();
+            $table->time('ans')->nullable();
         });
     }
 
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('anexos');
+        Schema::dropIfExists('servico');
     }
 };

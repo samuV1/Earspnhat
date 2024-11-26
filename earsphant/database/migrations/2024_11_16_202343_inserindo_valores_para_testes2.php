@@ -13,16 +13,37 @@ return new class extends Migration
     public function up(): void
     {
         //
+        DB::table('servico')->insert([
+            [
+                'servico' => 'Programas',
+                'status' => 'ativo',
+                'codigo' => '1',
+                'ans' => null,
+            ],
+            [
+                'servico' => 'Permissões',
+                'status' => 'user',
+                'codigo' => '2',
+                'ans' => null,
+            ],
+            [
+                'servico' => 'Internet',
+                'status' => 'ativo',
+                'codigo' => '3',
+                'ans' => null,
+            ],
+            ]);
+
         DB::table('atendimentos')->insert([
         [
             'setor' => '003',
             'usuario' => 'user',
             'codigo' => '1',
-            'servico' => 'Programa',
+            'servico' => '1',
             'subservico' => 'Instalação',
             'status' => 'Finalizado',
             'fila' => 'Resolvidas',
-            'descricao' => '...',
+            'descricao' => 'Instalar libreoffice em todas as estações do setor',
             'abertura' => '2024-11-16 10:30:45',
             'fechamento' => '2024-11-16 17:30:00',
             'ans' => null,
@@ -33,11 +54,11 @@ return new class extends Migration
             'setor' => '001',
             'usuario' => 'tec',
             'codigo' => '2',
-            'servico' => 'Permissão',
+            'servico' => '2',
             'subservico' => 'Usuário',
             'status' => 'Em atendimento',
             'fila' => 'Suporte',
-            'descricao' => '....',
+            'descricao' => 'Criar a novo usuário login l34567, setor administração, nome José Carlos',
             'abertura' => '2024-11-16 10:40:45',
             'fechamento' => null,
             'ans' => null,
@@ -48,11 +69,11 @@ return new class extends Migration
             'setor' => '003',
             'usuario' => 'user',
             'codigo' => '3',
-            'servico' => 'Internet',
+            'servico' => '3',
             'subservico' => 'Rede',
             'status' => 'Aberto',
             'fila' => 'Abertas',
-            'descricao' => '....',
+            'descricao' => 'A internet parou de funcionar em todo o setor',
             'abertura' => '2024-11-16 10:45:45',
             'fechamento' => null,
             'ans' => null,

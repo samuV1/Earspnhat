@@ -34,6 +34,7 @@ return new class extends Migration
                   ->references('codigo')->on('atendimentos')
                   ->onDelete('cascade');
         });
+
     }
 
     /**

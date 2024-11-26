@@ -5,6 +5,18 @@
 <header>
     <nav>
         <ul>
+        <li>
+            <a class="nav" href="{{ route('inicioAdm') }}">Início</a></li>
+            <li>
+                <div class="dropdown">
+                    <a onclick="toggleDropdown('myDropdown')" class="dropbtn">Solicitações</a>
+                    <div id="myDropdown" class="dropdown-content">
+                      <a href="#">Abrir Solicitação</a>
+                      <a href="#">Minhas Filas</a>
+                      <a href="{{ route('filaAtendimentoAbertos') }}">Ver Solicitações Abertas</a>
+                    </div>
+                </div>  
+            </li>
             <li>
                 <div class="dropdown3">
                     <a onclick="toggleDropdown('myDropdown3')" class="dropbtn3">Pesquisar</a>
@@ -15,21 +27,8 @@
                     </div>
                 </div> 
             </li>
-            <li><a class="nav" href="{{ route('inicioAdm') }}">Início</a></li>
-            <li>
-                <div class="dropdown">
-                    <a onclick="toggleDropdown('myDropdown')" class="dropbtn">Solicitações</a>
-                    <div id="myDropdown" class="dropdown-content">
-                      <a href="#">Abrir Solicitação</a>
-                      <a href="#">Minhas Filas</a>
-                      <a href="#">Ver Solicitações Abertas</a>
-                    </div>
-                </div>  
-            </li>
-            <li><a class="nav" href="{{route ('estatisticas')}}">Estatísticas</a></li>
-            <li>
                 <div class="dropdown2">
-                    <a onclick="toggleDropdown('myDropdown2')" class="dropbtn2">Adicionar</a>
+                    <a onclick="toggleDropdown('myDropdown2')" class="dropbtn2">Cadastro</a>
                     <div id="myDropdown2" class="dropdown-content2">
                       <a href="{{ route('adicionarUsuario') }}">Novo Usuário</a>
                       <a href="{{ route('adicionarSetor') }}">Novo Setor</a>

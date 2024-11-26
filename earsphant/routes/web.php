@@ -4,6 +4,7 @@ use App\Http\Controllers\AtendimentoController;
 use App\Http\Controllers\AtivoController;
 use App\Http\Controllers\AutenticadorController;
 use App\Http\Controllers\EstatisticasController;
+use App\Http\Controllers\FilasAtendimentosController;
 use App\Http\Controllers\ServicoController;
 use App\Http\Controllers\SetorController;
 use App\Http\Controllers\UsuarioController;
@@ -92,9 +93,9 @@ Route::get('/admin/open_ticket', [AtendimentoController::class, 'open_ticket_adm
 
 Route::get('/administrador/estatisticas', [EstatisticasController::class, 'exibirEstatisticas'])->name('estatisticas');
 
+// Fila de atendimentos
 
-
-
+Route::get('/administrador/filaAtendimentoAberto', [FilasAtendimentosController::class, 'filaAbertos'])->name('filaAtendimentoAbertos');
 
 //// testes
 

@@ -23,4 +23,7 @@ class Atendimento extends Model
         'fechamento',
         'ans',
     ]; // Campos permitidos para preenchimento
+
 }
+
+

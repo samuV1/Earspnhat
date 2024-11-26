@@ -17,6 +17,9 @@
     
         <label for="codigo"><strong>Código:</strong></label>
         <input type="text" id="codigo" name="codigo" value="{{ $atendimento->codigo }}" readonly>
+
+        <label for="servico"><strong>Descrição:</strong></label>
+        <input type="text" id="servico" name="servico" value="{{ $atendimento->servico->name }}" readonly>
     
         <label for="descricao"><strong>Descrição:</strong></label>
         <textarea id="descricao" name="descricao" rows="4" cols="50" readonly>{{ $atendimento->descricao }}</textarea>

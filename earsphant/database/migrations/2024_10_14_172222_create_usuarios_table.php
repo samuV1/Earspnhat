@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('login')->unique();
             $table->string('senha');
             $table->integer('acesso');
-            $table->string('url_foto')->nullable();
+            $table->text('url_foto')->nullable();
         });
     }
 

@@ -17,10 +17,10 @@ return new class extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('codigo')->unique();
             $table->string('licenca')->nullable();
-            $table->string('nome', 20);
-            $table->string('fornecedor', 20)->nullable();
-            $table->string('versao', 20)->nullable();
-            $table->date('aquisicao', 20)->nullable();
+            $table->string('nome', 30);
+            $table->string('fornecedor', 30)->nullable();
+            $table->string('versao', 30)->nullable();
+            $table->date('aquisicao')->nullable();
             $table->boolean('terceiros');
         });
     }

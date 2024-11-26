@@ -14,4 +14,5 @@ class Setor extends Model
         'setor',
         'nome',
     ]; // Campos permitidos para preenchimento
+
 }
