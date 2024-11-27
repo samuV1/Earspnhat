@@ -27,7 +27,41 @@
             <button type="submit" class="btn btn-primary">Pesquisar</button>
         </form>
 
-        
+        {{-- Resultados da pesquisa --}}
+        <section class="results mt-4">
+            @if(isset($users) && $users->isEmpty())
+                <p class="alert alert-warning">Nenhum usuário encontrado.</p>
+            @elseif(isset($users))
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Setor</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $user)
+                            <tr>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->nome }}</td>
+                                <td>{{ $user->setor }}</td>
+                                <td>
+                                    {{-- Botões de ações (exemplo: editar ou excluir) --}}
+                                    <a href="{{ route('edit_user', ['id' => $user->id]) }}" class="btn btn-sm btn-warning">Editar</a>
+                                    <form action="{{ route('delete_user', ['id' => $user->id]) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Deseja realmente excluir este usuário?')">Excluir</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            @endif
+        </section>
        
     </main>
 
