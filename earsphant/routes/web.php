@@ -100,4 +100,10 @@ Route::get('/administrador/filaAtendimentoAberto', [FilasAtendimentosController:
 //// testes
 
 
+/// ideias
+
+Route::get('/administrador/editarUsuario/{id}', [UsuarioController::class, 'editar'])->name('edit_user');
+Route::delete('/administrador/excluirUsuario/{id}', [UsuarioController::class, 'excluir'])->name('delete_user');
+
+
 
