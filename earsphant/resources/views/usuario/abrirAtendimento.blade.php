@@ -9,47 +9,75 @@
 
 @section('pages')
 
-    @include('usuario.cabecalho')
+@include('usuario.cabecalho')
 
-    
-    <main class="element_flex_dad">
+<main class="element_flex_dad">
+    <h1>Preencha os campos abaixo:</h1>
 
-        <h1>Preencha os campos abaixos:</h1>
+    <!-- Exibir mensagens de erro ou sucesso -->
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
 
-        <form action="">
-            @csrf
-            <section>
-                <label for="">Informe o seu número de telefone para contato:</label>
-                <input type="tel">
-            </section>
-            
-            <label for="">Descreva abaixo o problema com máximo de detalhes:</label>
-            <textarea name="" id="" cols="100" rows="10"></textarea>
-            
-            <section>
-                <label for="">Escolha um assunto relacionado a sua solicitação:</label>
-                <select name="" id="">
-                <option value="">Equipamento danificado</option>
-                <option value="">Mudança de equipamento de local</option>
-                <option value="">Erro no programa</option>
-                </select>
-            </section>
-            <section>
-                <label for="">Informe o número de identificação do equipamento relacionado a sua solcitação:</label>
-                <input type="text">
-            </section>
-            <section>
-                <label for="">Nos envie uma foto ou arquivo relacionado a sua demanda</label>
-                <input type="file">
-            </section>
-            <section>
-                <br><br>
-                <input type="submit" value="Abrir a Solicitação" id="button_open_ticket">
-                <input type="reset" value="Desistir" id="button_reset">
-            </section>
-        </form>
-        
-    </main>
+    @if (session('erro'))
+        <div class="alert alert-danger">
+            {{ session('erro') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <!-- Formulário -->
+    <form action="{{ route('armazenar') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <section>
+            <label for="">Informe o seu número de telefone para contato:</label>
+            <input type="tel" name="telefone" value="{{ old('telefone') }}">
+        </section>
+
+            <label for="">Descreva abaixo o problema com máximo de detalhes:</label>          
+            <textarea name="descricao" id="" cols="100" rows="10">{{ old('descricao') }}</textarea>
+
+        <section>
+            <label for="">Escolha um assunto relacionado a sua solicitação:</label>
+            <select name="servico" id="">
+                @foreach ($categorias as $categoria)
+                    <option value="{{ $categoria->servico }}" {{ old('servico') == $categoria->servico ? 'selected' : '' }}>
+                        {{ $categoria->servico }}
+                    </option>
+                @endforeach
+            </select>
+        </section>
+
+        <section>
+            <label for="">Informe o número de identificação do equipamento relacionado a sua solicitação:</label>
+            <input type="text" name="equipamento_id" value="{{ old('equipamento_id') }}">
+        </section>
+
+        <section>
+            <label for="">Envie uma foto ou arquivo relacionado a sua demanda</label>
+            <input type="file" name="arquivo">
+        </section>
+
+        <section>
+            <br><br>
+            <input type="submit" value="Abrir a Solicitação" id="button_open_ticket">
+            <button id="button_reset"><a href="{{ route('inicioUsuario') }}" onclick="document.getElementById('meuFormulario').reset();">Desistir</a></button>
+        </section>
+    </form>
+
+</main>
+
 
     @include('usuario.rodape')
 

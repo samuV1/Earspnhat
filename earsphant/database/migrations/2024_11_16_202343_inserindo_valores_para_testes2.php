@@ -13,23 +13,20 @@ return new class extends Migration
     public function up(): void
     {
         //
-        DB::table('servico')->insert([
+        DB::table('servicos')->insert([
             [
                 'servico' => 'Programas',
                 'status' => 'ativo',
-                'codigo' => '1',
                 'ans' => null,
             ],
             [
                 'servico' => 'Permissões',
                 'status' => 'user',
-                'codigo' => '2',
                 'ans' => null,
             ],
             [
                 'servico' => 'Internet',
                 'status' => 'ativo',
-                'codigo' => '3',
                 'ans' => null,
             ],
             ]);
@@ -39,7 +36,7 @@ return new class extends Migration
             'setor' => '003',
             'usuario' => 'user',
             'codigo' => '1',
-            'servico' => '1',
+            'servico' => 'Programas',
             'subservico' => 'Instalação',
             'status' => 'Finalizado',
             'fila' => 'Resolvidas',
@@ -54,7 +51,7 @@ return new class extends Migration
             'setor' => '001',
             'usuario' => 'tec',
             'codigo' => '2',
-            'servico' => '2',
+            'servico' => 'Permissões',
             'subservico' => 'Usuário',
             'status' => 'Em atendimento',
             'fila' => 'Suporte',
@@ -69,7 +66,7 @@ return new class extends Migration
             'setor' => '003',
             'usuario' => 'user',
             'codigo' => '3',
-            'servico' => '3',
+            'servico' => 'Internet',
             'subservico' => 'Rede',
             'status' => 'Aberto',
             'fila' => 'Abertas',

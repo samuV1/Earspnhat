@@ -10,7 +10,9 @@ use App\Http\Controllers\SetorController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PesquisaController;
 use App\Http\Controllers\HistoricoController;
+use App\Http\Controllers\NotaController;
 use App\Models\Atendimento;
+use App\Models\Nota;
 use Illuminate\Support\Facades\Route;
 
 // Login e logout
@@ -29,10 +31,11 @@ Route::fallback(function(){
 Route::get('/usuario/inicio', [AutenticadorController::class, 'exibirInicioUsuario'])->name('inicioUsuario');
 
 //AbrirAtendimento
-Route::get('/usuario/abrirAtendimento', [AtendimentoController::class, 'exibirAbrirAtendimento'])->name('abrirAtendimento');
+Route::get('/usuario/abrirAtendimentos', [AtendimentoController::class, 'exibirAbrirAtendimento'])->name('abrirAtendimentos');
+Route::get('/usuario/abrirAtendimento', [ServicoController::class, 'opcoesSelect'])->name('abrirAtendimento');
 
 //HistoricoAtendimento
-Route::get('/usuario/historico/', [AtendimentoController::class, 'exibirHistorico'])->name('historico');
+
 Route::get('/usuario/historico', [HistoricoController::class, 'historico'])->name('tickets.historico');
 Route::get('/historico/{codigo}', [HistoricoController::class, 'detalhes'])->name('tickets.detalhes');
 
@@ -47,6 +50,8 @@ Route::get('/usuario/atendimentosAbertos', [HistoricoController::class, 'histori
 
 //Atendimentos
 Route::get('/usuario/atendimento/{codigo}', [AtendimentoController::class, 'atendimento'])->name('atendimento');
+
+Route::post('usuario/atendimentos', [AtendimentoController::class, 'armazenarBD'])->name('armazenar');
 
 // Admin
 Route::get('/administrador/inicio', [AutenticadorController::class, 'exibirInicioAdm'])->name('inicioAdm');
@@ -98,7 +103,12 @@ Route::get('/administrador/estatisticas', [EstatisticasController::class, 'exibi
 Route::get('/administrador/filaAtendimentoAberto', [FilasAtendimentosController::class, 'filaAbertos'])->name('filaAtendimentoAbertos');
 
 //// testes
+Route::post('/atendimento/{codigo}/nota', [NotaController::class, 'adicaoNotaUsuario'])->name('adicaoNotaUsuario');
 
+/// ideias
+
+Route::get('/administrador/editarUsuario/{id}', [UsuarioController::class, 'editar'])->name('edit_user');
+Route::delete('/administrador/excluirUsuario/{id}', [UsuarioController::class, 'excluir'])->name('delete_user');
 
 /// ideias
 

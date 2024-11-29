@@ -25,11 +25,12 @@
                     @foreach ($atendimentos as $atendimento)
                         <li class="historico">
                             <strong class="historico">Código:</strong> {{ $atendimento->codigo }} 
-                            <strong class="historico">| Serviço:</strong> {{ $atendimento->status }} <br>
-                            <strong class="historico">Status:</strong> {{ $atendimento->status }} <br>
+                            <strong class="historico">| Serviço:</strong> {{ $atendimento->servico }} 
+                            <strong class="historico">| Situação:</strong> {{ $atendimento->status }} 
+                            <strong class="historico">| Data de abertura:</strong> {{ \Carbon\Carbon::parse($atendimento->abertura)->format('d/m/Y H:i') }} <br>
                             <a class="historico" href="{{ route('atendimento', $atendimento->codigo) }}">Ver detalhes</a>
                         </li>
-                        <hr class="historico">
+                        <hr class="historico"><br>
                     @endforeach
                 </ul>
             @endif

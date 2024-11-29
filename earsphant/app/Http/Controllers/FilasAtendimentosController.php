@@ -12,8 +12,7 @@ class FilasAtendimentosController extends Controller
     public function filaAbertos()
     {
         // Busca todos os atendimentos com status "Aberto"
-        $atendimentos = Atendimento::where('status', 'Aberto')
-                                   ->get();
+        $atendimentos = Atendimento::where('status', 'Aberto')->get();
 
         return view('administrador.filaAtendimentoAberto', compact('atendimentos'));
     }

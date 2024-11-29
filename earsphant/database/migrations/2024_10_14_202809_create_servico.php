@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('servico', function (Blueprint $table) {
+        Schema::create('servicos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('servico', 50);
+            $table->string('servico', 50)->unique();
             $table->string('status', 20);
-            $table->unsignedBigInteger('codigo')->unique();
             $table->time('ans')->nullable();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('servico');
+        Schema::dropIfExists('servicos');
     }
 };

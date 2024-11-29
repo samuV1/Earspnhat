@@ -1,0 +1,132 @@
+.element_flex_dad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+}
+
+div {
+    display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+main {
+    height: 83vh;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    padding: 5vw;
+}
+
+#button_nota{
+    font-size: 1em;
+    font-family: 'Montserrat', Helvetica, sans-serif;
+    width: 6vw;
+    height: 7vh;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #2C4459;
+    border-color: #ffffff;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+#button_nota:focus, #button_nota:hover{
+    font-size: 1.1em;
+    font-family: 'Montserrat', Helvetica, sans-serif;
+    width: 7vw;
+    height: 7vh;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #2C4459;
+    border-color: #000000;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 3px 3px 3px 3px;
+}
+
+#button_nota:active{
+    font-size: 1.1em;
+    font-family: 'Montserrat', Helvetica, sans-serif;
+    width: 7vw;
+    height: 7vh;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    color: #2C4459;
+    font-weight: bold;
+    background-color: #ffffff;
+    border-color: #2C4459;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 3px 3px 3px 3px;
+}
+
+#button_reset{
+    font-size: 1em;
+    font-family: 'Montserrat', Helvetica, sans-serif;
+    width: 6vw;
+    height: 7vh;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #d13833;
+    border-color: #ffffff;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+#button_reset:focus, #button_reset:hover{
+    font-size: 1.1em;
+    font-family: 'Montserrat', Helvetica, sans-serif;
+    width: 7vw;
+    height: 7vh;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #d13833;
+    border-color: #000000;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 3px 3px 3px 3px;
+}
+
+#button_reset:active{
+    font-size: 1.1em;
+    font-family: 'Montserrat', Helvetica, sans-serif;
+    width: 7vw;
+    height: 7vh;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    color: #d13833;
+    font-weight: bold;
+    background-color: #ffffff;
+    border-color: #d13833;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 3px 3px 3px 3px;
+}
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('setor')->nullable();
             $table->string('usuario');
             $table->unsignedBigInteger('codigo')->unique();
-            $table->unsignedBigInteger('servico');
+            $table->string('servico');
             $table->string('subservico', 50)->nullable();
             $table->string('status', 20);
             $table->string('fila', 20);
