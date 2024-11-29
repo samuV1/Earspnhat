@@ -13,7 +13,7 @@
     
     <main class="element_flex_dad">
         
-    <h1>Adicionar um Novo Usuário</h1>
+    <h1>Pesquisar atendimento</h1>
                
                 <form action="" method="GET" class="search-form">
             @csrf

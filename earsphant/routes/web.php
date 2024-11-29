@@ -110,10 +110,4 @@ Route::post('/atendimento/{codigo}/nota', [NotaController::class, 'adicaoNotaUsu
 Route::get('/administrador/editarUsuario/{id}', [UsuarioController::class, 'editar'])->name('edit_user');
 Route::delete('/administrador/excluirUsuario/{id}', [UsuarioController::class, 'excluir'])->name('delete_user');
 
-/// ideias
-
-Route::get('/administrador/editarUsuario/{id}', [UsuarioController::class, 'editar'])->name('edit_user');
-Route::delete('/administrador/excluirUsuario/{id}', [UsuarioController::class, 'excluir'])->name('delete_user');
-
-
 

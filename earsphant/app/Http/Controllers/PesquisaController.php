@@ -10,7 +10,12 @@ class PesquisaController extends Controller
 {
     public function exibirPesquisaAtendimento()
     {
+        return view('administrador.pesquisaAtendimento');
+    }
 
+    public function exibirPesquisaAtivo()
+    {
+        return view('administrador.pesquisaAtivo');
     }
     public function exibirPesquisaUsuario(Request $request)
     {
