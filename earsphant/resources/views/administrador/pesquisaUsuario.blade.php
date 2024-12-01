@@ -54,7 +54,7 @@
                         <strong class="historico">Nome:</strong> {{ $usuario->nome }} 
                         <strong class="historico">| Setor:</strong> {{ $usuario->setor }} 
                         <strong class="historico">| Login:</strong> {{ $usuario->login }} 
-                        <a class="historico" href="{{ route('editarUsuario', $usuario->login) }}">Ver detalhes</a>
+                        <a class="historico" href="{{ route('editarUsuario') }}">Ver detalhes</a>
                     </li>
                 @endforeach
             </section>

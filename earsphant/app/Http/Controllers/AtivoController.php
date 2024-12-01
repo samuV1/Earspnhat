@@ -29,6 +29,7 @@ class AtivoController extends Controller
             'alugado' => 'required',
             'marca' => 'nullable',
             'modelo' => 'nullable',
+            'fornecedor' => 'nullable',
         ]);
     
         // Criar o equipamento
@@ -39,6 +40,7 @@ class AtivoController extends Controller
             'alugado' => $request->alugado,
             'marca' => $request->marca,
             'modelo' => $request->modelo,
+            'fornecedor' => $request->fornecedor,
         ]);
     
         // Retornar uma resposta de sucesso

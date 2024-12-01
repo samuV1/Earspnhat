@@ -22,6 +22,7 @@ class Atendimento extends Model
         'abertura',
         'fechamento',
         'ans',
+        'encarregado',
     ]; // Campos permitidos para preenchimento
 
 

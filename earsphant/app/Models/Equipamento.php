@@ -17,5 +17,6 @@ class Equipamento extends Model
         'patrimonio',
         'aquisicao',
         'alugado',
+        'fornecedor',
     ]; // Campos permitidos para preenchimento
 }

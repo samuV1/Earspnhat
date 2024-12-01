@@ -54,7 +54,7 @@ class UsuarioController extends Controller
     return redirect()->back()->with('success', 'Usuário adicionado com sucesso!');
     }
 
-    public function editarUsuario($login)
+    public function editarUsuario()
     {
         return view('administrador.editarUsuario');
     }

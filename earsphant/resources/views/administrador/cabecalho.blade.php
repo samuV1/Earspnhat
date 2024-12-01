@@ -12,7 +12,8 @@
                     <a onclick="toggleDropdown('myDropdown')" class="dropbtn">Solicitações</a>
                     <div id="myDropdown" class="dropdown-content">
                       <a href="#">Abrir Solicitação</a>
-                      <a href="#">Minhas Filas</a>
+                      <a href="{{route('minhaFila')}}">Minha Fila</a>
+                      <a href="{{route('filaSetor')}}">Fila do Setor</a>
                       <a href="{{ route('filaAtendimentoAbertos') }}">Ver Solicitações Abertas</a>
                     </div>
                 </div>  

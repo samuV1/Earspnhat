@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('patrimonio')->unique();
             $table->date('aquisicao');
             $table->boolean('alugado');
+            $table->string('fornecedor', 30)->nullable();
         });
     }
 

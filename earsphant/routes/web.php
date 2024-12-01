@@ -11,7 +11,6 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PesquisaController;
 use App\Http\Controllers\HistoricoController;
 use App\Http\Controllers\NotaController;
-use App\Models\Atendimento;
 use Illuminate\Support\Facades\Route;
 
 // Login e logout
@@ -24,26 +23,23 @@ Route::fallback(function(){
     echo "A página que você que você digitou não existe!";
 }); 
 
-// modulo usuario
+// Módulo Usuário
 
-//Inicio
+// Interface de início do módulo usuário
 Route::get('/usuario/inicio', [AutenticadorController::class, 'exibirInicioUsuario'])->name('inicioUsuario');
 
-//AbrirAtendimento
+// Abrir Atendimento
 Route::get('/usuario/abrirAtendimentos', [AtendimentoController::class, 'exibirAbrirAtendimento'])->name('abrirAtendimentos');
 Route::get('/usuario/abrirAtendimento', [ServicoController::class, 'opcoesSelect'])->name('abrirAtendimento');
 
-//HistoricoAtendimento
+// Historicos Atendimentos Fechados
 
 Route::get('/usuario/historico', [HistoricoController::class, 'historico'])->name('tickets.historico');
 Route::get('/historico/{codigo}', [HistoricoController::class, 'detalhes'])->name('tickets.detalhes');
-
 Route::get('/historico/historico/{userId?}', [AtendimentoController::class, 'historicoFinalizados'])->name('atendimentos.finalizados');
 
-//AtendimentosAbertos
+// Históricos Atendimentos Abertos
 Route::get('/usuario/atendimentosAbertos', [AtendimentoController::class, 'exibirAtendimentosAbertos'])->name('atendimentosAbertos');
-
-//AtendimentosAbertos
 Route::get('/usuario/atendimentos', [AtendimentoController::class, 'exibirAtendimento'])->name('atendimento');
 Route::get('/usuario/atendimentosAbertos', [HistoricoController::class, 'historicoAbertos'])->name('atendimentoHistoricoAberto');
 
@@ -52,7 +48,9 @@ Route::get('/usuario/atendimento/{codigo}', [AtendimentoController::class, 'aten
 Route::post('usuario/atendimentos', [AtendimentoController::class, 'armazenarBD'])->name('armazenar');
 Route::post('/atendimento/{codigo}/nota', [NotaController::class, 'adicaoNotaUsuario'])->name('adicaoNotaUsuario');
 
-// Admin
+// Módulo Administrador
+
+// Interface de início do módulo administrador
 Route::get('/administrador/inicio', [AutenticadorController::class, 'exibirInicioAdm'])->name('inicioAdm');
 
 // Interface Adicionar Usuário
@@ -75,7 +73,7 @@ Route::get('/administrador/adicionarServico', [ServicoController::class, 'exibir
 Route::post('/administrador/adicionarServico', [ServicoController::class, 'armazenarBD'])->name('adicionarServico');
 
 // Interface Editar Usuário
-Route::get('/administrador/editarUsuario/{login}', [UsuarioController::class, 'editarUsuario'])->name('editarUsuario');
+Route::get('/administrador/editarUsuario/', [UsuarioController::class, 'editarUsuario'])->name('editarUsuario');
 
 
 // Interface Editar Ativo
@@ -90,7 +88,7 @@ Route::get('/administrador/editarSetor', [SetorController::class, 'editarSetor']
 Route::post('/administador/editarSetor', [SetorController::class, 'editarSetor'])->name('editarSetor');
 
 // Interface Editar Servico
-Route::get('/administador/editarServico', [ServicoController::class, 'editarServico'])->name('editarSetor');
+Route::get('/administador/editarServico', [ServicoController::class, 'editarServico'])->name('editarServico');
 Route::post('/administador/editarServico', [ServicoController::class, 'editarServico'])->name('editarServico');
 
 // Pesquisas
@@ -119,6 +117,10 @@ Route::get('/administrador/estatisticas', [EstatisticasController::class, 'exibi
 // Fila de atendimentos
 
 Route::get('/administrador/filaAtendimentoAberto', [FilasAtendimentosController::class, 'filaAbertos'])->name('filaAtendimentoAbertos');
+
+Route::get('/administrador/filaSetor', [FilasAtendimentosController::class, 'filaSetor'])->name('filaSetor');
+
+Route::get('/administrador/minhaFila', [FilasAtendimentosController::class, 'minhaFila'])->name('minhaFila');
 
 //// testes
 

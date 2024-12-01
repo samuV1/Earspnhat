@@ -26,6 +26,7 @@ return new class extends Migration
             $table->dateTime('abertura');
             $table->dateTime('fechamento')->nullable();
             $table->dateTime('ans')->nullable();
+            $table->string('encarregado')->nullable();
         });
     }
 
