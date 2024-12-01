@@ -21,7 +21,7 @@
         </div>
     @endif
 
-    <form id="form_user" action="{{ route('edit_user') }}" method="POST">
+    <form id="form_user" action="{{ route('editarUsuario') }}" method="POST">
         @csrf
         <!-- <section>
                 <h3>Foto de Pefil</h3>

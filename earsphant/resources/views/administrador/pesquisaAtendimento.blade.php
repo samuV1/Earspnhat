@@ -3,7 +3,7 @@
 @section('titles', 'Pesquisar ticket')
 
 @section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/user_module/historico.css') }}>
+    <link rel="stylesheet" href={{ asset('css/admin_module/pesquisa.css') }}>
 @endsection
 
 
@@ -13,7 +13,7 @@
     
     <main class="element_flex_dad">
 
-        <h2>Pesquisar Atendimentos</h2>
+        <h1>Pesquisar Atendimentos</h1>
 
         <form id="form_user" action="{{ route('pesquisaAtendimento') }}" method="POST" >
             @csrf
@@ -54,18 +54,18 @@
                 </div>
             </section>
 
-            <section id="button_group">
-                <input class="add_button" type="submit" value="Pesquisar">
-                <input class="cancel_button" type="reset" value="Limpar">
+            <section class="grupoBotao">
+                <input class="pesquisar_button" type="submit" value="Pesquisar">
+                <input class="limpar_button" type="reset" value="Limpar">
             </section>
         </form>
             <section>
                 @foreach ($atendimentos as $atendimento)
                     <li class="historico">
-                        <strong class="historico">Nome:</strong> {{ $atendimento->nome }} 
-                        <strong class="historico">| Setor:</strong> {{ $atendimento->setor }} 
+                        <strong class="historico">Código:</strong> {{ $atendimento->codigo }} 
+                        <strong class="historico">| Servico:</strong> {{ $atendimento->servico }} 
                         <strong class="historico">| Usuario:</strong> {{ $atendimento->usuario }} 
-                        <a class="historico" href="{{ route('pesquisaAtendimento') }}">Ver detalhes</a>
+                        <a class="historico" href="{{ route('atendimentoADM', $atendimento->codigo) }}">Ver detalhes</a>
                     </li>
                 @endforeach
             </section>

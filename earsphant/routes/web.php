@@ -11,6 +11,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PesquisaController;
 use App\Http\Controllers\HistoricoController;
 use App\Http\Controllers\NotaController;
+use App\Models\Atendimento;
 use Illuminate\Support\Facades\Route;
 
 // Login e logout
@@ -74,16 +75,23 @@ Route::get('/administrador/adicionarServico', [ServicoController::class, 'exibir
 Route::post('/administrador/adicionarServico', [ServicoController::class, 'armazenarBD'])->name('adicionarServico');
 
 // Interface Editar Usuário
-Route::get('/admin_interfaces/edit_user/{id?}/{user?}', [UsuarioController::class, 'get_view_edit'])->name('edit_user');
-Route::post('/admin_interfaces/edit_user', [UsuarioController::class, 'edit_user_db'])->name('edit_user');
+Route::get('/administrador/editarUsuario/{login}', [UsuarioController::class, 'editarUsuario'])->name('editarUsuario');
+
 
 // Interface Editar Ativo
-Route::get('/admin_interfaces/edit_active', [AtivoController::class, 'get_view_edit'])->name('edit_active');
-Route::post('/admin_interfaces/edit_active', [AtivoController::class, 'edit_active_db'])->name('edit_active');
+Route::get('/administrador/editarPrograma', [AtivoController::class, 'editarPrograma'])->name('editarPrograma');
+Route::post('/administador/editarPrograma', [AtivoController::class, 'editarPrograma'])->name('editarPrograma');
+
+Route::get('/administrador/editarEquipamento', [AtivoController::class, 'editarEquipamento'])->name('editarEquipamento');
+Route::post('/administador/editarEquipamento', [AtivoController::class, 'editarEquipamento'])->name('editarEquipamento');
 
 // Interface Editar Setor
-Route::get('/admin_interfaces/edit_sector', [SetorController::class, 'get_view_edit'])->name('edit_sector');
-Route::post('/admin_interfaces/edit_sector', [SetorController::class, 'edit_sector_db'])->name('edit_sector');
+Route::get('/administrador/editarSetor', [SetorController::class, 'editarSetor'])->name('editarSetor');
+Route::post('/administador/editarSetor', [SetorController::class, 'editarSetor'])->name('editarSetor');
+
+// Interface Editar Servico
+Route::get('/administador/editarServico', [ServicoController::class, 'editarServico'])->name('editarSetor');
+Route::post('/administador/editarServico', [ServicoController::class, 'editarServico'])->name('editarServico');
 
 // Pesquisas
 Route::get('/administrador/pesquisaUsuario', [PesquisaController::class, 'exibirPesquisaUsuario'])->name('pesquisaUsuario');
@@ -99,7 +107,7 @@ Route::post('/administrador/pesquisaPrograma', [PesquisaController::class, 'pesq
 Route::get('/administrador/pesquisaEquipamento', [PesquisaController::class, 'pesquisaEquipamento'])->name('pesquisaAtivo');
 Route::post('/administrador/pesquisaEquipamento', [PesquisaController::class, 'pesquisaEquipamento'])->name('pesquisaEquipamento');
 
-Route::post('/admin_interfaces/search_user', [PesquisaController::class, 'search_user'])->name('search_user');
+
 
 // Abertura de Tickets
 Route::get('/admin/open_ticket', [AtendimentoController::class, 'open_ticket_admin'])->name('open_ticket_admin');
@@ -115,9 +123,10 @@ Route::get('/administrador/filaAtendimentoAberto', [FilasAtendimentosController:
 //// testes
 
 
+Route::get('/administador/atendimento/{codigo}', [AtendimentoController::class, 'atendimentoADM'])->name('atendimentoADM');
 /// ideias
 
-Route::get('/administrador/editarUsuario/{id}', [UsuarioController::class, 'editar'])->name('edit_user');
+///Route::get('/administrador/editarUsuario/{id}', [UsuarioController::class, 'editar'])->name('edit_user');
 Route::delete('/administrador/excluirUsuario/{id}', [UsuarioController::class, 'excluir'])->name('delete_user');
 
 

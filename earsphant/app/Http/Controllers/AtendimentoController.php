@@ -46,6 +46,21 @@ class AtendimentoController extends Controller
         return view('usuario.atendimento', compact('atendimento', 'notas'));
     }
 
+    public function atendimentoADM($codigo)
+    {
+        // Busca o primeiro atendimento com o código recebido
+        $atendimento = Atendimento::where('codigo', $codigo)->firstOrFail();
+
+        // Consulta com JOIN para pegar as notas do atendimento e o autor da nota (usuário)
+        $notas =DB ::table('notas')
+        ->join('usuarios', 'notas.usuario', '=', 'usuarios.login')  // Fazendo JOIN com a tabela users, onde 'login_usuario' é a chave estrangeira
+        ->where('notas.atendimento', '=', $atendimento->codigo)  // Filtra pelo código de atendimento
+        ->select('notas.*', 'usuarios.nome as autor')  // Seleciona as colunas necessárias
+        ->paginate(1);  // Paginação de 5 notas por página
+
+        return view('administrador.atendimento', compact('atendimento', 'notas'));
+    }
+
     public function armazenarBD(Request $request)
     {
         // Validar os dados recebidos
