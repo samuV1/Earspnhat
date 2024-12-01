@@ -3,7 +3,7 @@
 @section('titles', 'Pesquisar ticket')
 
 @section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/search.css') }}>
+    <link rel="stylesheet" href={{ asset('css/user_module/historico.css') }}>
 @endsection
 
 
@@ -12,30 +12,64 @@
 @include('administrador.cabecalho')
     
     <main class="element_flex_dad">
-        
-    <h1>Pesquisar atendimento</h1>
-               
-                <form action="" method="GET" class="search-form">
+
+        <h2>Pesquisar Atendimentos</h2>
+
+        <form id="form_user" action="{{ route('pesquisaAtendimento') }}" method="POST" >
             @csrf
-            <div class="form-group">
-                <label for="ticket_id">ID do Ticket:</label>
-                <input type="text" id="ticket_id" name="ticket_id" value="{{ request()->get('ticket_id') }}" placeholder="ID do Ticket" class="form-control">
-            </div>
+            <section id="format_form_user">
 
-            <div class="form-group">
-                <label for="user_name">Nome do Usuário:</label>
-                <input type="text" id="user_name" name="user_name" value="{{ request()->get('user_name') }}" placeholder="Nome do Usuário" class="form-control">
-            </div>
+                <div id="div_details_user">
+                    
+                    <section class="format_form_sections">
+                        <label for="input_add_user_name">Código:</label>
+                        <input class="input_text" id="input_add_user_name" name="codigo" type="text">
 
-            <div class="form-group">
-                <label for="assunto">Assunto:</label>
-                <input type="text" id="assunto" name="assunto" value="{{ request()->get('assunto') }}" placeholder="Assunto" class="form-control">
-            </div>
+                        <label for="input_add_user_sector">Setor:</label>
+                        <input class="input_text" id="input_add_user_sector" name="setor" type="text">
 
-            <button type="submit" class="btn btn-primary">Pesquisar</button>
+                        <label for="input_add_user_sector">Login do Usuário:</label>
+                        <input class="input_text" id="input_add_user_sector" name="usuario" type="text">
+
+                        <label for="dropdown_level_access">Status:</label>
+                        <select class="input_droplist" id="dropdown_level_access" name="status">
+                        <option value="">Todos</option>
+                        <option value="aberto">Aberto</option>
+                        <option value="finalizado">Finalizado (nível 1)</option>
+                        <option value="2">Analista (nível 2)</option>
+                        <option value="3">Administrador</option>
+                        </select>  
+
+                        <label for="">Serviço</label>
+                        <select name="servico" id="">
+                            <option value="">Todos</option>
+                            @foreach ($categorias as $categoria)
+                                <option value="{{ $categoria->servico }}" {{ old('servico') == $categoria->servico ? 'selected' : '' }}>
+                                    {{ $categoria->servico }}
+                                </option>
+                            @endforeach
+                        </select>
+ 
+                    </section>
+                </div>
+            </section>
+
+            <section id="button_group">
+                <input class="add_button" type="submit" value="Pesquisar">
+                <input class="cancel_button" type="reset" value="Limpar">
+            </section>
         </form>
+            <section>
+                @foreach ($atendimentos as $atendimento)
+                    <li class="historico">
+                        <strong class="historico">Nome:</strong> {{ $atendimento->nome }} 
+                        <strong class="historico">| Setor:</strong> {{ $atendimento->setor }} 
+                        <strong class="historico">| Usuario:</strong> {{ $atendimento->usuario }} 
+                        <a class="historico" href="{{ route('pesquisaAtendimento') }}">Ver detalhes</a>
+                    </li>
+                @endforeach
+            </section>
 
-        
     </main>
 
     @include('administrador.rodape')

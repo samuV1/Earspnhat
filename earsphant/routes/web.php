@@ -87,8 +87,17 @@ Route::post('/admin_interfaces/edit_sector', [SetorController::class, 'edit_sect
 
 // Pesquisas
 Route::get('/administrador/pesquisaUsuario', [PesquisaController::class, 'exibirPesquisaUsuario'])->name('pesquisaUsuario');
+Route::post('/administrador/pesquisaUsuario', [PesquisaController::class, 'pesquisaUsuario'])->name('pesquisaUsuario');
+
 Route::get('/administrador/pesquisaAtendimento', [PesquisaController::class, 'exibirPesquisaAtendimento'])->name('pesquisaAtendimento');
-Route::get('/administrador/pesquisaAtivo', [PesquisaController::class, 'exibirPesquisaAtivo'])->name('pesquisaAtivo');
+Route::post('/administrador/pesquisaAtendimento', [PesquisaController::class, 'pesquisaAtendimento'])->name('pesquisaAtendimento');
+
+
+Route::get('/administrador/pesquisaPrograma', [PesquisaController::class, 'pesquisaPrograma'])->name('pesquisaProgramas');
+Route::post('/administrador/pesquisaPrograma', [PesquisaController::class, 'pesquisaPrograma'])->name('pesquisaProgramas');
+
+Route::get('/administrador/pesquisaEquipamento', [PesquisaController::class, 'pesquisaEquipamento'])->name('pesquisaAtivo');
+Route::post('/administrador/pesquisaEquipamento', [PesquisaController::class, 'pesquisaEquipamento'])->name('pesquisaEquipamento');
 
 Route::post('/admin_interfaces/search_user', [PesquisaController::class, 'search_user'])->name('search_user');
 

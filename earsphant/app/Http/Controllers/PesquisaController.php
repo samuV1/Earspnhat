@@ -2,15 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Atendimento;
+use App\Models\Equipamento;
+use App\Models\Programa;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
+use App\Models\Servico;
 
 
 class PesquisaController extends Controller
 {
-    public function exibirPesquisaAtendimento()
+    public function exibirPesquisaAtendimento(Request $request)
     {
-        return view('administrador.pesquisaAtendimento');
+        $atendimentos = Atendimento::where('codigo', 'like', '%'.$request->input('codigo').'%')
+                    ->where('setor', 'like', '%'.$request->input('setor').'%')
+                    ->where('status', 'like', '%'.$request->input('status').'%')
+                    ->where('usuario', 'like', '%'.$request->input('usuario').'%')
+                    ->where('servico', 'like', '%'.$request->input('servico').'%')
+                    ->get();
+
+        // Obtém todas as categorias do banco de dados
+        $categorias = Servico::all();
+
+        // Retorna a view e passa as categorias para a view
+        return view('administrador.pesquisaAtendimento', compact('categorias'), ['atendimentos' => $atendimentos]);
+    
     }
 
     public function exibirPesquisaAtivo()
@@ -19,27 +35,63 @@ class PesquisaController extends Controller
     }
     public function exibirPesquisaUsuario(Request $request)
     {
-        // Obtém os filtros da requisição
-        $userId = $request->get('user_id');
-        $userName = $request->get('user_name');
+        $usuarios = Usuario::where('nome', 'like', '%'.$request->input('nome').'%')
+                        ->where('setor', 'like', '%'.$request->input('setor').'%')
+                        ->where('acesso', 'like', '%'.$request->input('acesso').'%')
+                        ->where('login', 'like', '%'.$request->input('login').'%')
+                        ->get();
 
-        // Constrói a query com base nos filtros fornecidos
-        $query = Usuario::query();
+        return view('administrador.pesquisaUsuario', ['usuarios' => $usuarios]);
+    }
 
-        if ($userId) {
-            $query->where('id', $userId); // Filtra pelo ID do usuário
-        }
+    public function pesquisaUsuario(Request $request)
+    {
+        $usuarios = Usuario::where('nome', 'like', '%'.$request->input('nome').'%')
+                            ->where('setor', 'like', '%'.$request->input('setor').'%')
+                            ->where('acesso', 'like', '%'.$request->input('acesso').'%')
+                            ->where('login', 'like', '%'.$request->input('login').'%')
+                            ->get();
 
-        if ($userName) {
-            $query->where('nome', 'LIKE', "%{$userName}%"); // Filtra pelo nome do usuário (busca parcial)
-        }
+        return view('administrador.pesquisaUsuario', ['usuarios' => $usuarios]);
+    }
 
-        // Executa a query e obtém os resultados
-        $usuarios = $query->get();
+    public function pesquisaAtendimento(Request $request)
+    {
+        $atendimentos = Atendimento::where('codigo', 'like', '%'.$request->input('codigo').'%')
+                    ->where('setor', 'like', '%'.$request->input('setor').'%')
+                    ->where('status', 'like', '%'.$request->input('status').'%')
+                    ->where('usuario', 'like', '%'.$request->input('usuario').'%')
+                    ->where('servico', 'like', '%'.$request->input('servico').'%')
+                    ->get();
 
-        // Retorna a view com os resultados
-        return view('administrador.pesquisaUsuario', [
-            'users' => $usuarios, // Envia os resultados à view
-        ]);
+        $categorias = Servico::all();
+
+        return view('administrador.pesquisaAtendimento', compact('categorias'), ['atendimentos' => $atendimentos]);
+    }
+
+    public function pesquisaEquipamento(Request $request)
+    {
+        $equipamento = Equipamento::where('patrimonio', 'like', '%'.$request->input('patrimonio').'%')
+                    ->where('tipo', 'like', '%'.$request->input('tipo').'%')
+                    ->where('aquisicao', 'like', '%'.$request->input('aquisicao').'%')
+                    ->where('alugado', 'like', '%'.$request->input('alugado').'%')
+                    ->where('marca', 'like', '%'.$request->input('marca').'%')
+                    ->where('modelo', 'like', '%'.$request->input('modelo').'%')
+                    ->get();
+        
+        return view('administrador.pesquisaEquipamento', ['equipamentos' => $equipamento]);
+    }
+
+    public function pesquisaPrograma(Request $request)
+    {
+        $programas = Programa::where('licenca', 'like', '%'.$request->input('licenca').'%')
+                    ->where('codigo', 'like', '%'.$request->input('codigo').'%')
+                    ->where('aquisicao', 'like', '%'.$request->input('aquisicao').'%')
+                    ->where('terceiros', 'like', '%'.$request->input('terceiros').'%')
+                    ->where('nome', 'like', '%'.$request->input('nome').'%')
+                    ->where('fornecedor', 'like', '%'.$request->input('fornecedor').'%')
+                    ->get();
+        
+        return view('administrador.pesquisaPrograma', ['programas' => $programas]);
     }
 }

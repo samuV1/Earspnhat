@@ -3,7 +3,7 @@
 @section('titles', 'Pesquisar usuário')
 
 @section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/user_module/historico.css') }}>
+    <link rel="stylesheet" href={{ asset('css/user_modulo/historico.css') }}>
 @endsection
 
 
@@ -15,7 +15,7 @@
 
         <h2>Pesquisar Usuário</h2>
 
-        <form id="form_user" action="{{ route('pesquisaUsuario') }}" method="POST" >
+        <form id="form_user" action="{{ route('adicionarUsuario') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <section id="format_form_user">
 
@@ -30,7 +30,6 @@
 
                         <label for="dropdown_level_access">Acesso:</label>
                         <select class="input_droplist" id="dropdown_level_access" name="acesso">
-                        <option value="">Todos</option>
                         <option value="0">Usuário</option>
                         <option value="1">Técnico (nível 1)</option>
                         <option value="2">Analista (nível 2)</option>
@@ -47,7 +46,7 @@
                 <input class="add_button" type="submit" value="Pesquisar">
                 <input class="cancel_button" type="reset" value="Limpar">
             </section>
-        </form>
+
             <section>
                 @foreach ($usuarios as $usuario)
                     <li class="historico">
@@ -58,9 +57,7 @@
                     </li>
                 @endforeach
             </section>
-
-  
-
+        </form>
 
     </main>
 

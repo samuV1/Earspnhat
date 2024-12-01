@@ -23,7 +23,8 @@
                     <div id="myDropdown3" class="dropdown-content3">
                         <a href="{{ route('pesquisaAtendimento') }}">Pesquisar Solicitações</a>
                         <a href="{{ route('pesquisaUsuario') }}">Pesquisar Usuários</a>
-                        <a href="{{ route('pesquisaAtivo') }}">Pesquisar Ativos</a>
+                        <a href="{{ route('pesquisaProgramas') }}">Pesquisar Programas</a>
+                        <a href="{{ route('pesquisaEquipamento') }}">Pesquisar Equipamentos</a>
                     </div>
                 </div> 
             </li>
