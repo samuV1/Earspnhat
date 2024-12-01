@@ -32,7 +32,8 @@
                     <div id="myDropdown2" class="dropdown-content2">
                       <a href="{{ route('adicionarUsuario') }}">Novo Usuário</a>
                       <a href="{{ route('adicionarSetor') }}">Novo Setor</a>
-                      <a href="{{ route('adicionarAtivo') }}">Novo Ativo</a>
+                      <a href="{{ route('adicionarPrograma') }}">Novo Programa</a>
+                      <a href="{{ route('adicionarEquipamento') }}">Novo Equipamento</a>
                       <a href="{{ route('adicionarServico') }}">Novo Serviço</a>
                     </div>
                 </div>

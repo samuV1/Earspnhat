@@ -11,8 +11,6 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PesquisaController;
 use App\Http\Controllers\HistoricoController;
 use App\Http\Controllers\NotaController;
-use App\Models\Atendimento;
-use App\Models\Nota;
 use Illuminate\Support\Facades\Route;
 
 // Login e logout
@@ -50,27 +48,30 @@ Route::get('/usuario/atendimentosAbertos', [HistoricoController::class, 'histori
 
 //Atendimentos
 Route::get('/usuario/atendimento/{codigo}', [AtendimentoController::class, 'atendimento'])->name('atendimento');
-
 Route::post('usuario/atendimentos', [AtendimentoController::class, 'armazenarBD'])->name('armazenar');
+Route::post('/atendimento/{codigo}/nota', [NotaController::class, 'adicaoNotaUsuario'])->name('adicaoNotaUsuario');
 
 // Admin
 Route::get('/administrador/inicio', [AutenticadorController::class, 'exibirInicioAdm'])->name('inicioAdm');
 
 // Interface Adicionar Usuário
 Route::get('/administrador/adicionarUsuario', [UsuarioController::class, 'exibirAdicaoUsuario'])->name('adicionarUsuario');
-Route::post('/administrador/adicionarUsuario', [UsuarioController::class, 'adicionarUsuario'])->name('adicionarUsuario');
+Route::post('/administrador/adicionarUsuario', [UsuarioController::class, 'armazenarBD'])->name('adicionarUsuario');
 
 // Interface Adicionar Ativo
-Route::get('/administrador/adicionarAtivo', [AtivoController::class, 'exibirAdicaoAtivo'])->name('adicionarAtivo');
-Route::post('/administrador/adicionarAtivo', [AtivoController::class, 'adicionarAtivo'])->name('adicionarAtivo');
+Route::get('/administrador/adicionarEquipamento', [AtivoController::class, 'exibirAdicaoEquipamento'])->name('adicionarEquipamento');
+Route::post('/administrador/adicionarEquipamento', [AtivoController::class, 'armazenarEquipamentoBD'])->name('adicionarEquipamento');
+
+Route::get('/administrador/adicionarPrograma', [AtivoController::class, 'exibirAdicaoPrograma'])->name('adicionarPrograma');
+Route::post('/administrador/adicionarPrograma', [AtivoController::class, 'armazenarProgramaBD'])->name('adicionarPrograma');
 
 // Interface Adicionar Setor
 Route::get('/administrador/adicionarSetor', [SetorController::class, 'exibirAdicaoSetor'])->name('adicionarSetor');
-Route::post('/admin_interfaces/add_sector', [SetorController::class, 'add_sector_db'])->name('add_sector');
+Route::post('/administrador/adicionarSetor', [SetorController::class, 'armazenarBD'])->name('adicionarSetor');
 
 // Interface Adicionar Serviço
 Route::get('/administrador/adicionarServico', [ServicoController::class, 'exibirAdicaoServico'])->name('adicionarServico');
-Route::post('/administrador/adicionarServico', [ServicoController::class, 'adicionarServico'])->name('adicionarServico');
+Route::post('/administrador/adicionarServico', [ServicoController::class, 'armazenarBD'])->name('adicionarServico');
 
 // Interface Editar Usuário
 Route::get('/admin_interfaces/edit_user/{id?}/{user?}', [UsuarioController::class, 'get_view_edit'])->name('edit_user');
@@ -103,7 +104,7 @@ Route::get('/administrador/estatisticas', [EstatisticasController::class, 'exibi
 Route::get('/administrador/filaAtendimentoAberto', [FilasAtendimentosController::class, 'filaAbertos'])->name('filaAtendimentoAbertos');
 
 //// testes
-Route::post('/atendimento/{codigo}/nota', [NotaController::class, 'adicaoNotaUsuario'])->name('adicaoNotaUsuario');
+
 
 /// ideias
 

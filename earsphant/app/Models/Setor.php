@@ -11,7 +11,7 @@ class Setor extends Model
 
     protected $table = 'setores'; // Nome da tabela
     protected $fillable = [
-        'setor',
+        'codigo',
         'nome',
     ]; // Campos permitidos para preenchimento
 

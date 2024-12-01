@@ -19,7 +19,9 @@ main {
 section{
     display: flex;
     flex-direction: column;
-    padding: 5vw;
+    padding: 2vw;
+    align-items: center;
+    align-content: center;
 }
 
 #button_nota{
@@ -124,7 +126,30 @@ section{
     border-radius: 3px 3px 3px 3px;
 }
 
+.pagination-button {
+    display: inline-block; /* Faz a âncora comportar-se como um botão */
+    padding: 6px 12px; /* Tamanho pequeno do botão */
+    background-color: #25306e; /* Cor de fundo verde */
+    font-family: Arial, Helvetica, sans-serif;
+    color: white; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    text-decoration: none; /* Remove o sublinhado padrão da âncora */
+    border-radius: 4px; /* Bordas arredondadas */
+    font-size: 14px; /* Tamanho de fonte pequeno */
+    transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
+    margin-top: 1vh;
+}
+  
+  /* Efeito de hover */
+.pagination-button:hover {
+    background-color: #758ae4; /* Cor de fundo quando o mouse passa por cima */
+}
 
+.label{
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 0.4vh ;
+}
 
 
 

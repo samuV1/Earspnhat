@@ -29,7 +29,6 @@
                             <strong class="historico">| Data de Fechamento:</strong> {{ \Carbon\Carbon::parse($atendimento->abertura)->format('d/m/Y H:i') }} <br>
                             <a class="historico" href="{{ route('atendimento', $atendimento->codigo) }}">Ver detalhes</a>
                         </li>
-                        <hr class="historico">
                     @endforeach
                 </ul>
             @endif

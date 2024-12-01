@@ -36,11 +36,15 @@ class AutenticadorController extends Controller
         $usuario = Usuario::where('login', $credenciais['login'])->first();
 
         // Verifica se o usuário existe e a senha está correta
-        if ($usuario && ($credenciais['senha'] == $usuario->senha) && ($usuario->acesso == 1)) {
+        if ($usuario && ($credenciais['senha'] == $usuario->senha) && ($usuario->acesso == 0)) {
             $request->session()->put('usuario_login', $usuario->login); // Salva o ID do usuário na sessão
             session(['login' => $usuario->login]);
 
             return redirect('/usuario/inicio');
+        }
+        if ($usuario && ($credenciais['senha'] == $usuario->senha) && ($usuario->acesso == 1)) {
+            $request->session()->put('usuario_login', $usuario->login); // Salva o ID do usuário na sessão
+            return redirect('/administrador/inicio');
         }
         if ($usuario && ($credenciais['senha'] == $usuario->senha) && ($usuario->acesso == 2)) {
             $request->session()->put('usuario_login', $usuario->login); // Salva o ID do usuário na sessão

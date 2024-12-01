@@ -50,10 +50,8 @@ class AtendimentoController extends Controller
     {
         // Validar os dados recebidos
         $request->validate([
-            'arquivo' => 'required|file|mimes:jpg,png,jpeg,pdf|max:10240',  // Limite de 10MB
             'descricao' => 'required', // Validação do campo 'descricao'
             'servico' => 'required',   // Validação do campo 'servico'
-            'equipamento_id' => 'required' // Validação do campo 'equipamento_id'
         ]);
 
         // Criar o atendimento com o código gerado automaticamente
