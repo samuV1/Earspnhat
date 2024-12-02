@@ -55,13 +55,13 @@
                     <!-- Botão Voltar -->
                     <a href="{{ $notas->previousPageUrl() }}" 
                        class="pagination-button @if ($notas->onFirstPage()) disabled @endif">
-                        ← Voltar
+                        ← Recente
                     </a>
                     <p> &nbsp;|&nbsp; </p>
                     <!-- Botão Próximo -->
                     <a href="{{ $notas->nextPageUrl() }}" 
                        class="pagination-button @if (!$notas->hasMorePages()) disabled @endif">
-                        Próximo →
+                        Anterior →
                     </a>
                 </div>
 

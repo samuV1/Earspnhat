@@ -52,14 +52,16 @@
         </form>
 
         <section>
-            @foreach ($programas as $programa)
-                <li class="historico">
-                    <strong class="historico">Nome:</strong> {{ $programa->nome }} 
-                    <strong class="historico">| Código:</strong> {{ $programa->codigo }} 
-                    <strong class="historico">| Tipo:</strong> {{ $programa->tipo }} 
-                    <a class="historico" href="{{ route('pesquisaProgramas') }}">Ver detalhes</a>
-                </li>
-            @endforeach
+            <div class="areaTicket">
+                @foreach ($programas as $programa)
+                    <li class="historico">
+                        <strong class="historico">Nome:</strong> {{ $programa->nome }} 
+                        <strong class="historico">| Código:</strong> {{ $programa->codigo }} 
+                        <strong class="historico">| Tipo:</strong> {{ $programa->tipo }} 
+                        <a class="historico" href="{{ route('pesquisaProgramas') }}">Ver detalhes</a>
+                    </li>
+                @endforeach
+            </div>
         </section>
     </main>
 

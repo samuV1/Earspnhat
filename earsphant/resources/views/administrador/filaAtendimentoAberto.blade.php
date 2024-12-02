@@ -27,7 +27,6 @@
                             <strong class="historico">Data de Fechamento:</strong> {{ $atendimento->fechamento }} <br>
                             <a class="historico" href="{{ route('atendimento', $atendimento->codigo) }}">Ver detalhes</a>
                         </li>
-                        <hr class="historico">
                     @endforeach
                 </ul>
             @endif

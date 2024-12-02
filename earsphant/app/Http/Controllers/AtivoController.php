@@ -73,4 +73,11 @@ class AtivoController extends Controller
         // Retornar uma resposta de sucesso
         return redirect()->back()->with('success', 'Programa adicionado com sucesso!');
     }
+
+    public function exibirEditarEquipamento($patrimonio)
+    {
+        $equipamento = Equipamento::where('patrimonio', $patrimonio)->firstOrFail();
+
+        return view('administrador.editarEquipamento', compact('equipamento'));
+    }
 }

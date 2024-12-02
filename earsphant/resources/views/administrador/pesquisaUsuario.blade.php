@@ -49,14 +49,16 @@
             </section>
         </form>
             <section>
-                @foreach ($usuarios as $usuario)
-                    <li class="historico">
-                        <strong class="historico">Nome:</strong> {{ $usuario->nome }} 
-                        <strong class="historico">| Setor:</strong> {{ $usuario->setor }} 
-                        <strong class="historico">| Login:</strong> {{ $usuario->login }} 
-                        <a class="historico" href="{{ route('editarUsuario') }}">Ver detalhes</a>
-                    </li>
-                @endforeach
+                <div class="areaTicket">
+                    @foreach ($usuarios as $usuario)
+                        <li class="historico">
+                            <strong class="historico">Nome:</strong> {{ $usuario->nome }} 
+                            <strong class="historico">| Setor:</strong> {{ $usuario->setor }} 
+                            <strong class="historico">| Login:</strong> {{ $usuario->login }} 
+                            <a class="historico" href="{{ route('editarUsuario') }}">Ver detalhes</a>
+                        </li>
+                    @endforeach
+                </div>
             </section>
 
   

@@ -26,6 +26,7 @@ main {
 .areaTicket{
     width: 65vw;
     height: 65vh;
+    overflow-y: auto;
 }
 
 ul.historico {

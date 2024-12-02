@@ -11,7 +11,7 @@
                 <div class="dropdown">
                     <a onclick="toggleDropdown('myDropdown')" class="dropbtn">Solicitações</a>
                     <div id="myDropdown" class="dropdown-content">
-                      <a href="#">Abrir Solicitação</a>
+                      <a href="{{route('abrirAtendimentoADM')}}">Abrir Solicitação</a>
                       <a href="{{route('minhaFila')}}">Minha Fila</a>
                       <a href="{{route('filaSetor')}}">Fila do Setor</a>
                       <a href="{{ route('filaAtendimentoAbertos') }}">Ver Solicitações Abertas</a>
@@ -22,21 +22,21 @@
                 <div class="dropdown3">
                     <a onclick="toggleDropdown('myDropdown3')" class="dropbtn3">Pesquisar</a>
                     <div id="myDropdown3" class="dropdown-content3">
-                        <a href="{{ route('pesquisaAtendimento') }}">Pesquisar Solicitações</a>
-                        <a href="{{ route('pesquisaUsuario') }}">Pesquisar Usuários</a>
-                        <a href="{{ route('pesquisaProgramas') }}">Pesquisar Programas</a>
-                        <a href="{{ route('pesquisaEquipamento') }}">Pesquisar Equipamentos</a>
+                        <a href="{{ route('pesquisaAtendimento') }}">Solicitações</a>
+                        <a href="{{ route('pesquisaUsuario') }}">Usuários</a>
+                        <a href="{{ route('pesquisaProgramas') }}">Programas</a>
+                        <a href="{{ route('pesquisaEquipamento') }}">Equipamentos</a>
                     </div>
                 </div> 
             </li>
                 <div class="dropdown2">
-                    <a onclick="toggleDropdown('myDropdown2')" class="dropbtn2">Cadastro</a>
+                    <a onclick="toggleDropdown('myDropdown2')" class="dropbtn2">Cadastrar</a>
                     <div id="myDropdown2" class="dropdown-content2">
-                      <a href="{{ route('adicionarUsuario') }}">Novo Usuário</a>
-                      <a href="{{ route('adicionarSetor') }}">Novo Setor</a>
-                      <a href="{{ route('adicionarPrograma') }}">Novo Programa</a>
-                      <a href="{{ route('adicionarEquipamento') }}">Novo Equipamento</a>
-                      <a href="{{ route('adicionarServico') }}">Novo Serviço</a>
+                      <a href="{{ route('adicionarUsuario') }}">Usuário</a>
+                      <a href="{{ route('adicionarSetor') }}">Setor</a>
+                      <a href="{{ route('adicionarPrograma') }}">Programa</a>
+                      <a href="{{ route('adicionarEquipamento') }}">Equipamento</a>
+                      <a href="{{ route('adicionarServico') }}">Serviço</a>
                     </div>
                 </div>
             </li>

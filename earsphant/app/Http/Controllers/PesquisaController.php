@@ -71,7 +71,7 @@ class PesquisaController extends Controller
 
     public function pesquisaEquipamento(Request $request)
     {
-        $equipamento = Equipamento::where('patrimonio', 'like', '%'.$request->input('patrimonio').'%')
+        $equipamentos = Equipamento::where('patrimonio', 'like', '%'.$request->input('patrimonio').'%')
                     ->where('tipo', 'like', '%'.$request->input('tipo').'%')
                     ->where('aquisicao', 'like', '%'.$request->input('aquisicao').'%')
                     ->where('alugado', 'like', '%'.$request->input('alugado').'%')
@@ -79,7 +79,7 @@ class PesquisaController extends Controller
                     ->where('modelo', 'like', '%'.$request->input('modelo').'%')
                     ->get();
         
-        return view('administrador.pesquisaEquipamento', ['equipamentos' => $equipamento]);
+        return view('administrador.pesquisaEquipamento', ['equipamentos' => $equipamentos]);
     }
 
     public function pesquisaPrograma(Request $request)

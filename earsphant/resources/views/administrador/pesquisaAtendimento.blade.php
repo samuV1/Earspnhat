@@ -60,14 +60,16 @@
             </section>
         </form>
             <section>
-                @foreach ($atendimentos as $atendimento)
-                    <li class="historico">
-                        <strong class="historico">Código:</strong> {{ $atendimento->codigo }} 
-                        <strong class="historico">| Servico:</strong> {{ $atendimento->servico }} 
-                        <strong class="historico">| Usuario:</strong> {{ $atendimento->usuario }} 
-                        <a class="historico" href="{{ route('atendimentoADM', $atendimento->codigo) }}">Ver detalhes</a>
-                    </li>
-                @endforeach
+                <div class="areaTicket">
+                    @foreach ($atendimentos as $atendimento)
+                        <li class="historico">
+                            <strong class="historico">Código:</strong> {{ $atendimento->codigo }} 
+                            <strong class="historico">| Servico:</strong> {{ $atendimento->servico }} 
+                            <strong class="historico">| Usuario:</strong> {{ $atendimento->usuario }} 
+                            <a class="historico" href="{{ route('atendimentoADM', $atendimento->codigo) }}">Ver detalhes</a>
+                        </li>
+                    @endforeach
+                </div>
             </section>
 
     </main>

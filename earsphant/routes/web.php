@@ -80,7 +80,7 @@ Route::get('/administrador/editarUsuario/', [UsuarioController::class, 'editarUs
 Route::get('/administrador/editarPrograma', [AtivoController::class, 'editarPrograma'])->name('editarPrograma');
 Route::post('/administador/editarPrograma', [AtivoController::class, 'editarPrograma'])->name('editarPrograma');
 
-Route::get('/administrador/editarEquipamento', [AtivoController::class, 'editarEquipamento'])->name('editarEquipamento');
+Route::get('/administrador/editarEquipamento/{patrimonio?}', [AtivoController::class, 'exibirEditarEquipamento'])->name('editarEquipamento');
 Route::post('/administador/editarEquipamento', [AtivoController::class, 'editarEquipamento'])->name('editarEquipamento');
 
 // Interface Editar Setor
@@ -102,13 +102,14 @@ Route::post('/administrador/pesquisaAtendimento', [PesquisaController::class, 'p
 Route::get('/administrador/pesquisaPrograma', [PesquisaController::class, 'pesquisaPrograma'])->name('pesquisaProgramas');
 Route::post('/administrador/pesquisaPrograma', [PesquisaController::class, 'pesquisaPrograma'])->name('pesquisaProgramas');
 
-Route::get('/administrador/pesquisaEquipamento', [PesquisaController::class, 'pesquisaEquipamento'])->name('pesquisaAtivo');
+Route::get('/administrador/pesquisaEquipamento', [PesquisaController::class, 'pesquisaEquipamento'])->name('pesquisaEquipamento');
 Route::post('/administrador/pesquisaEquipamento', [PesquisaController::class, 'pesquisaEquipamento'])->name('pesquisaEquipamento');
 
 
 
 // Abertura de Tickets
-Route::get('/admin/open_ticket', [AtendimentoController::class, 'open_ticket_admin'])->name('open_ticket_admin');
+Route::get('/administrador/abrirAtendimentoADM', [AtendimentoController::class, 'exibirAbrirAtendimentoADM'])->name('abrirAtendimentoADM');
+Route::post('/administrador/abrirAtendimentoADM', [AtendimentoController::class, 'abrirAtendimentoADM'])->name('abrirAtendimentoADM');
 
 // Estatísticas
 

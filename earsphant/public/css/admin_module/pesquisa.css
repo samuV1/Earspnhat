@@ -111,3 +111,9 @@ label{
 .inputPesquisa{
     margin-top: 1vh;
 }
+
+.areaTicket{
+    width: 65vw;
+    height: 45vh;
+    overflow-y: auto;
+}
