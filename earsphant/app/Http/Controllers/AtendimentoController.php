@@ -11,37 +11,43 @@ use Illuminate\Http\Request;
 
 class AtendimentoController extends Controller
 {
-    //
+    // Exibir a interface de abertura de atendimento de solicições no módulo usuário
     public function exibirAbrirAtendimento()
     {
-        return view('usuario.abrirAtendimento');
-    }
-
-    public function exibirAbrirAtendimentoADM()
-    {
-        // Obtém todas as categorias do banco de dados
+        // Recupera todos os serviços do banco de dados
         $categorias = Servico::all();
 
-        // Retorna a view e passa as categorias para a view
+        return view('usuario.abrirAtendimento', compact('categorias'));
+    }
+
+    // Exibir a interface de abertura de atendimento de solicições no módulo administrador
+    public function exibirAbrirAtendimentoADM()
+    {
+        // Recupera todos os serviços do banco de dados
+        $categorias = Servico::all();
     
         return view('administrador.abrirAtendimento', compact('categorias'));
     }
 
+    // Exibir a interface histórico de solicições finalizadas para o usuário
     public function exibirHistorico()
     {
         return view('usuario.historico');
     }
 
+    // Exibir a interface histórico de solicições em atendimento para o usuário
     public function exibirAtendimentosAbertos()
     {
         return view('usuario.atendimentosAbertos');
     }
 
+    // Exibir a interface de detalhes do atendimento
     public function exibirAtendimento()
     {
         return view('usuario.atendimento');
     }
 
+    // Exibir a interface de usuário de detalhes do atendimento com a recuperação de dados do atendimento selecionado
     public function atendimento($codigo)
     {
         // Busca o primeiro atendimento com o código recebido
@@ -53,11 +59,12 @@ class AtendimentoController extends Controller
         ->where('notas.atendimento', '=', $atendimento->codigo)  // Filtra pelo código de atendimento
         ->select('notas.*', 'usuarios.nome as autor')  // Seleciona as colunas necessárias
         ->orderBy('notas.created_at', 'desc')  // Ordena pela data de criação das notas (alterar para o campo de data adequado, se necessário)
-        ->paginate(1);  // Paginação de 1 nota por página
+        ->paginate(1);  
 
         return view('usuario.atendimento', compact('atendimento', 'notas'));
     }
 
+    // Exibir a interface de usuário de detalhes do atendimento com a recuperação de dados do atendimento selecionado
     public function atendimentoADM($codigo)
     {
         // Busca o primeiro atendimento com o código recebido
@@ -68,11 +75,12 @@ class AtendimentoController extends Controller
         ->join('usuarios', 'notas.usuario', '=', 'usuarios.login')  // Fazendo JOIN com a tabela users, onde 'login_usuario' é a chave estrangeira
         ->where('notas.atendimento', '=', $atendimento->codigo)  // Filtra pelo código de atendimento
         ->select('notas.*', 'usuarios.nome as autor')  // Seleciona as colunas necessárias
-        ->paginate(1);  // Paginação de 5 notas por página
+        ->paginate(1);
 
         return view('administrador.atendimento', compact('atendimento', 'notas'));
     }
 
+    // Criar instância na tabela atenidmento no BD, relacionado a view de abertura de atendimento no módulo usuário
     public function armazenarBD(Request $request)
     {
         // Validar os dados recebidos
@@ -89,6 +97,7 @@ class AtendimentoController extends Controller
         // Criar o atendimento com o código gerado automaticamente
         $codigoAtendimento = Atendimento::gerarCodigoAtendimento();  // Gerar o código incremental
 
+        // Armazena  na variável o login do usuário auteticado.
         $usuarioLogin = session('usuario_login');
 
         // Recupera o usuário no banco de dados com base no login
@@ -139,6 +148,7 @@ class AtendimentoController extends Controller
         return redirect()->back()->with('status', 'Solicitação aberta com sucesso!');
     }
 
+    // Criar instância na tabela atenidmento no BD, relacionado a view de abertura de atendimento no módulo usuário
     public function abrirAtendimentoADM(Request $request)
     {
         // Validar os dados recebidos

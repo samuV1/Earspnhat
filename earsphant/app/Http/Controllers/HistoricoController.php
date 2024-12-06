@@ -7,7 +7,7 @@ use App\Models\Atendimento;
 
 class HistoricoController extends Controller
 {
-    //
+
     // Lista de atendimentos finalizados do usuário logado
     public function historico()
     {

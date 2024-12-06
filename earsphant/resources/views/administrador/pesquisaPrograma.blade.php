@@ -33,6 +33,7 @@
             <section class="inputPesquisa">
             <label for="dropdown_soft_or_hard">Desenvolvido por terceiros?</label>
             <select class="input_droplist" id="dropdown_soft_or_hard" name="terceiros">
+                <option value="">Selecione</option>
                 <option value="false">Não</option>
                 <option value="true">Sim</option>
             </select>
@@ -58,7 +59,7 @@
                         <strong class="historico">Nome:</strong> {{ $programa->nome }} 
                         <strong class="historico">| Código:</strong> {{ $programa->codigo }} 
                         <strong class="historico">| Tipo:</strong> {{ $programa->tipo }} 
-                        <a class="historico" href="{{ route('pesquisaProgramas') }}">Ver detalhes</a>
+                        <a class="historico" href="{{ route('editarPrograma',[ $programa ]) }}">Ver detalhes</a>
                     </li>
                 @endforeach
             </div>

@@ -26,6 +26,7 @@ class Atendimento extends Model
     ]; // Campos permitidos para preenchimento
 
 
+    // gera o códgio da atendimento unico (chave primária)
     public static function gerarCodigoAtendimento()
     {
         // Pega o último código de atendimento criado

@@ -7,12 +7,13 @@ use App\Models\Setor;
 
 class SetorController extends Controller
 {
-    //
+    // Exibir interface de adição de setor
     public function exibirAdicaoSetor()
     {
         return view('administrador.adicionarSetor');
     }
 
+    // criar instância na tabela setor 
     public function armazenarBD(Request $request)
     {
         // Validar os dados

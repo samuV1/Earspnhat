@@ -30,8 +30,9 @@
         <section class="inputPesquisa">
             <label for="dropdown_soft_or_hard">Equipamento alugado?</label>
             <select class="input_droplist" id="dropdown_soft_or_hard" name="alugado">
+                <option value="">Selecione</option>
                 <option value="false">Não</option>
-                    <option value="true">Sim</option>
+                <option value="true">Sim</option>
             </select>
  
             <label for="input_add_active_model">Marca:</label>
@@ -53,7 +54,7 @@
                         <strong class="historico">Nome:</strong> {{ $equipamento->tipo }} 
                         <strong class="historico">| Setor:</strong> {{ $equipamento->modelo }} 
                         <strong class="historico">| Login:</strong> {{ $equipamento->patrimonio }} 
-                        <a class="historico" href="{{route('editarEquipamento', $equipamento->patrimonio)}}">Ver detalhes</a>
+                        <a class="historico" href="{{route('editarEquipamento',[ $equipamento ])}}">Ver detalhes</a>
                     </li>
                 @endforeach
             </div>

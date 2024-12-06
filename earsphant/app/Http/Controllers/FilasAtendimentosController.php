@@ -8,7 +8,7 @@ use App\Models\Usuario;
 
 class FilasAtendimentosController extends Controller
 {
-    //
+    // Exibir a fila de solicitações abertas no módulo administrador
     public function filaAbertos()
     {
         // Busca todos os atendimentos com status "Aberto"
@@ -17,6 +17,7 @@ class FilasAtendimentosController extends Controller
         return view('administrador.filaAtendimentoAberto', compact('atendimentos'));
     }
 
+    // exibir a fila do nível do agente (técncio, analista ou administrador)
     public function filaSetor()
     {
         $usuarioLogin = session('usuario_login');
@@ -38,10 +39,11 @@ class FilasAtendimentosController extends Controller
         return view('administrador.filaSetor', compact('atendimentos'));
     }
 
+    // Exibir a fila de solicitações em que o agente atual é o encarregado
     public function minhaFila()
     {
 
-        $usuarioLogin = session('usuario_login');
+        $usuarioLogin = session('login');
 
         // Busca todos os atendimentos com status "Aberto"
         $atendimentos = Atendimento::where('encarregado', $usuarioLogin)->get();

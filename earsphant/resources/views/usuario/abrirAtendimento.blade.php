@@ -78,7 +78,6 @@
 
 </main>
 
-
     @include('usuario.rodape')
 
 @endsection

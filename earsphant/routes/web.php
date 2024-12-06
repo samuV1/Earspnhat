@@ -30,7 +30,7 @@ Route::get('/usuario/inicio', [AutenticadorController::class, 'exibirInicioUsuar
 
 // Abrir Atendimento
 Route::get('/usuario/abrirAtendimentos', [AtendimentoController::class, 'exibirAbrirAtendimento'])->name('abrirAtendimentos');
-Route::get('/usuario/abrirAtendimento', [ServicoController::class, 'opcoesSelect'])->name('abrirAtendimento');
+
 
 // Historicos Atendimentos Fechados
 
@@ -77,11 +77,11 @@ Route::get('/administrador/editarUsuario/', [UsuarioController::class, 'editarUs
 
 
 // Interface Editar Ativo
-Route::get('/administrador/editarPrograma', [AtivoController::class, 'editarPrograma'])->name('editarPrograma');
-Route::post('/administador/editarPrograma', [AtivoController::class, 'editarPrograma'])->name('editarPrograma');
+Route::get('/administrador/editarPrograma/{programa}', [AtivoController::class, 'editarPrograma'])->name('editarPrograma');
+Route::post('/administador/editarPrograma', [AtivoController::class, 'atualizarPrograma'])->name('atutalizarPrograma');
 
-Route::get('/administrador/editarEquipamento/{patrimonio?}', [AtivoController::class, 'exibirEditarEquipamento'])->name('editarEquipamento');
-Route::post('/administador/editarEquipamento', [AtivoController::class, 'editarEquipamento'])->name('editarEquipamento');
+Route::get('/administrador/editarEquipamento/{equipamento}', [AtivoController::class, 'editarEquipamento'])->name('editarEquipamento');
+Route::post('/administrador/editarEquipamento', [AtivoController::class, 'atualizarEquipamento'])->name('atualizarEquipamento');
 
 // Interface Editar Setor
 Route::get('/administrador/editarSetor', [SetorController::class, 'editarSetor'])->name('editarSetor');
@@ -92,10 +92,10 @@ Route::get('/administador/editarServico', [ServicoController::class, 'editarServ
 Route::post('/administador/editarServico', [ServicoController::class, 'editarServico'])->name('editarServico');
 
 // Pesquisas
-Route::get('/administrador/pesquisaUsuario', [PesquisaController::class, 'exibirPesquisaUsuario'])->name('pesquisaUsuario');
+Route::get('/administrador/pesquisaUsuario', [PesquisaController::class, 'pesquisaUsuario'])->name('pesquisaUsuario');
 Route::post('/administrador/pesquisaUsuario', [PesquisaController::class, 'pesquisaUsuario'])->name('pesquisaUsuario');
 
-Route::get('/administrador/pesquisaAtendimento', [PesquisaController::class, 'exibirPesquisaAtendimento'])->name('pesquisaAtendimento');
+Route::get('/administrador/pesquisaAtendimento', [PesquisaController::class, 'pesquisaAtendimento'])->name('pesquisaAtendimento');
 Route::post('/administrador/pesquisaAtendimento', [PesquisaController::class, 'pesquisaAtendimento'])->name('pesquisaAtendimento');
 
 

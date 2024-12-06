@@ -8,16 +8,19 @@ use Illuminate\Support\Facades\Hash;
 
 class AutenticadorController extends Controller
 {
+    // Exibir tela de autenticação
     public function exibirIndex()
     {
         return view('index');
     }
 
+    // Exibir o index do módulo usuário
     public function exibirInicioUsuario()
     {
         return view('usuario.inicio');
     }
 
+    // Exibir o index do módulo administrador
     public function exibirInicioAdm()
     {
         return view('administrador.inicio');
@@ -39,25 +42,40 @@ class AutenticadorController extends Controller
         if ($usuario && ($credenciais['senha'] == $usuario->senha) && ($usuario->acesso == 0)) {
             $request->session()->put('usuario_login', $usuario->login); // Salva o ID do usuário na sessão
             session(['login' => $usuario->login]);
+            session(['setor' => $usuario->setor]);
+            session(['acesso' => $usuario->acesso]);
 
             return redirect('/usuario/inicio');
         }
         if ($usuario && ($credenciais['senha'] == $usuario->senha) && ($usuario->acesso == 1)) {
             $request->session()->put('usuario_login', $usuario->login); // Salva o ID do usuário na sessão
+            session(['login' => $usuario->login]);
+            session(['setor' => $usuario->setor]);
+            session(['acesso' => $usuario->acesso]);
+
             return redirect('/administrador/inicio');
         }
         if ($usuario && ($credenciais['senha'] == $usuario->senha) && ($usuario->acesso == 2)) {
             $request->session()->put('usuario_login', $usuario->login); // Salva o ID do usuário na sessão
+            session(['login' => $usuario->login]);
+            session(['setor' => $usuario->setor]);
+            session(['acesso' => $usuario->acesso]);
+
             return redirect('/administrador/inicio');
         }
         if ($usuario && ($credenciais['senha'] == $usuario->senha) && ($usuario->acesso == 3)) {
             $request->session()->put('usuario_login', $usuario->login); // Salva o ID do usuário na sessão
+            session(['login' => $usuario->login]);
+            session(['setor' => $usuario->setor]);
+            session(['acesso' => $usuario->acesso]);
+
             return redirect('/administrador/inicio');
         }
 
         return back()->withErrors(['login' => 'Login ou senha inválidos']);
     }
 
+    // Logout do usuário
     public function logout(Request $request)
     {
         $request->session()->forget('usuario_login');

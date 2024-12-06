@@ -7,12 +7,13 @@ use App\Models\Usuario;
 
 class UsuarioController extends Controller
 {
-    //
+    // exibir a interface de adição de usuário
     public function exibirAdicaoUsuario()
     {
         return view('administrador.adicionarUsuario');
     }
 
+    // criar instância na tabela usuário
     public function armazenarBD(Request $request)
     {
     // Validação dos dados
