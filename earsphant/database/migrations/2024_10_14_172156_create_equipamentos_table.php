@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('tipo', 20);
             $table->string('marca', 20)->nullable();
             $table->string('modelo', 30)->nullable();
-            $table->unsignedBigInteger('patrimonio')->unique();
+            $table->string('patrimonio', 30)->unique();
             $table->date('aquisicao');
             $table->boolean('alugado');
             $table->string('fornecedor', 30)->nullable();

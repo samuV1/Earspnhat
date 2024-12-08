@@ -10,7 +10,7 @@
 
 @include('administrador.cabecalho')
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
 
         <!-- Exibir mensagem de sucesso se existir -->
         @if(session('success'))
@@ -25,10 +25,10 @@
             <div id="format_form_active">
                                 
                     <label for="input_add_active_license">Licença:</label>
-                    <input class="input_text" id="input_add_active_license" name="licenca" type="text">
+                    <input class="entrada_texto" id="input_add_active_license" name="licenca" type="text">
     
                     <label for="input_add_active_code">Numeração Interna:</label>
-                    <input class="input_text" id="input_add_active_code" name="codigo" type="text">
+                    <input class="entrada_texto" id="input_add_active_code" name="codigo" type="text">
                     
                     <section  class="section_form">
                         <label for="input_add_active_aquisition">Data de aquisição:</label>
@@ -43,13 +43,13 @@
     
                     <section  class="section_form">
                         <label for="input_add_active_model">Nome:</label>
-                        <input class="input_text" id="input_add_active_model" name="nome"  type="text">
+                        <input class="entrada_texto" id="input_add_active_model" name="nome"  type="text">
     
                         <label for="input_add_active_brand">Fornecedor:</label>
-                        <input class="input_text" id="input_add_active_brand" name="fornecedor" type="text">
+                        <input class="entrada_texto" id="input_add_active_brand" name="fornecedor" type="text">
                         
                         <label for="input_add_active_type">Versão:</label>
-                        <input class="input_text" id="input_add_active_type" name="versao" type="text">
+                        <input class="entrada_texto" id="input_add_active_type" name="versao" type="text">
                     </section>
                 </div>
 

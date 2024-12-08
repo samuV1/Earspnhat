@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('equipamento_atendimentos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('equipamento');
+            $table->string('equipamento');
             $table->unsignedBigInteger('atendimento');
         });
     }

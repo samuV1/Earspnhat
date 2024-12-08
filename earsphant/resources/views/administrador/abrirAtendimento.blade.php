@@ -11,7 +11,7 @@
 
 @include('administrador.cabecalho')
 
-<main class="element_flex_dad">
+<main class="elemento_pai">
     <h1>Preencha os campos abaixo:</h1>
 
     <!-- Exibir mensagens de erro ou sucesso -->

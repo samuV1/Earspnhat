@@ -11,7 +11,7 @@
 
     @include('usuario.cabecalho')
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
         
 
         <h1>O que você deseja fazer?</h1>

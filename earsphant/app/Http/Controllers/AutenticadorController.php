@@ -72,7 +72,7 @@ class AutenticadorController extends Controller
             return redirect('/administrador/inicio');
         }
 
-        return back()->withErrors(['login' => 'Login ou senha inválidos']);
+        return back()->withErrors(['error' => 'Login ou senha inválidos'])->withInput();
     }
 
     // Logout do usuário

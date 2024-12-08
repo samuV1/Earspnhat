@@ -11,7 +11,7 @@
 
 @include('administrador.cabecalho')
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
         
         <h1>Pesquisar Equipamento</h1>
 
@@ -19,10 +19,10 @@
             @csrf
         <section class="inputPesquisa">
             <label for="input_add_active_license">Código/Patrimônio:</label>
-            <input class="input_text" id="input_add_active_license" name="patrimonio" type="text" >
+            <input class="entrada_texto" id="input_add_active_license" name="patrimonio" type="text" >
         
             <label for="input_add_active_code">Tipo</label>
-            <input class="input_text" id="input_add_active_code" name="tipo" type="text">
+            <input class="entrada_texto" id="input_add_active_code" name="tipo" type="text">
 
             <label for="input_add_active_aquisition">Data de aquisição:</label>
             <input class="input_date" id="input_add_active_aquisition" name="aquisicao" type="date" >
@@ -36,10 +36,10 @@
             </select>
  
             <label for="input_add_active_model">Marca:</label>
-            <input class="input_text" id="input_add_active_model" name="marca" type="text">
+            <input class="entrada_texto" id="input_add_active_model" name="marca" type="text">
         
             <label for="input_add_active_type">Modelo:</label>
-            <input class="input_text" id="input_add_active_type" name="modelo" type="text">
+            <input class="entrada_texto" id="input_add_active_type" name="modelo" type="text">
            </section>
             <section class="grupoBotao">
                 <input class="pesquisar_button" type="submit" value="Pesquisar">

@@ -10,7 +10,7 @@
 
 @include('administrador.cabecalho')
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
         
         @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -25,12 +25,12 @@
                 <section id="format_form_sector">
                     <section class="section_form">
                         <label for="input_add_sector_name">Nome:</label>
-                        <input class="input_text" id="input_add_sector_name" name="servico" type="text">
+                        <input class="entrada_texto" id="input_add_sector_name" name="servico" type="text">
                     </section>
 
                     <section class="section_form">
                         <label for="input_add_sector_id">Acordo a nível de serviço (em horas):</label>
-                        <select class="input_text" id="input_add_sector_id" name="ans">
+                        <select class="entrada_texto" id="input_add_sector_id" name="ans">
                             <!-- Opção Default -->
                             <option value='00:00:00' selected>Sem previsão</option>
                             

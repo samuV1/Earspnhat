@@ -6,7 +6,7 @@ body {
     justify-content: center;
 }
 
-.element_flex_dad {
+.elemento_pai {
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('programa_atendimentos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('programa');
+            $table->string('programa');
             $table->unsignedBigInteger('atendimento');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+    /*
+    Reverse the migrations.
+    */
     public function down(): void
     {
         Schema::dropIfExists('programa_atendimentos');

@@ -11,7 +11,7 @@
 
 @include('administrador.cabecalho')
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
         
         <h1>Inicio</h1>
 

@@ -10,7 +10,7 @@
 
 @include('administrador.cabecalho')
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
         
         <h1>Editar Serviço</h1>
 
@@ -21,12 +21,12 @@
                 <section id="format_form_sector">
                     <section class="section_form">
                         <label for="input_add_sector_name">Nome:</label>
-                        <input class="input_text" id="input_add_sector_name" name="name" type="text">
+                        <input class="entrada_texto" id="input_add_sector_name" name="name" type="text">
                     </section>
 
                     <section class="section_form">
                         <label for="input_add_sector_id">Acordo a nível de serviço:</label>
-                        <input class="input_text" id="input_add_sector_id" name="code" type="time">
+                        <input class="entrada_texto" id="input_add_sector_id" name="code" type="time">
                     </section>
 
                     <section class="section_form">

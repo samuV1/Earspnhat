@@ -11,7 +11,7 @@
 
 @include('administrador.cabecalho')
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
         
         <h1>Pesquisar Programa</h1>
 
@@ -21,10 +21,10 @@
 
             <section class="inputPesquisa">              
             <label for="input_add_active_license">Licença:</label>
-            <input class="input_text" id="input_add_active_license" name="licenca" type="text">
+            <input class="entrada_texto" id="input_add_active_license" name="licenca" type="text">
     
             <label for="input_add_active_code">Numeração Interna:</label>
-            <input class="input_text" id="input_add_active_code" name="codigo" type="text">
+            <input class="entrada_texto" id="input_add_active_code" name="codigo" type="text">
                     
             <label for="input_add_active_aquisition">Data de aquisição:</label>
             <input class="input_date" id="input_add_active_aquisition" name="aquisicao" type="date">
@@ -39,10 +39,10 @@
             </select>
     
             <label for="input_add_active_model">Nome:</label>
-            <input class="input_text" id="input_add_active_model" name="nome"  type="text">
+            <input class="entrada_texto" id="input_add_active_model" name="nome"  type="text">
     
             <label for="input_add_active_brand">Fornecedor:</label>
-            <input class="input_text" id="input_add_active_brand" name="fornecedor" type="text">
+            <input class="entrada_texto" id="input_add_active_brand" name="fornecedor" type="text">
             </section>           
 
             <section class="grupoBotao">

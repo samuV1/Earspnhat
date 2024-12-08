@@ -11,7 +11,7 @@
 
     @include('administrador.cabecalho')
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
 
         <h1>Pesquisar Usuário</h1>
 
@@ -23,10 +23,10 @@
                     
                     <section class="format_form_sections">
                         <label for="input_add_user_name">Nome:</label>
-                        <input class="input_text" id="input_add_user_name" name="nome" type="text">
+                        <input class="entrada_texto" id="input_add_user_name" name="nome" type="text">
 
                         <label for="input_add_user_sector">Setor:</label>
-                        <input class="input_text" id="input_add_user_sector" name="setor" type="text">
+                        <input class="entrada_texto" id="input_add_user_sector" name="setor" type="text">
 
                         <label for="dropdown_level_access">Acesso:</label>
                         <select class="input_droplist" id="dropdown_level_access" name="acesso">
@@ -38,7 +38,7 @@
                         </select>
 
                         <label for="input_add_user_login">Usuário:</label>
-                        <input class="input_text" id="input_add_user_login" name="login" type="text">              
+                        <input class="entrada_texto" id="input_add_user_login" name="login" type="text">              
                     </section>
                 </div>
             </section>

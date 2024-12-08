@@ -11,7 +11,7 @@
 
 @include('administrador.cabecalho')
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
 
         <h1>Pesquisar Atendimentos</h1>
 
@@ -23,13 +23,13 @@
                     
                     <section class="format_form_sections">
                         <label for="input_add_user_name">Código:</label>
-                        <input class="input_text" id="input_add_user_name" name="codigo" type="text">
+                        <input class="entrada_texto" id="input_add_user_name" name="codigo" type="text">
 
                         <label for="input_add_user_sector">Setor:</label>
-                        <input class="input_text" id="input_add_user_sector" name="setor" type="text">
+                        <input class="entrada_texto" id="input_add_user_sector" name="setor" type="text">
 
                         <label for="input_add_user_sector">Login do Usuário:</label>
-                        <input class="input_text" id="input_add_user_sector" name="usuario" type="text">
+                        <input class="entrada_texto" id="input_add_user_sector" name="usuario" type="text">
 
                         <label for="dropdown_level_access">Status:</label>
                         <select class="input_droplist" id="dropdown_level_access" name="status">
