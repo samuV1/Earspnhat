@@ -2,12 +2,12 @@
 
 @section('titles', 'Abertos')
 
-@section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/user_module/historico.css') }}>
+@section('estilo_pagina_css')
+    <link rel="stylesheet" href={{ asset('css/modulo_usuario/historico.css') }}>
 @endsection
 
 
-@section('pages')
+@section('pagina')
 
     @include('usuario.cabecalho')
 
@@ -19,16 +19,16 @@
 
         <div class="areaTicket">
             @if($atendimentos->isEmpty())
-            <p class="historico">Você não possui atendimentos finalizados.</p>
+            <p class="atendimentoAberto">Você não possui atendimentos finalizados.</p>
             @else
-                <ul class="historico">
+                <ul class="atendimentoAberto">
                     @foreach ($atendimentos as $atendimento)
-                        <li class="historico">
-                            <strong class="historico">Código:</strong> {{ $atendimento->codigo }} 
-                            <strong class="historico">| Serviço:</strong> {{ $atendimento->servico }} 
-                            <strong class="historico">| Situação:</strong> {{ $atendimento->status }} 
-                            <strong class="historico">| Data de abertura:</strong> {{ \Carbon\Carbon::parse($atendimento->abertura)->format('d/m/Y H:i') }} <br>
-                            <a class="historico" href="{{ route('atendimento', $atendimento->codigo) }}">Ver detalhes</a>
+                        <li class="atendimentoAberto">
+                            <strong class="atendimentoAberto">Código:</strong> {{ $atendimento->codigo }} 
+                            <strong class="atendimentoAberto">| Serviço:</strong> {{ $atendimento->servico }} 
+                            <strong class="atendimentoAberto">| Situação:</strong> {{ $atendimento->status }} 
+                            <strong class="atendimentoAberto">| Data de abertura:</strong> {{ \Carbon\Carbon::parse($atendimento->abertura)->format('d/m/Y H:i') }} <br>
+                            <a class="atendimentoAberto" href="{{ route('atendimento', $atendimento->codigo) }}">Ver detalhes</a>
                         </li>
                     @endforeach
                 </ul>

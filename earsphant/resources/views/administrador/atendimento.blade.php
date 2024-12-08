@@ -2,8 +2,8 @@
 
 @section('titles', 'Detalhes')
 
-@section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/user_module/atendimento.css') }}>
+@section('estilo_pagina_css')
+    <link rel="stylesheet" href={{ asset('css/modulo_usuario/atendimento.css') }}>
 @endsection
 
 
@@ -41,26 +41,26 @@
                 <textarea id="descricao" name="descricao" rows="10" cols="50" readonly>{{ $atendimento->descricao }}</textarea>
 
                 <label class="label" for="notas"><strong>Notas:</strong></label>
-                <div class="notas-container">
+                <div class="conteiner_notas">
                     @foreach($notas as $nota)
                         <div class="nota-item">
                             <strong>{{ $nota->autor }}:</strong> <!-- Nome do autor -->
-                            <input type="text" value="{{ $nota->descricao }}" readonly class="nota-input"> <!-- Descrição da nota -->
+                            <input type="text" value="{{ $nota->descricao }}" readonly class="nota_entrada"> <!-- Descrição da nota -->
                         </div>
                     @endforeach
                 </div>
     
                 <!-- Links de Paginação -->
-                <div class="pagination-container">
+                <div class="conteiner_paginacao">
                     <!-- Botão Voltar -->
                     <a href="{{ $notas->previousPageUrl() }}" 
-                       class="pagination-button @if ($notas->onFirstPage()) disabled @endif">
+                       class="botao_paginacao @if ($notas->onFirstPage()) disabled @endif">
                         ← Voltar
                     </a>
                     <p> &nbsp;|&nbsp; </p>
                     <!-- Botão Próximo -->
                     <a href="{{ $notas->nextPageUrl() }}" 
-                       class="pagination-button @if (!$notas->hasMorePages()) disabled @endif">
+                       class="botao_paginacao @if (!$notas->hasMorePages()) disabled @endif">
                         Próximo →
                     </a>
                 </div>
@@ -78,8 +78,8 @@
                         <label for="resposta"><strong>Envie uma nova nota:</strong></label><br>
                         <textarea name="descricao" id="resposta" cols="30" rows="10" required></textarea>
                         <br><br>
-                        <input type="submit" value="Enviar" id="button_nota">
-                        <button id="button_reset"><a href="{{ route('inicioUsuario') }}" onclick="document.getElementById('meuFormulario').reset();">Desistir</a></button>
+                        <input type="submit" value="Enviar" id="botao_adiciona_nota">
+                        <button id="botao_limpar"><a href="{{ route('inicioUsuario') }}" onclick="document.getElementById('meuFormulario').reset();">Desistir</a></button>
                     </form>
                 </section>
             @endif

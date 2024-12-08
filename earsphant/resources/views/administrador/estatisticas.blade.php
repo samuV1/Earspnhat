@@ -2,7 +2,7 @@
 
 @section('titles', 'Estatísticas')
 
-@section('style_page_css')
+@section('estilo_pagina_css')
     <link rel="stylesheet" href={{ asset('css/admin_module/crud.css') }}>
 @endsection
 

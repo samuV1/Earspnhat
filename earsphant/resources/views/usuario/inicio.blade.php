@@ -2,12 +2,12 @@
 
 @section('titles', 'Início')
 
-@section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/user_module/home.css') }}>
+@section('estilo_pagina_css')
+    <link rel="stylesheet" href={{ asset('css/modulo_usuario/home.css') }}>
 @endsection
 
 
-@section('pages')
+@section('pagina')
 
     @include('usuario.cabecalho')
     
@@ -16,12 +16,12 @@
 
         <h1>O que você deseja fazer?</h1>
 
-        <section id="choices_user">
-            <a class="choice_user" href="{{ route('abrirAtendimentos') }}">Abrir uma solicitação de atendimento</a>
+        <section id="escolha_usuario">
+            <a class="escolha_usuario" href="{{ route('abrirAtendimentos') }}">Abrir uma solicitação de atendimento</a>
 
-            <a class="choice_user" href="{{ route('atendimentoHistoricoAberto') }}">Acompanhar um atendimento em aberto</a>
+            <a class="escolha_usuario" href="{{ route('atendimentoHistoricoAberto') }}">Acompanhar um atendimento em aberto</a>
 
-            <a class="choice_user" href="{{ route('tickets.historico') }}">Ver o seu histórico de solicitações</a>
+            <a class="escolha_usuario" href="{{ route('tickets.historico') }}">Ver o seu histórico de solicitações</a>
         </section>
     </main>
 

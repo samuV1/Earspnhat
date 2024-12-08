@@ -2,8 +2,8 @@
 
 @section('titles', 'Início')
 
-@section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/user_module/historico.css') }}>
+@section('estilo_pagina_css')
+    <link rel="stylesheet" href={{ asset('css/modulo_usuario/historico.css') }}>
 @endsection
 
 

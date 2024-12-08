@@ -25,7 +25,7 @@ ul {
 	align-content: space-around;
 }
 
-#choices_user{
+#escolha_usuario{
     height: 60vh;
     width: 100vw;
     display: flex;
@@ -35,7 +35,7 @@ ul {
     justify-content: space-evenly;
 }
 
-.choice_user {
+.escolha_usuario{
     font-size: 1.4em;
     font-family: 'Montserrat', Helvetica, sans-serif;
     width: 35vw;
@@ -52,7 +52,7 @@ ul {
     border-radius: 8px;
 }
 
-.choice_user:hover, .choice_user:focus{
+.escolha_usuario:hover, .escolha_usuario:focus{
     font-size: 1.42em;
     font-family: 'Montserrat', Helvetica, sans-serif;
     width: 36.5vw;
@@ -69,7 +69,7 @@ ul {
     border-radius: 3px 3px 3px 3px;
 }
 
-.choice_user:active {
+.escolha_usuario:active {
     font-size: 1.4em;
     font-family: 'Montserrat', Helvetica, sans-serif;
     width: 35vw;
