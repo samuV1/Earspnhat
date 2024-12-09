@@ -2,15 +2,15 @@
 
 @section('titles', 'Editar serviço')
 
-@section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/crud.css') }}>
+@section('estilo_pagina_css')
+    <link rel="stylesheet" href={{ asset('css/modulo_administrador/crud.css') }}>
 @endsection
 
-@section('pages')
+@section('pagina')
 
 @include('administrador.cabecalho')
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
         
         <h1>Editar Serviço</h1>
 
@@ -21,17 +21,17 @@
                 <section id="format_form_sector">
                     <section class="section_form">
                         <label for="input_add_sector_name">Nome:</label>
-                        <input class="input_text" id="input_add_sector_name" name="name" type="text">
+                        <input class="entrada_texto" id="input_add_sector_name" name="name" type="text">
                     </section>
 
                     <section class="section_form">
                         <label for="input_add_sector_id">Acordo a nível de serviço:</label>
-                        <input class="input_text" id="input_add_sector_id" name="code" type="time">
+                        <input class="entrada_texto" id="input_add_sector_id" name="code" type="time">
                     </section>
 
                     <section class="section_form">
                         <label for="dropdown_soft_or_hard">Status</label>
-                        <select class="input_droplist" id="dropdown_soft_or_hard" name="category">
+                        <select class="estrada_lista_suspensa" id="dropdown_soft_or_hard" name="category">
                             <option value="active">Serviço Ativo</option>
                             <option value="obselete">Serviço Obsoleto</option>
                         </select>

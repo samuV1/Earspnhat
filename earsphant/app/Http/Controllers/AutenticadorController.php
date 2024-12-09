@@ -45,7 +45,7 @@ class AutenticadorController extends Controller
             session(['setor' => $usuario->setor]);
             session(['acesso' => $usuario->acesso]);
 
-            return redirect('/usuario/inicio');
+            return view('/usuario/inicio');
         }
         if ($usuario && ($credenciais['senha'] == $usuario->senha) && ($usuario->acesso == 1)) {
             $request->session()->put('usuario_login', $usuario->login); // Salva o ID do usuário na sessão
@@ -72,7 +72,7 @@ class AutenticadorController extends Controller
             return redirect('/administrador/inicio');
         }
 
-        return back()->withErrors(['login' => 'Login ou senha inválidos']);
+        return back()->withErrors(['error' => 'Login ou senha inválidos'])->withInput();
     }
 
     // Logout do usuário

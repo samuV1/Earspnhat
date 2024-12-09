@@ -2,16 +2,16 @@
 
 @section('titles', 'Abrir uma solicitação')
 
-@section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/user_module/crud.css') }}>
+@section('estilo_pagina_css')
+    <link rel="stylesheet" href={{ asset('css/modulo_usuario/crud.css') }}>
 @endsection
 
 
-@section('pages')
+@section('pagina')
 
 @include('usuario.cabecalho')
 
-<main class="element_flex_dad">
+<main class="elemento_pai">
     <h1>Preencha os campos abaixo:</h1>
 
     <!-- Exibir mensagens de erro ou sucesso -->
@@ -41,16 +41,16 @@
     <form action="{{ route('armazenar') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <section>
-            <label for="">Informe o seu número de telefone para contato:</label>
-            <input type="tel" name="telefone" value="{{ old('telefone') }}">
+            <label for="telefone">Informe o seu número de telefone para contato:</label>
+            <input id="telefone" name="telefone" value="{{ old('telefone') }}">
         </section>
 
-            <label for="">Descreva abaixo o problema com máximo de detalhes:</label>          
-            <textarea name="descricao" id="" cols="100" rows="10">{{ old('descricao') }}</textarea>
+        <label for="descricao">Descreva abaixo o problema com máximo de detalhes:</label>          
+        <textarea name="descricao" id="descricao" cols="100" rows="10">{{ old('descricao') }}</textarea>
 
         <section>
-            <label for="">Escolha um assunto relacionado a sua solicitação:</label>
-            <select name="servico" id="">
+            <label for="servico">Escolha um assunto relacionado a sua solicitação:</label>
+            <select name="servico" id="servico">
                 @foreach ($categorias as $categoria)
                     <option value="{{ $categoria->servico }}" {{ old('servico') == $categoria->servico ? 'selected' : '' }}>
                         {{ $categoria->servico }}
@@ -60,19 +60,19 @@
         </section>
 
         <section>
-            <label for="">Informe o número de identificação do equipamento relacionado a sua solicitação:</label>
-            <input type="text" name="equipamento_id" value="{{ old('equipamento_id') }}">
+            <label for="equipamento">Informe o número de identificação do equipamento relacionado a sua solicitação:</label>
+            <input type="text" name="equipamento" value="{{ old('equipamento') }}">
         </section>
 
         <section>
-            <label for="">Envie uma foto ou arquivo relacionado a sua demanda</label>
+            <label for="arquivo">Envie uma foto ou arquivo relacionado a sua demanda</label>
             <input type="file" name="arquivo">
         </section>
 
         <section>
             <br><br>
-            <input type="submit" value="Abrir a Solicitação" id="button_open_ticket">
-            <button id="button_reset"><a href="{{ route('inicioUsuario') }}" onclick="document.getElementById('meuFormulario').reset();">Desistir</a></button>
+            <input type="submit" value="Abrir a Solicitação" id="botao_adicionar">
+            <button id="botao_limpar"><a href="{{ route('inicioUsuario') }}" onclick="document.getElementById('meuFormulario').reset();">Desistir</a></button>
         </section>
     </form>
 

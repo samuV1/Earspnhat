@@ -2,52 +2,52 @@
 
 @section('titles', 'Pesquisar ativo')
 
-@section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/pesquisa.css') }}>
+@section('estilo_pagina_css')
+    <link rel="stylesheet" href={{ asset('css/modulo_administrador/pesquisa.css') }}>
 @endsection
 
 
-@section('pages')
+@section('pagina')
 
 @include('administrador.cabecalho')
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
         
         <h1>Pesquisar Programa</h1>
 
         
-        <form id="form_active" action="{{ route('pesquisaProgramas') }}" method="POST">
+        <form id="formulario_pesquisar_programa" action="{{ route('pesquisaProgramas') }}" method="POST">
             @csrf
 
             <section class="inputPesquisa">              
-            <label for="input_add_active_license">Licença:</label>
-            <input class="input_text" id="input_add_active_license" name="licenca" type="text">
+            <label for="licenca">Licença:</label>
+            <input class="entrada_texto" id="licenca" name="licenca" type="text" value="{{request('licenca')}}">
     
-            <label for="input_add_active_code">Numeração Interna:</label>
-            <input class="input_text" id="input_add_active_code" name="codigo" type="text">
+            <label for="codigo">Numeração Interna:</label>
+            <input class="entrada_texto" id="codigo" name="codigo" type="text" value="{{request('codigo')}}">
                     
-            <label for="input_add_active_aquisition">Data de aquisição:</label>
-            <input class="input_date" id="input_add_active_aquisition" name="aquisicao" type="date">
+            <label for="aquisicao">Data de aquisição:</label>
+            <input class="entrada_data" id="aquisicao" name="aquisicao" type="date" value="{{request('aquisicao')}}">
             </section>    
 
             <section class="inputPesquisa">
-            <label for="dropdown_soft_or_hard">Desenvolvido por terceiros?</label>
-            <select class="input_droplist" id="dropdown_soft_or_hard" name="terceiros">
-                <option value="">Selecione</option>
-                <option value="false">Não</option>
-                <option value="true">Sim</option>
-            </select>
+                <label for="terceiros">Desenvolvido por terceiros?</label>
+                <select class="estrada_lista_suspensa" id="terceiros" name="terceiros">
+                    <option value="" {{ request('terceiros') == '' ? 'selected' : '' }}>Selecione</option>
+                    <option value="false" {{ request('terceiros') == 'false' ? 'selected' : '' }}>Não</option>
+                    <option value="true" {{ request('terceiros') == 'true' ? 'selected' : '' }}>Sim</option>
+                </select>
     
-            <label for="input_add_active_model">Nome:</label>
-            <input class="input_text" id="input_add_active_model" name="nome"  type="text">
+            <label for="nome">Nome:</label>
+            <input class="entrada_texto" id="nome" name="nome"  type="text" value="{{request('nome')}}">
     
-            <label for="input_add_active_brand">Fornecedor:</label>
-            <input class="input_text" id="input_add_active_brand" name="fornecedor" type="text">
+            <label for="fornecedor">Fornecedor:</label>
+            <input class="entrada_texto" id="fornecedor" name="fornecedor" type="text" value="{{request('fornecedor')}}">
             </section>           
 
             <section class="grupoBotao">
-                <input class="pesquisar_button" type="submit" value="Pesquisar">
-                <input class="limpar_button" type="reset" value="Limpar">
+                <input class="botao_pesquisar" type="submit" value="Pesquisar">
+                <input class="botao_limpar" type="reset" value="Limpar">
             </section>
 
         </form>
@@ -55,11 +55,11 @@
         <section>
             <div class="areaTicket">
                 @foreach ($programas as $programa)
-                    <li class="historico">
-                        <strong class="historico">Nome:</strong> {{ $programa->nome }} 
-                        <strong class="historico">| Código:</strong> {{ $programa->codigo }} 
-                        <strong class="historico">| Tipo:</strong> {{ $programa->tipo }} 
-                        <a class="historico" href="{{ route('editarPrograma',[ $programa ]) }}">Ver detalhes</a>
+                    <li class="pesquisa">
+                        <strong class="pesquisa">Nome:</strong> {{ $programa->nome }} 
+                        <strong class="pesquisa">| Código:</strong> {{ $programa->codigo }} 
+                        <strong class="pesquisa">| Tipo:</strong> {{ $programa->tipo }} 
+                        <a class="pesquisa" href="{{ route('editarPrograma',[ $programa ]) }}">Ver detalhes</a>
                     </li>
                 @endforeach
             </div>

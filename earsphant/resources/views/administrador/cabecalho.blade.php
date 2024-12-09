@@ -1,5 +1,5 @@
-@section('header_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/header.css') }}>
+@section('cabecalho_css')
+    <link rel="stylesheet" href={{ asset('css/modulo_administrador/cabecalho.css') }}>
 @endsection
 
 <header>
@@ -26,6 +26,8 @@
                         <a href="{{ route('pesquisaUsuario') }}">Usuários</a>
                         <a href="{{ route('pesquisaProgramas') }}">Programas</a>
                         <a href="{{ route('pesquisaEquipamento') }}">Equipamentos</a>
+                        <a href="{{ route('pesquisaServico') }}">Serviço</a>
+                        <a href="{{ route('pesquisaSetor') }}">Setor</a>
                     </div>
                 </div> 
             </li>
@@ -43,7 +45,7 @@
             <li><a class="nav" href="{{ route('logout') }}">Sair do sistema</a></li>
         </ul>
         <ul>
-            <a href="{{route('inicioAdm')}}"><img src="/images/logo_index.png" alt="Logo do sistema earsphant com um elefante com as orelhas abertas"></a>
+            <a href="{{route('inicioAdm')}}"><img src="/imagens/logo_index.png" alt="Logo do sistema earsphant com um elefante com as orelhas abertas"></a>
         </ul>
     </nav>
 </header>

@@ -2,16 +2,16 @@
 
 @section('titles', 'Abrir uma solicitação')
 
-@section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/user_module/crud.css') }}>
+@section('estilo_pagina_css')
+    <link rel="stylesheet" href={{ asset('css/modulo_usuario/crud.css') }}>
 @endsection
 
 
-@section('pages')
+@section('pagina')
 
 @include('administrador.cabecalho')
 
-<main class="element_flex_dad">
+<main class="elemento_pai">
     <h1>Preencha os campos abaixo:</h1>
 
     <!-- Exibir mensagens de erro ou sucesso -->
@@ -79,8 +79,8 @@
 
         <section>
             <br><br>
-            <input type="submit" value="Abrir a Solicitação" id="button_open_ticket">
-            <button id="button_reset"><a href="{{ route('inicioUsuario') }}" onclick="document.getElementById('meuFormulario').reset();">Desistir</a></button>
+            <input type="submit" value="Abrir a Solicitação" id="botao_adicionar">
+            <button id="botao_limpar"><a href="{{ route('inicioUsuario') }}" onclick="document.getElementById('meuFormulario').reset();">Desistir</a></button>
         </section>
     </form>
 

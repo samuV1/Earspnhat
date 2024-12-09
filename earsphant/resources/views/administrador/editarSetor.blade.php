@@ -2,15 +2,15 @@
 
 @section('titles', 'Editar setor')
 
-@section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/crud.css') }}>
+@section('estilo_pagina_css')
+    <link rel="stylesheet" href={{ asset('css/modulo_administrador/crud.css') }}>
 @endsection
 
-@section('pages')
+@section('pagina')
 
 @include('administrador.cabecalho')
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
         
         <h1>Editar Setor</h1>
 
@@ -21,12 +21,12 @@
                 <section id="format_form_sector">
                     <section class="section_form">
                         <label for="input_add_sector_name">Nome:</label>
-                        <input class="input_text" id="input_add_sector_name" name="name" type="text">
+                        <input class="entrada_texto" id="input_add_sector_name" name="name" type="text">
                     </section>
 
                     <section class="section_form">
                         <label for="input_add_sector_id">Identificação/Código do Setor:</label>
-                        <input class="input_text" id="input_add_sector_id" name="code" type="number">
+                        <input class="entrada_texto" id="input_add_sector_id" name="code" type="number">
                     </section>
                 </section>
             </section>

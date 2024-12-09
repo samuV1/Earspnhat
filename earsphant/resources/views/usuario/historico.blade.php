@@ -2,17 +2,17 @@
 
 @section('titles', 'Histórico')
 
-@section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/user_module/historico.css') }}>
+@section('estilo_pagina_css')
+    <link rel="stylesheet" href={{ asset('css/modulo_usuario/historico.css') }}>
 @endsection
 
 
-@section('pages')
+@section('pagina')
 
     @include('usuario.cabecalho')
 
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
         
 
         <h1>Histórico</h1>

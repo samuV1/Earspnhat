@@ -6,7 +6,7 @@ body {
     justify-content: center;
 }
 
-.element_flex_dad {
+.elemento_pai {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,7 +29,7 @@ main {
     overflow-y: auto;
 }
 
-ul.historico {
+ul.historico, ul.atendimentoAberto {
     list-style: none; /* Remove os marcadores da lista */
     padding: 0;
     margin: 0;
@@ -38,7 +38,7 @@ ul.historico {
     flex-direction: column;
 }
 
-li.historico {
+li.historico, li.atendimentoAberto {
     background-color: #f9f9f9; /* Cor de fundo clara */
     margin-bottom: 1rem;
     padding: 1rem;
@@ -49,35 +49,35 @@ li.historico {
     width: 60vw;
 }
 
-li:hover.historico {
+li:hover.historico, li.hover.atendimentoAberto{
     transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-strong.historico {
+strong.historico, strong.atendimentoAberto{
     color: #333; /* Cor de destaque para o texto em negrito */
     font-weight: 600;
 }
 
-a.historico {
+a.historico, a.atendimentoAberto{
     color: #007bff; /* Azul moderno */
     text-decoration: none; /* Remove o sublinhado */
     font-weight: bold;
     transition: color 0.2s;
 }
 
-a:hover.historico {
+a:hover.historico, a.hover.atendimentoAberto{
     color: #0056b3; /* Escurece o azul ao passar o mouse */
     text-decoration: underline; /* Adiciona sublinhado para indicar interação */
 }
 
-hr.historico {
+hr.historico, hr.atendimentoAberto{
     border: none;
     border-top: 1px solid #e0e0e0; /* Linha divisória suave */
     margin: 1rem 0;
 }
 
-p.historico {
+p.historico, p.atendimentoAberto{
     font-style: italic;
     color: #666; /* Cinza suave para a mensagem */
     text-align: center;

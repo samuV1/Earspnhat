@@ -2,16 +2,16 @@
 
 @section('titles', 'Início')
 
-@section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/home.css') }}>
+@section('estilo_pagina_css')
+    <link rel="stylesheet" href={{ asset('css/modulo_administrador/home.css') }}>
 @endsection
 
 
-@section('pages')
+@section('pagina')
 
 @include('administrador.cabecalho')
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
         
         <h1>Inicio</h1>
 

@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('programas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('codigo')->unique();
-            $table->string('licenca')->nullable();
+            $table->string('codigo', 30)->unique();
+            $table->string('licenca', 50)->nullable();
             $table->string('nome', 30);
             $table->string('fornecedor', 30)->nullable();
             $table->string('versao', 30)->nullable();

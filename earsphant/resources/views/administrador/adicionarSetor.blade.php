@@ -2,15 +2,15 @@
 
 @section('titles', 'Adicionar novo setor')
 
-@section('style_page_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/crud.css') }}>
+@section('estilo_pagina_css')
+    <link rel="stylesheet" href={{ asset('css/modulo_administrador/crud.css') }}>
 @endsection
 
-@section('pages')
+@section('pagina')
 
 @include('administrador.cabecalho')
     
-    <main class="element_flex_dad">
+    <main class="elemento_pai">
         
         <!-- Exibir mensagem de sucesso se existir -->
         @if(session('success'))
@@ -26,7 +26,7 @@
                 <section id="format_form_sector">
                     <section class="section_form">
                         <label for="input_add_sector_name">Nome:</label>
-                        <input class="input_text" id="input_add_sector_name" name="nome" type="text" value="{{ old('nome') }}">
+                        <input class="entrada_texto" id="input_add_sector_name" name="nome" type="text" value="{{ old('nome') }}">
                         @error('nome')
                             <div class="error">{{ $message }}</div>
                         @enderror
@@ -34,7 +34,7 @@
     
                     <section class="section_form">
                         <label for="input_add_sector_id">Identificação/Código do Setor:</label>
-                        <input class="input_text" id="input_add_sector_id" name="codigo" type="number" value="{{ old('codigo') }}">
+                        <input class="entrada_texto" id="input_add_sector_id" name="codigo" type="number" value="{{ old('codigo') }}">
                         @error('codigo')
                             <div class="error">{{ $message }}</div>
                         @enderror

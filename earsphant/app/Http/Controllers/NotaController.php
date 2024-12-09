@@ -13,7 +13,7 @@ class NotaController extends Controller
     {
         // Validação da entrada (opcional)
         $request->validate([
-            'descricao' => 'required|string|max:500',  // A descrição é obrigatória, do tipo string e com limite de 500 caracteres
+            'descricao' => 'required|string',  // A descrição é obrigatória
         ]);
 
         $usuario = session('usuario_login');
