@@ -59,7 +59,7 @@
                         <strong class="pesquisa">Nome:</strong> {{ $programa->nome }} 
                         <strong class="pesquisa">| Código:</strong> {{ $programa->codigo }} 
                         <strong class="pesquisa">| Tipo:</strong> {{ $programa->tipo }} 
-                        <a class="pesquisa" href="{{ route('editarPrograma',[ $programa ]) }}">Ver detalhes</a>
+                        <a class="pesquisa" href="{{ route('exibirEditarPrograma',[ $programa ]) }}">Ver detalhes</a>
                     </li>
                 @endforeach
             </div>

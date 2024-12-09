@@ -54,7 +54,7 @@
                         <strong class="pesquisa">Nome:</strong> {{ $equipamento->tipo }} 
                         <strong class="pesquisa">| Setor:</strong> {{ $equipamento->modelo }} 
                         <strong class="pesquisa">| Login:</strong> {{ $equipamento->patrimonio }} 
-                        <a class="pesquisa" href="{{route('editarEquipamento',[ $equipamento ])}}">Ver detalhes</a>
+                        <a class="pesquisa" href="{{route('exibirEditarEquipamento',[ $equipamento ])}}">Ver detalhes</a>
                     </li>
                 @endforeach
             </div>

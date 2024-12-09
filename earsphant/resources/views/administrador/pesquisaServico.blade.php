@@ -75,7 +75,7 @@
                             <strong class="pesquisa">| Status:</strong> {{ $servico->status }} 
                             <strong class="pesquisa">| Acordo a nível de servico:</strong> {{ $servico->ans ?? 'Não se aplica' }}
                             @if (session('acesso') == 3)
-                                <a class="pesquisa" href="{{ route('inicioAdm') }}">Ver detalhes</a>
+                                <a class="pesquisa" href="{{ route('exibirEditarServico', [$servico]) }}">Ver detalhes</a>
                             @endif
                         </li>
                     @endforeach

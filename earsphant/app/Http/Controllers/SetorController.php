@@ -13,6 +13,14 @@ class SetorController extends Controller
         return view('administrador.adicionarSetor');
     }
 
+    // Exibir interface de ediçao de setor
+    public function exibirEditarSetor(Setor $setor)
+    {
+        $setor = Setor::where('codigo', $setor->codigo)->firstOrFail();
+
+        return view('administrador.editarSetor', compact('setor'));
+    }
+
     // criar instância na tabela setor 
     public function armazenarBD(Request $request)
     {

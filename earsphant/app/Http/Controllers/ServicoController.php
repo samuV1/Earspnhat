@@ -35,4 +35,10 @@ class ServicoController extends Controller
         return redirect()->route('adicionarServico')->with('success', 'Servico adicionado com sucesso!');
     }
 
+    public function exibirEditarServico(Servico $servico)
+    {
+        $servico = Servico::where('servico', $servico->servico)->firstOrFail();
+
+        return view('administrador.editarServico', compact('servico'));
+    }
 }

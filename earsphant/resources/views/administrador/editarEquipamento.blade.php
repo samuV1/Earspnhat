@@ -14,41 +14,42 @@
 
         <h1>Editar Equipamento</h1>
 
-        <form id="form_active" action="{{ route('adicionarEquipamento') }}" method="POST">
+        <form id="formulario_editar_equipamento" action="{{ route('editarEquipamento') }}" method="POST">
             @csrf
-            <div id="format_form_active">
-                <label for="input_add_active_license">Código/Patrimônio:</label>
-                <input class="entrada_texto" id="input_add_active_license" name="patrimonio" type="text" required>
+            <div id="formatacao_formulario_ativo">
+                <label for="patrimonio">Código/Patrimônio:</label>
+                <input class="entrada_texto" id="patrimonio" name="patrimonio" type="text" value="{{$equipamento->patrimonio}}">
         
-                <label for="input_add_active_code">Tipo</label>
-                <input class="entrada_texto" id="input_add_active_code" name="tipo" type="text" required>
+                <label for="tipo">Tipo:</label>
+                <input class="entrada_texto" id="tipo" name="tipo" type="text" value="{{$equipamento->tipo}}">
         
-                <section class="section_form">
-                    <label for="input_add_active_aquisition">Data de aquisição:</label>
-                    <input class="entrada_data" id="input_add_active_aquisition" name="aquisicao" type="date" required>
+                <section class="secao_formulario">
+                    <label for="aquisicao">Data de aquisição:</label>
+                    <input class="entrada_data" id="aquisicao" name="aquisicao" type="date" value="{{$equipamento->aquisicao}}">
         
-                    <label for="dropdown_soft_or_hard">Equipamento alugado?</label>
-                    <select class="estrada_lista_suspensa" id="dropdown_soft_or_hard" name="alugado" value="{{$equipamentos->alugado}}">
-                        <option value="false">Não</option>
-                        <option value="true">Sim</option>
+                    <label for="alugado">Equipamento alugado?</label>
+                    <select class="estrada_lista_suspensa" id="alugado" name="alugado" >
+                        <option value="false" {{ $equipamento->alugado == 'false' ? 'selected' : ''}}>Não</option>
+                        <option value="true" {{ $equipamento->alugado == 'true' ? 'selected' : ''}}>Sim</option>
                     </select>
                 </section>
         
-                <section class="section_form">
-                    <label for="input_add_active_model">Marca:</label>
-                    <input class="entrada_texto" id="input_add_active_model" name="marca" type="text" value="{{$equipamentos->marca}}">
+                <section class="secao_formulario">
+                    <label for="marca">Marca:</label>
+                    <input class="entrada_texto" id="marca" name="marca" type="text" value="{{$equipamento->marca}}">
         
-                    <label for="input_add_active_type">Modelo:</label>
-                    <input class="entrada_texto" id="input_add_active_type" name="modelo" type="text" value="{{$equipamentos->modelo}}">
+                    <label for="modelo">Modelo:</label>
+                    <input class="entrada_texto" id="modelo" name="modelo" type="text" value="{{$equipamento->modelo}}">
         
-                    <label for="input_add_active_brand">Fornecedor:</label>
-                    <input class="entrada_texto" id="input_add_active_brand" name="fornecedor" type="text" value="{{$equipamentos->fornecedor}}">
+                    <label for="fornecedor">Fornecedor:</label>
+                    <input class="entrada_texto" id="fornecedor" name="fornecedor" type="text" value="{{$equipamento->fornecedor}}">
                 </section>
             </div>
         
-            <section id="button_group">
-                <input class="add_button" type="submit" value="Adicionar">
-                <input class="cancel_button" type="reset" value="Desistir">
+            <section id="grupo_botao">
+                <input class="botao_adicao" type="submit" value="Alterar">
+                <input class="botao_cancelar" type="reset" value="Desistir">
+                <input class="botao_remover" type="submit" value="Remover">
             </section>
         </form>
         

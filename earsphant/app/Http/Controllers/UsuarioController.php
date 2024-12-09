@@ -23,14 +23,12 @@ class UsuarioController extends Controller
         'acesso' => 'required|integer|min:0|max:3',
         'login' => 'required|string|max:255|unique:usuarios,login',
         'senha' => 'required|string',
-        'url_foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Foto opcional
+        'url_foto' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Foto opcional
     ]);
 
-    // Variável para armazenar o caminho do arquivo
-    $caminhoImagem = null;
 
     // Verificar se o arquivo foi enviado
-    if ($request->hasFile('url_foto') && $request->file('url_foto')->isValid()) {
+    if ($request->hasFile('url_foto')) {
         // Obter o arquivo
         $arquivo = $request->file('url_foto');
 
@@ -38,25 +36,40 @@ class UsuarioController extends Controller
         $nomeArquivo = time() . '.' . $arquivo->getClientOriginalExtension();
 
         // Salvar o arquivo localmente na pasta 'storage/app/uploads'
-        $caminhoImagem = $arquivo->storeAs('uploads/usuarios', $nomeArquivo, 'local'); // Pasta 'storage/app/uploads/usuarios'
-    }
+        $caminhoImagem = $arquivo->storeAs('uploads', $nomeArquivo, 'public'); // Usa o disco público
+    
+        // Criar o usuário no banco de dados
 
-    // Criar o usuário no banco de dados
+        Usuario::create([
+            'nome' => $request->nome,
+            'setor' => $request->setor,
+            'acesso' => $request->acesso,
+            'login' => $request->login,
+            'senha' => $request->senha, // Salvar senha criptografada
+            'url_foto' => $caminhoImagem, // Caminho do arquivo no servidor
+        ]);
+        
+
+    }else{
+
     Usuario::create([
         'nome' => $request->nome,
         'setor' => $request->setor,
         'acesso' => $request->acesso,
         'login' => $request->login,
         'senha' => $request->senha, // Salvar senha criptografada
-        'url_foto' => $caminhoImagem, // Caminho do arquivo no servidor
+        'url_foto' => null, // Caminho do arquivo no servidor
     ]);
+    }
 
     // Retornar resposta de sucesso
     return redirect()->back()->with('success', 'Usuário adicionado com sucesso!');
     }
 
-    public function editarUsuario()
+    public function exibirEditarUsuario(Usuario $usuario)
     {
-        return view('administrador.editarUsuario');
+        $usuario = Usuario::where('login', $usuario->login)->firstOrFail();
+
+        return view('administrador.editarUsuario', compact('usuario'));
     }
 }

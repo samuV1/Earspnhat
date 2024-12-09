@@ -23,8 +23,8 @@
             @csrf
 
             <section>
-                <section id="format_form_sector">
-                    <section class="section_form">
+                <section id="formatacao_formulario">
+                    <section class="secao_formulario">
                         <label for="input_add_sector_name">Nome:</label>
                         <input class="entrada_texto" id="input_add_sector_name" name="nome" type="text" value="{{ old('nome') }}">
                         @error('nome')
@@ -32,7 +32,7 @@
                         @enderror
                     </section>
     
-                    <section class="section_form">
+                    <section class="secao_formulario">
                         <label for="input_add_sector_id">Identificação/Código do Setor:</label>
                         <input class="entrada_texto" id="input_add_sector_id" name="codigo" type="number" value="{{ old('codigo') }}">
                         @error('codigo')
@@ -42,9 +42,9 @@
                 </section>
             </section>
             
-            <section id="button_group">
-                <input class="add_button" type="submit" value="Adicionar">
-                <input class="cancel_button" type="reset" value="Desistir">
+            <section id="grupo_botao">
+                <input class="botao_adicao" type="submit" value="Adicionar">
+                <input class="botao_cancelar" type="reset" value="Desistir">
             </section>
             
 

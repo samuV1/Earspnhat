@@ -20,19 +20,19 @@
 
         <h1>Adicionar um Novo Usuário</h1>
 
-        <form id="form_user" action="{{ route('adicionarUsuario') }}" method="POST" enctype="multipart/form-data">
+        <form id="formulario_usuario" action="{{ route('adicionarUsuario') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <section id="format_form_user">
+            <section id="format_formulario_usuario">
 
                 <div id="div_detalhes">
                     
                     <section class="formatacao_seções_formulario">
-                        <label for="input_add_user_name">Nome:</label>
-                        <input class="entrada_texto" id="input_add_user_name" name="nome" type="text">
+                        <label for="usuario_nome">Nome:</label>
+                        <input class="entrada_texto" id="usuario_nome" name="nome" type="text">
                     </section>
                     <section class="formatacao_seções_formulario">
-                        <label for="input_add_user_sector">Setor:</label>
-                        <input class="entrada_texto" id="input_add_user_sector" name="setor" type="text">
+                        <label for="usuario_setor">Setor:</label>
+                        <input class="entrada_texto" id="usuario_setor" name="setor" type="text">
                         <label for="dropdown_level_access">Acesso:</label>
                         <select class="estrada_lista_suspensa" id="dropdown_level_access" name="acesso">
                         <option value="0">Usuário</option>
@@ -42,11 +42,11 @@
                     </select>
                     </section>
                     <section class="formatacao_seções_formulario">
-                        <label for="input_add_user_login">Usuário:</label>
-                        <input class="entrada_texto" id="input_add_user_login" name="login" type="text">
+                        <label for="usuario_login">Usuário:</label>
+                        <input class="entrada_texto" id="usuario_login" name="login" type="text">
                     
-                        <label for="input_add_user_password">Senha:</label>
-                        <input class="entrada_texto" id="input_add_user_password" name="senha" type="text">                
+                        <label for="usuario_senha">Senha:</label>
+                        <input class="entrada_texto" id="usuario_senha" name="senha" type="text">                
                     </section>
                 </div>
 
@@ -56,7 +56,7 @@
                     <img id="preview" src="/imagens/user.jpg" alt="Preview da Imagem">
 
                     <label id="bunton_choice_picture" for="fileInput">Escolher Imagem</label>
-                    <input type="file" id="fileInput" class="inputpicture" accept="image/*" nome="url_foto">
+                    <input type="file" id="fileInput" class="inputpicture" accept="image/*" name="url_foto">
                         
                     <script>
                         const fileInput = document.getElementById('fileInput');
@@ -80,9 +80,9 @@
             </section>
 
 
-            <section id="button_group">
-                <input class="add_button" type="submit" value="Adicionar">
-                <input class="cancel_button" type="reset" value="Desistir">
+            <section id="grupo_botao">
+                <input class="botao_adicao" type="submit" value="Adicionar">
+                <input class="botao_cancelar" type="reset" value="Desistir">
             </section>
 
 

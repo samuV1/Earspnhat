@@ -21,7 +21,7 @@ main {
 }
 
 /*Posicionamento do conteúdo dentro do formulário*/
-#form_active {
+#form_active, #formulario_editar_programa, #formulario_editar_equipamento,  #formulario_editar_setor, #formulario_editar_servico {
     display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -39,7 +39,7 @@ main {
 	height: 60vh;
 }
 
-#form_user {
+#formulario_usuario {
     display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -48,7 +48,7 @@ main {
 	height: 60vh;
 }
 
-.section_form{
+.secao_formulario{
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -82,7 +82,7 @@ h3{
 }
 
 /*Personalização dos botões*/
-.add_button{
+.botao_adicao{
 	width: 10vw;
 	height: 6vh;
 	background-color: #66704b;
@@ -95,7 +95,7 @@ h3{
 	border: solid 1px;
 }
 
-.cancel_button{
+.botao_cancelar{
 	width: 10vw;
 	height: 6vh;
 	background-color: #be2d28;
@@ -108,7 +108,7 @@ h3{
 	border: solid 1px;
 }
 
-.remove_button{
+.botao_remover{
 	width: 10vw;
 	height: 6vh;
 	background-color: #0f0505;
@@ -121,7 +121,7 @@ h3{
 	border: solid 1px;
 }
 
-.add_button:hover, .add_button:focus{
+.botao_adicao:hover, .botao_adicao:focus{
 	width: 10vw;
 	height: 6vh;
 	background-color: #bbce87;
@@ -132,7 +132,7 @@ h3{
 	border-radius: 3px 3px 3px 3px;
 }
 
-.cancel_button:hover, .cancel_button:focus{
+.botao_cancelar:hover, .botao_cancelar:focus{
 	width: 10vw;
 	height: 6vh;
 	background-color: #ff524d;
@@ -144,7 +144,7 @@ h3{
 	border-width: 1px;
 }
 
-.remove_button:hover, .remove_button:focus{
+.botao_remover:hover, .botao_remover:focus{
 	width: 10vw;
 	height: 6vh;
 	background-color: #16070780;
@@ -156,7 +156,7 @@ h3{
 	border-width: 1px;
 }
 
-.add_button:active{
+.botao_adicao:active{
 	width: 10vw;
 	height: 6vh;
 	background-color: #ffffff;
@@ -167,7 +167,7 @@ h3{
 	border-radius: 3px 3px 3px 3px;
 }
 
-.cancel_button:active{
+.botao_cancelar:active{
 	width: 10vw;
 	height: 6vh;
 	background-color: #ffffff;
@@ -178,7 +178,7 @@ h3{
 	border-radius: 3px 3px 3px 3px;
 }
 
-.remove_button:active{
+.botao_remover:active{
 	width: 10vw;
 	height: 6vh;
 	background-color: #ffffff;
@@ -247,7 +247,7 @@ input[type='file']{
 
 /*formatação formulário de adicionar usuários*/
 
-#format_form_user{
+#format_formulario_usuario{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -283,11 +283,11 @@ input[type='file']{
 	padding: 20px;
 }
 
-#input_add_user_password, #input_add_user_login{
+#usuario_senha, #usuario_login{
 	width: 8vw;
 }
 
-#input_add_user_sector{
+#usuario_setor{
 	width: 13vw;
 }
 
@@ -295,7 +295,7 @@ input[type='file']{
 	width: 10w;
 }
 
-#input_add_user_name{
+#usuario_nome{
 	width: 23vw;
 }
 
@@ -324,7 +324,7 @@ input[type='file']{
 	width: 35vw;
 }
 
-#format_form_active{
+#formatacao_formulario_ativo{
 	width: 60vw;
 	display: flex;
 	flex-direction: column;

@@ -21,14 +21,14 @@
 
         <form id="form_active" action="{{ route('adicionarEquipamento') }}" method="POST">
             @csrf
-            <div id="format_form_active">
+            <div id="formatacao_formulario_ativo">
                 <label for="input_add_active_license">Código/Patrimônio:</label>
                 <input class="entrada_texto" id="input_add_active_license" name="patrimonio" type="text" required>
         
                 <label for="input_add_active_code">Tipo</label>
                 <input class="entrada_texto" id="input_add_active_code" name="tipo" type="text" required>
         
-                <section class="section_form">
+                <section class="secao_formulario">
                     <label for="input_add_active_aquisition">Data de aquisição:</label>
                     <input class="entrada_data" id="input_add_active_aquisition" name="aquisicao" type="date" required>
         
@@ -39,7 +39,7 @@
                     </select>
                 </section>
         
-                <section class="section_form">
+                <section class="secao_formulario">
                     <label for="input_add_active_model">Marca:</label>
                     <input class="entrada_texto" id="input_add_active_model" name="marca" type="text">
         
@@ -51,9 +51,9 @@
                 </section>
             </div>
         
-            <section id="button_group">
-                <input class="add_button" type="submit" value="Adicionar">
-                <input class="cancel_button" type="reset" value="Desistir">
+            <section id="grupo_botao">
+                <input class="botao_adicao" type="submit" value="Adicionar">
+                <input class="botao_cancelar" type="reset" value="Desistir">
             </section>
         </form>
         

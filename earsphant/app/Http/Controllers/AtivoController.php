@@ -77,17 +77,17 @@ class AtivoController extends Controller
         return redirect()->back()->with('success', 'Programa adicionado com sucesso!');
     }
 
-    public function editarEquipamento(Equipamento $equipamento)
+    public function exibirEditarEquipamento(Equipamento $equipamento)
     {
-        $equipamentos = Equipamento::where('patrimonio', $equipamento->patrimonio)->firstOrFail();
+        $equipamento = Equipamento::where('patrimonio', $equipamento->patrimonio)->firstOrFail();
 
-        return view('administrador.editarEquipamento', compact('equipamentos'));
+        return view('administrador.editarEquipamento', compact('equipamento'));
     }
 
-    public function editarPrograma(Programa $programa)
+    public function exibirEditarPrograma(Programa $programa)
     {
-        $programas = Programa::where('codigo', $programa->codigo)->firstOrFail();
+        $programa = Programa::where('codigo', $programa->codigo)->firstOrFail();
 
-        return view('administrador.editarPrograma', compact('programas'));
+        return view('administrador.editarPrograma', compact('programa'));
     }
 }

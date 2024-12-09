@@ -14,27 +14,27 @@
         
         <h1>Editar Setor</h1>
 
-        <form id="form_sector" action={{ route('edit_sector') }} method="POST">
+        <form id="formulario_editar_setor" action={{ route('editarSetor') }} method="POST">
             @csrf
 
             <section>
-                <section id="format_form_sector">
-                    <section class="section_form">
-                        <label for="input_add_sector_name">Nome:</label>
-                        <input class="entrada_texto" id="input_add_sector_name" name="name" type="text">
+                <section id="formatacao_formulario_editar_setor">
+                    <section class="secao_formulario">
+                        <label for="name">Nome:</label>
+                        <input class="entrada_texto" id="name" name="name" type="text" value="{{$setor->nome}}">
                     </section>
 
-                    <section class="section_form">
-                        <label for="input_add_sector_id">Identificação/Código do Setor:</label>
-                        <input class="entrada_texto" id="input_add_sector_id" name="code" type="number">
+                    <section class="secao_formulario">
+                        <label for="codigo">Identificação/Código do Setor:</label>
+                        <input class="entrada_texto" id="codigo" name="codigo" type="number" value="{{$setor->codigo}}">
                     </section>
                 </section>
             </section>
             
-                <section id="button_group">
-                    <input class="add_button" type="submit" value="Adicionar">
-                    <input class="cancel_button" type="reset" value="Desistir">
-                    <input class="remove_button" type="submit" value="Remover">
+                <section id="grupo_botao">
+                    <input class="botao_adicao" type="submit" value="Alterar">
+                    <input class="botao_cancelar" type="reset" value="Desistir">
+                    <input class="botao_remover" type="submit" value="Remover">
                 </section>            
 
         </form>

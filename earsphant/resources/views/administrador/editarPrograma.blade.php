@@ -14,43 +14,43 @@
 
         <h1>Editar Ativo</h1>
         
-        <form id="form_active" action="{{ route('adicionarPrograma') }}" method="POST">
+        <form id="formulario_editar_programa" action="{{ route('editarPrograma') }}" method="POST">
             @csrf
-            <div id="format_form_active">
+            <div id="formatacao_formulario_ativo">
                                 
-                    <label for="input_add_active_license">Licença:</label>
-                    <input class="entrada_texto" id="input_add_active_license" name="licenca" type="text">
+                    <label for="licenca">Licença:</label>
+                    <input class="entrada_texto" id="licenca" name="licenca" type="text" value="{{ $programa->licenca }}">
     
-                    <label for="input_add_active_code">Numeração Interna:</label>
-                    <input class="entrada_texto" id="input_add_active_code" name="codigo" type="text">
+                    <label for="codigo">Numeração Interna:</label>
+                    <input class="entrada_texto" id="codigo" name="codigo" type="text" value="{{ $programa->codigo }}">
                     
-                    <section  class="section_form">
-                        <label for="input_add_active_aquisition">Data de aquisição:</label>
-                        <input class="entrada_data" id="input_add_active_aquisition" name="aquisicao" type="date">
+                    <section  class="secao_formulario">
+                        <label for="aquisicao">Data de aquisição:</label>
+                        <input class="entrada_data" id="aquisicao" name="aquisicao" type="date" value="{{ $programa->aquisicao }}">
     
-                        <label for="dropdown_soft_or_hard">Desenvolvido por terceiros?</label>
-                        <select class="estrada_lista_suspensa" id="dropdown_soft_or_hard" name="terceiros">
-                            <option value="false">Não</option>
-                            <option value="true">Sim</option>
+                        <label for="terceiros">Desenvolvido por terceiros?</label>
+                        <select class="estrada_lista_suspensa" id="terceiros" name="terceiros">
+                            <option value="false" {{ $programa->terceiros == 'false' ? 'selected' : ''}}>Não</option>
+                            <option value="true" {{ $programa->terceiros == 'true' ? 'selected' : ''}}>Sim</option>
                         </select>
                     </section>
     
-                    <section  class="section_form">
-                        <label for="input_add_active_model">Nome:</label>
-                        <input class="entrada_texto" id="input_add_active_model" name="nome"  type="text">
+                    <section  class="secao_formulario">
+                        <label for="nome">Nome:</label>
+                        <input class="entrada_texto" id="nome" name="nome" type="text" value="{{ $programa->nome }}">
     
-                        <label for="input_add_active_brand">Fornecedor:</label>
-                        <input class="entrada_texto" id="input_add_active_brand" name="fornecedor" type="text">
+                        <label for="fornecedor">Fornecedor:</label>
+                        <input class="entrada_texto" id="fornecedor" name="fornecedor" type="text" value="{{ $programa->fornecedor }}">
                         
-                        <label for="input_add_active_type">Versão:</label>
-                        <input class="entrada_texto" id="input_add_active_type" name="versao" type="text">
+                        <label for="versao">Versão:</label>
+                        <input class="entrada_texto" id="versao" name="versao" type="text" value="{{ $programa->versao }}">
                     </section>
                 </div>
 
-            <section id="button_group">
-                <input class="add_button" type="submit" value="Alterar">
-                <input class="cancel_button" type="reset" value="Desistir">
-                <input class="remove_button" type="submit" value="Remover">
+            <section id="grupo_botao">
+                <input class="botao_adicao" type="submit" value="Alterar">
+                <input class="botao_cancelar" type="reset" value="Desistir">
+                <input class="botao_remover" type="submit" value="Remover">
             </section>
 
         </form>

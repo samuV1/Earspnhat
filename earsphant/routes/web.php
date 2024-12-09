@@ -72,22 +72,23 @@ Route::get('/administrador/adicionarServico', [ServicoController::class, 'exibir
 Route::post('/administrador/adicionarServico', [ServicoController::class, 'armazenarBD'])->name('adicionarServico');
 
 // Interface Editar Usuário
-Route::get('/administrador/editarUsuario/', [UsuarioController::class, 'editarUsuario'])->name('editarUsuario');
+Route::get('/administrador/editarUsuario/{usuario}', [UsuarioController::class, 'exibirEditarUsuario'])->name('exibirEditarUsuario');
+Route::post('/administrador/editarUsuario/', [UsuarioController::class, 'editarUsuario'])->name('editarUsuario');
 
 
 // Interface Editar Ativo
-Route::get('/administrador/editarPrograma/{programa}', [AtivoController::class, 'editarPrograma'])->name('editarPrograma');
-Route::post('/administador/editarPrograma', [AtivoController::class, 'atualizarPrograma'])->name('atutalizarPrograma');
+Route::get('/administrador/editarPrograma/{programa}', [AtivoController::class, 'exibirEditarPrograma'])->name('exibirEditarPrograma');
+Route::post('/administador/editarPrograma', [AtivoController::class, 'editarPrograma'])->name('editarPrograma');
 
-Route::get('/administrador/editarEquipamento/{equipamento}', [AtivoController::class, 'editarEquipamento'])->name('editarEquipamento');
-Route::post('/administrador/editarEquipamento', [AtivoController::class, 'atualizarEquipamento'])->name('atualizarEquipamento');
+Route::get('/administrador/editarEquipamento/{equipamento}', [AtivoController::class, 'exibirEditarEquipamento'])->name('exibirEditarEquipamento');
+Route::post('/administrador/editarEquipamento', [AtivoController::class, 'editarEquipamento'])->name('editarEquipamento');
 
 // Interface Editar Setor
-Route::get('/administrador/editarSetor', [SetorController::class, 'editarSetor'])->name('editarSetor');
+Route::get('/administrador/editarSetor/{setor}', [SetorController::class, 'exibirEditarSetor'])->name('exibirEditarSetor');
 Route::post('/administador/editarSetor', [SetorController::class, 'editarSetor'])->name('editarSetor');
 
 // Interface Editar Servico
-Route::get('/administador/editarServico', [ServicoController::class, 'editarServico'])->name('editarServico');
+Route::get('/administador/editarServico/{servico}', [ServicoController::class, 'exibireditarServico'])->name('exibirEditarServico');
 Route::post('/administador/editarServico', [ServicoController::class, 'editarServico'])->name('editarServico');
 
 // Pesquisas

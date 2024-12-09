@@ -42,7 +42,7 @@
                             <strong class="pesquisa">Código:</strong> {{ $setor->codigo }} 
                             <strong class="pesquisa">| Setor:</strong> {{ $setor->nome }}  
                             @if (session('acesso') == 3)
-                                <a class="pesquisa" href="{{ route('inicioAdm') }}">Ver detalhes</a>
+                                <a class="pesquisa" href="{{ route('exibirEditarSetor', [$setor]) }}">Ver detalhes</a>
                             @endif                        
                         </li>
                     @endforeach

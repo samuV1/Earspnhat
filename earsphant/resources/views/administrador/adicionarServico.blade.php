@@ -22,13 +22,13 @@
             @csrf
 
             <section>
-                <section id="format_form_sector">
-                    <section class="section_form">
+                <section id="formatacao_formulario">
+                    <section class="secao_formulario">
                         <label for="input_add_sector_name">Nome:</label>
                         <input class="entrada_texto" id="input_add_sector_name" name="servico" type="text">
                     </section>
 
-                    <section class="section_form">
+                    <section class="secao_formulario">
                         <label for="input_add_sector_id">Acordo a nível de serviço (em horas):</label>
                         <select class="entrada_texto" id="input_add_sector_id" name="ans">
                             <!-- Opção Default -->
@@ -59,9 +59,9 @@
                 </section>
             </section>
             
-            <section id="button_group">
-                <input class="add_button" type="submit" value="Adicionar">
-                <input class="cancel_button" type="reset" value="Desistir">
+            <section id="grupo_botao">
+                <input class="botao_adicao" type="submit" value="Adicionar">
+                <input class="botao_cancelar" type="reset" value="Desistir">
             </section>            
 
         </form>

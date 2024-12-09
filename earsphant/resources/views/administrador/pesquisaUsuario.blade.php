@@ -55,7 +55,7 @@
                             <strong class="pesquisa">Nome:</strong> {{ $usuario->nome }} 
                             <strong class="pesquisa">| Setor:</strong> {{ $usuario->setor }} 
                             <strong class="pesquisa">| Login:</strong> {{ $usuario->login }} 
-                            <a class="pesquisa" href="{{ route('editarUsuario') }}">Ver detalhes</a>
+                            <a class="pesquisa" href="{{ route('exibirEditarUsuario', [$usuario]) }}">Ver detalhes</a>
                         </li>
                     @endforeach
                 </div>
