@@ -8,7 +8,7 @@ use App\Models\Programa;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\Servico;
-
+use App\Models\Setor;
 
 class PesquisaController extends Controller
 {
@@ -31,6 +31,7 @@ class PesquisaController extends Controller
                     ->where('status', 'like', '%'.$request->input('status').'%')
                     ->where('usuario', 'like', '%'.$request->input('usuario').'%')
                     ->where('servico', 'like', '%'.$request->input('servico').'%')
+                    ->where('descricao', 'like', '%'.$request->input('descricao').'%')
                     ->get();
 
         $categorias = Servico::all();
@@ -56,5 +57,23 @@ class PesquisaController extends Controller
                     ->get();
         
         return view('administrador.pesquisaPrograma', ['programas' => $programas]);
+    }
+
+    public function pesquisaSetor(Request $request)
+    {
+        $setores = Setor::where('codigo', 'like', '%'.$request->input('codigo').'%')
+                    ->where('nome', 'like', '%'.$request->input('nome').'%')
+                    ->get();
+        
+        return view('administrador.pesquisaSetor', ['setores' => $setores]);
+    }
+
+    public function pesquisaServico(Request $request)
+    {
+        $servicos = Servico::where('servico', 'like', '%'.$request->input('servico').'%')
+                    ->where('status', 'like', '%'.$request->input('status').'%')
+                    ->get();
+        
+        return view('administrador.pesquisaServico', ['servicos' => $servicos]);
     }
 }

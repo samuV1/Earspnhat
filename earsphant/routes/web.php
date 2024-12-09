@@ -33,7 +33,6 @@ Route::get('/usuario/abrirAtendimentos', [AtendimentoController::class, 'exibirA
 
 
 // Historicos Atendimentos Fechados
-
 Route::get('/usuario/historico', [HistoricoController::class, 'historico'])->name('tickets.historico');
 Route::get('/historico/{codigo}', [HistoricoController::class, 'detalhes'])->name('tickets.detalhes');
 Route::get('/historico/historico/{userId?}', [AtendimentoController::class, 'historicoFinalizados'])->name('atendimentos.finalizados');
@@ -105,7 +104,11 @@ Route::post('/administrador/pesquisaPrograma', [PesquisaController::class, 'pesq
 Route::get('/administrador/pesquisaEquipamento', [PesquisaController::class, 'pesquisaEquipamento'])->name('pesquisaEquipamento');
 Route::post('/administrador/pesquisaEquipamento', [PesquisaController::class, 'pesquisaEquipamento'])->name('pesquisaEquipamento');
 
+Route::get('/administrador/pesquisaSetor', [PesquisaController::class, 'pesquisaSetor'])->name('pesquisaSetor');
+Route::post('/administrador/pesquisaSetor', [PesquisaController::class, 'pesquisaSetor'])->name('pesquisaSetor');
 
+Route::get('/administrador/pesquisaServico', [PesquisaController::class, 'pesquisaServico'])->name('pesquisaServico');
+Route::post('/administrador/pesquisaServico', [PesquisaController::class, 'pesquisaServico'])->name('pesquisaServico');
 
 // Abertura de Tickets
 Route::get('/administrador/abrirAtendimentoADM', [AtendimentoController::class, 'exibirAbrirAtendimentoADM'])->name('abrirAtendimentoADM');

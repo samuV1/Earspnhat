@@ -3,10 +3,10 @@
 @section('titles', 'Adicionar novo ativo')
 
 @section('estilo_pagina_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/crud.css') }}>
+    <link rel="stylesheet" href={{ asset('css/modulo_administrador/crud.css') }}>
 @endsection
 
-@section('pages')
+@section('pagina')
 
 @include('administrador.cabecalho')
     
@@ -32,10 +32,10 @@
                     
                     <section  class="section_form">
                         <label for="input_add_active_aquisition">Data de aquisição:</label>
-                        <input class="input_date" id="input_add_active_aquisition" name="aquisicao" type="date">
+                        <input class="entrada_data" id="input_add_active_aquisition" name="aquisicao" type="date">
     
                         <label for="dropdown_soft_or_hard">Desenvolvido por terceiros?</label>
-                        <select class="input_droplist" id="dropdown_soft_or_hard" name="terceiros">
+                        <select class="estrada_lista_suspensa" id="dropdown_soft_or_hard" name="terceiros">
                             <option value="false">Não</option>
                             <option value="true">Sim</option>
                         </select>

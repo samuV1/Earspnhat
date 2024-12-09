@@ -7,7 +7,7 @@
 @endsection
 
 
-@section('pages')
+@section('pagina')
 
 @include('administrador.cabecalho')
     

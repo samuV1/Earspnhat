@@ -63,13 +63,13 @@ main {
 	margin: 10px;
 }
 
-.input_date{
+.entrada_data{
 	width: 8vw;
 	height: 4.5vh;
 	margin: 10px;
 }
 
-.input_droplist{
+.estrada_lista_suspensa{
 	width: 15vw;
 	height: 4.8vh;
 	margin: 10px;
@@ -255,7 +255,7 @@ input[type='file']{
 	align-content: space-around;
 }
 
-#div_details_user{
+#div_detalhes{
 	width: 40vw;
 	height: 40vh;
 	display: flex;
@@ -299,7 +299,7 @@ input[type='file']{
 	width: 23vw;
 }
 
-.format_form_sections{
+.formatacao_seções_formulario{
 	display: flex;
 	flex-direction: row;
 	align-items: center;

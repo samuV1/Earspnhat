@@ -3,11 +3,11 @@
 @section('titles', 'Pesquisar ticket')
 
 @section('estilo_pagina_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/pesquisa.css') }}>
+    <link rel="stylesheet" href={{ asset('css/modulo_administrador/pesquisa.css') }}>
 @endsection
 
 
-@section('pages')
+@section('pagina')
 
 @include('administrador.cabecalho')
     
@@ -15,58 +15,64 @@
 
         <h1>Pesquisar Atendimentos</h1>
 
-        <form id="form_user" action="{{ route('pesquisaAtendimento') }}" method="POST" >
+        <form id="formulario_pesquisar_atendimentos" action="{{ route('pesquisaAtendimento') }}" method="POST" >
             @csrf
-            <section id="format_form_user">
+            <section id="formatacao_formulario_pesquisar_atendimentos">
 
-                <div id="div_details_user">
+                <div id="div_detalhes">
                     
-                    <section class="format_form_sections">
-                        <label for="input_add_user_name">Código:</label>
-                        <input class="entrada_texto" id="input_add_user_name" name="codigo" type="text">
+                    <section class="formatacao_seções_formulario">
+                        <label for="codigo">Código:</label>
+                        <input class="entrada_texto" id="codigo" name="codigo" type="text" value="{{request('codigo')}}">
 
-                        <label for="input_add_user_sector">Setor:</label>
-                        <input class="entrada_texto" id="input_add_user_sector" name="setor" type="text">
+                        <label for="setor">Setor:</label>
+                        <input class="entrada_texto" id="setor" name="setor" type="text" value="{{request('setor')}}">
 
-                        <label for="input_add_user_sector">Login do Usuário:</label>
-                        <input class="entrada_texto" id="input_add_user_sector" name="usuario" type="text">
+                        <label for="usuario">Login do Usuário:</label>
+                        <input class="entrada_texto" id="usuario" name="usuario" type="text" value="{{request('usuario')}}">
 
-                        <label for="dropdown_level_access">Status:</label>
-                        <select class="input_droplist" id="dropdown_level_access" name="status">
-                        <option value="">Todos</option>
-                        <option value="aberto">Aberto</option>
-                        <option value="finalizado">Finalizado (nível 1)</option>
-                        <option value="2">Analista (nível 2)</option>
-                        <option value="3">Administrador</option>
-                        </select>  
+                        <label for="status">Status:</label>
+                        <select class="estrada_lista_suspensa" id="status" name="status">
+                            <option value="" {{ request('status') == '' ? 'selected' : '' }}>Todos</option>
+                            <option value="aberto" {{ request('status') == 'aberto' ? 'selected' : '' }}>Aberto</option>
+                            <option value="finalizado" {{ request('status') == 'finalizado' ? 'selected' : '' }}>Finalizado (nível 1)</option>
+                            <option value="2" {{ request('status') == '2' ? 'selected' : '' }}>Analista (nível 2)</option>
+                            <option value="3" {{ request('status') == '3' ? 'selected' : '' }}>Administrador</option>
+                        </select>
 
-                        <label for="">Serviço</label>
-                        <select name="servico" id="">
-                            <option value="">Todos</option>
+                        <label for="servico">Serviço:</label>
+                        <select name="servico" id="servico">
+                            <option value="" {{ request('servico') == '' ? 'selected' : '' }}>Todos</option>
                             @foreach ($categorias as $categoria)
-                                <option value="{{ $categoria->servico }}" {{ old('servico') == $categoria->servico ? 'selected' : '' }}>
+                                <option value="{{ $categoria->servico }}" 
+                                    {{ request('servico') == $categoria->servico ? 'selected' : '' }}>
                                     {{ $categoria->servico }}
                                 </option>
                             @endforeach
                         </select>
+
  
+                    </section>
+                    <section>
+                        <label for="descricao">Parte de uma descrição (colocar entre os simbos de %):</label>
+                        <input class="entrada_texto" id="descricao" name="descricao" type="text" value="{{request('descricao')}}">
                     </section>
                 </div>
             </section>
 
             <section class="grupoBotao">
-                <input class="pesquisar_button" type="submit" value="Pesquisar">
-                <input class="limpar_button" type="reset" value="Limpar">
+                <input class="botao_pesquisar" type="submit" value="Pesquisar">
+                <input class="botao_limpar" type="reset" value="Limpar">
             </section>
         </form>
             <section>
                 <div class="areaTicket">
                     @foreach ($atendimentos as $atendimento)
-                        <li class="historico">
-                            <strong class="historico">Código:</strong> {{ $atendimento->codigo }} 
-                            <strong class="historico">| Servico:</strong> {{ $atendimento->servico }} 
-                            <strong class="historico">| Usuario:</strong> {{ $atendimento->usuario }} 
-                            <a class="historico" href="{{ route('atendimentoADM', $atendimento->codigo) }}">Ver detalhes</a>
+                        <li class="pesquisa">
+                            <strong class="pesquisa">Código:</strong> {{ $atendimento->codigo }} 
+                            <strong class="pesquisa">| Servico:</strong> {{ $atendimento->servico }} 
+                            <strong class="pesquisa">| Usuario:</strong> {{ $atendimento->usuario }} 
+                            <a class="pesquisa" href="{{ route('atendimentoADM', $atendimento->codigo) }}">Ver detalhes</a>
                         </li>
                     @endforeach
                 </div>

@@ -3,11 +3,11 @@
 @section('titles', 'Início')
 
 @section('estilo_pagina_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/home.css') }}>
+    <link rel="stylesheet" href={{ asset('css/modulo_administrador/home.css') }}>
 @endsection
 
 
-@section('pages')
+@section('pagina')
 
 @include('administrador.cabecalho')
     

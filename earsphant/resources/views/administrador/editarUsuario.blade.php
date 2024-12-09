@@ -3,11 +3,11 @@
 @section('titles', 'Editar usuário')
 
 @section('estilo_pagina_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/crud.css') }}>
+    <link rel="stylesheet" href={{ asset('css/modulo_administrador/crud.css') }}>
 @endsection
 
 
-@section('pages')
+@section('pagina')
 
 @include('administrador.cabecalho')
     
@@ -33,22 +33,22 @@
 
         <section id="format_form_user">
 
-            <div id="div_details_user">
+            <div id="div_detalhes">
                 
-                <section class="format_form_sections">
+                <section class="formatacao_seções_formulario">
                     <label for="input_add_user_name">Nome:</label>
                     <input class="entrada_texto" id="input_add_user_name" name="name" type="text" value="{{ old('name', $user->name) }}">
                 </section>
-                <section class="format_form_sections">
+                <section class="formatacao_seções_formulario">
                     <label for="input_add_user_sector">Setor:</label>
                     <input class="entrada_texto" id="input_add_user_sector" name="sector_code" type="text" value="{{ old('sector_code', $user->sector_code) }}">
                     <label for="dropdown_level_access">Acesso:</label>
-                    <select class="input_droplist" id="dropdown_level_access" name="access_level">
+                    <select class="estrada_lista_suspensa" id="dropdown_level_access" name="access_level">
                         <option value="user" {{ old('access_level', $user->access_level) == 'user' ? 'selected' : '' }}>Usuário</option>
                         <option value="admin" {{ old('access_level', $user->access_level) == 'admin' ? 'selected' : '' }}>Administrador</option>
                     </select>
                 </section>
-                <section class="format_form_sections">
+                <section class="formatacao_seções_formulario">
                     <label for="input_add_user_login">Usuário:</label>
                     <input class="entrada_texto" id="input_add_user_login" name="login" type="text" value="{{ old('login', $user->login) }}">
                 

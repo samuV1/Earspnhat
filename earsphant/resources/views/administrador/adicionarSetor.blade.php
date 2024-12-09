@@ -3,10 +3,10 @@
 @section('titles', 'Adicionar novo setor')
 
 @section('estilo_pagina_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/crud.css') }}>
+    <link rel="stylesheet" href={{ asset('css/modulo_administrador/crud.css') }}>
 @endsection
 
-@section('pages')
+@section('pagina')
 
 @include('administrador.cabecalho')
     

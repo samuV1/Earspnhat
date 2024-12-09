@@ -3,11 +3,11 @@
 @section('titles', 'Pesquisar usuário')
 
 @section('estilo_pagina_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/pesquisa.css') }}>
+    <link rel="stylesheet" href={{ asset('css/modulo_administrador/pesquisa.css') }}>
 @endsection
 
 
-@section('pages')
+@section('pagina')
 
     @include('administrador.cabecalho')
     
@@ -15,55 +15,51 @@
 
         <h1>Pesquisar Usuário</h1>
 
-        <form id="form_user" action="{{ route('pesquisaUsuario') }}" method="POST" >
+        <form id="formulario_pesquisar_usuario" action="{{ route('pesquisaUsuario') }}" method="POST" >
             @csrf
-            <section id="format_form_user">
+            <section id="formatacao_formulario_pesquisar_usuario">
 
-                <div id="div_details_user">
+                <div id="div_detalhes">
                     
-                    <section class="format_form_sections">
-                        <label for="input_add_user_name">Nome:</label>
-                        <input class="entrada_texto" id="input_add_user_name" name="nome" type="text">
+                    <section class="formatacao_seções_formulario">
+                        <label for="nome">Nome:</label>
+                        <input class="entrada_texto" id="nome" name="nome" type="text" value="{{ request('nome') }}">
 
-                        <label for="input_add_user_sector">Setor:</label>
-                        <input class="entrada_texto" id="input_add_user_sector" name="setor" type="text">
+                        <label for="setor">Setor:</label>
+                        <input class="entrada_texto" id="setor" name="setor" type="text" value="{{ request('setor') }}">
 
-                        <label for="dropdown_level_access">Acesso:</label>
-                        <select class="input_droplist" id="dropdown_level_access" name="acesso">
-                        <option value="">Todos</option>
-                        <option value="0">Usuário</option>
-                        <option value="1">Técnico (nível 1)</option>
-                        <option value="2">Analista (nível 2)</option>
-                        <option value="3">Administrador</option>
+                        <label for="acesso">Acesso:</label>
+                        <select class="estrada_lista_suspensa" id="acesso" name="acesso">
+                            <option value="" {{ request('acesso') === null ? 'selected' : '' }}>Todos</option>
+                            <option value="0" {{ request('acesso') == '0' ? 'selected' : '' }}>Usuário</option>
+                            <option value="1" {{ request('acesso') == '1' ? 'selected' : '' }}>Técnico (nível 1)</option>
+                            <option value="2" {{ request('acesso') == '2' ? 'selected' : '' }}>Analista (nível 2)</option>
+                            <option value="3" {{ request('acesso') == '3' ? 'selected' : '' }}>Administrador</option>
                         </select>
 
-                        <label for="input_add_user_login">Usuário:</label>
-                        <input class="entrada_texto" id="input_add_user_login" name="login" type="text">              
+                        <label for="login">Usuário:</label>
+                        <input class="entrada_texto" id="login" name="login" type="text" value="{{ request('login') }}">              
                     </section>
                 </div>
             </section>
 
             <section class="grupoBotao">
-                <input class="pesquisar_button" type="submit" value="Pesquisar">
-                <input class="limpar_button" type="reset" value="Limpar">
+                <input class="botao_pesquisar" type="submit" value="Pesquisar">
+                <input class="botao_limpar" type="reset" value="Limpar">
             </section>
         </form>
             <section>
                 <div class="areaTicket">
                     @foreach ($usuarios as $usuario)
-                        <li class="historico">
-                            <strong class="historico">Nome:</strong> {{ $usuario->nome }} 
-                            <strong class="historico">| Setor:</strong> {{ $usuario->setor }} 
-                            <strong class="historico">| Login:</strong> {{ $usuario->login }} 
-                            <a class="historico" href="{{ route('editarUsuario') }}">Ver detalhes</a>
+                        <li class="pesquisa">
+                            <strong class="pesquisa">Nome:</strong> {{ $usuario->nome }} 
+                            <strong class="pesquisa">| Setor:</strong> {{ $usuario->setor }} 
+                            <strong class="pesquisa">| Login:</strong> {{ $usuario->login }} 
+                            <a class="pesquisa" href="{{ route('editarUsuario') }}">Ver detalhes</a>
                         </li>
                     @endforeach
                 </div>
             </section>
-
-  
-
-
     </main>
 
     @include('administrador.rodape')

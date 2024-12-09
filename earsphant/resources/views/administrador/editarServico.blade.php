@@ -3,10 +3,10 @@
 @section('titles', 'Editar serviço')
 
 @section('estilo_pagina_css')
-    <link rel="stylesheet" href={{ asset('css/admin_module/crud.css') }}>
+    <link rel="stylesheet" href={{ asset('css/modulo_administrador/crud.css') }}>
 @endsection
 
-@section('pages')
+@section('pagina')
 
 @include('administrador.cabecalho')
     
@@ -31,7 +31,7 @@
 
                     <section class="section_form">
                         <label for="dropdown_soft_or_hard">Status</label>
-                        <select class="input_droplist" id="dropdown_soft_or_hard" name="category">
+                        <select class="estrada_lista_suspensa" id="dropdown_soft_or_hard" name="category">
                             <option value="active">Serviço Ativo</option>
                             <option value="obselete">Serviço Obsoleto</option>
                         </select>
