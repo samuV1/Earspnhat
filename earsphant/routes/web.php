@@ -12,6 +12,8 @@ use App\Http\Controllers\PesquisaController;
 use App\Http\Controllers\HistoricoController;
 use App\Http\Controllers\NotaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+
 
 // Login e logout
 Route::get('/', [AutenticadorController::class, 'exibirIndex'])->name('index');
@@ -51,8 +53,7 @@ Route::post('/atendimento/{codigo}/nota', [NotaController::class, 'adicaoNotaUsu
 // Módulo Administrador
 
 // Interface de início do módulo administrador
-Route::get('/administrador/inicio', [AutenticadorController::class, 'exibirInicioAdm'])->name('inicioAdm');
-
+Route::get('/administrador/inicio', [DashboardController::class, 'index'])->name('inicioAdm');
 // Interface Adicionar Usuário
 Route::get('/administrador/adicionarUsuario', [UsuarioController::class, 'exibirAdicaoUsuario'])->name('adicionarUsuario');
 Route::post('/administrador/adicionarUsuario', [UsuarioController::class, 'armazenarBD'])->name('adicionarUsuario');
