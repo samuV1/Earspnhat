@@ -14,6 +14,18 @@
         
         <h1>Editar Serviço</h1>
 
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <form id="formulario_editar_servico" action={{ route('editarServico') }} method="POST">
             @csrf
 
@@ -21,7 +33,7 @@
                 <section id="formatacao_formulario">
                     <section class="secao_formulario">
                         <label for="servico">Servico:</label>
-                        <input class="entrada_texto" id="servico" name="servico" type="text" value="{{$servico->servico}}">
+                        <input class="entrada_texto" id="servico" name="servico" type="text" value="{{$servico->servico}}" readonly>
                     </section>
 
                     <section class="secao_formulario">
@@ -67,7 +79,7 @@
             <section id="grupo_botao">
                 <input class="botao_adicao" type="submit" value="Alterar">
                 <input class="botao_cancelar" type="reset" value="Desistir">
-                <input class="botao_remover" type="submit" value="Remover">
+                <input class="botao_remover" type="submit" value="Remover" formmethod="POST" formaction="{{ route('removerServico') }}">
             </section>            
 
         </form>

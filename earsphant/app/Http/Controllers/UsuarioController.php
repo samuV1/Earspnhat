@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuario;
+use Illuminate\Support\Facades\Storage;
 
 class UsuarioController extends Controller
 {
@@ -72,4 +73,78 @@ class UsuarioController extends Controller
 
         return view('administrador.editarUsuario', compact('usuario'));
     }
+
+     // Método para editar o usuário
+     public function editarUsuario(Request $request)
+     {
+         // Validar os dados recebidos do formulário
+         $validatedData = $request->validate([
+             'nome' => 'required|string|max:255',
+             'setor' => 'required|',           
+             'acesso' => 'required|in:0,1,2,3',
+             'login' => 'required|string|max:255',
+             'senha' => 'nullable|string',
+             'url_foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg', // Validação da foto
+         ]);
+ 
+         // Encontrar o usuário pelo ID (supondo que o usuário esteja autenticado)
+         $usuario = Usuario::where('login', $request->login)->firstOrFail();
+
+ 
+         if ($usuario) {
+             // Atualizar dados do usuário
+             $usuario->nome = $request->nome;
+             $usuario->setor = $request->setor;
+             $usuario->acesso = $request->acesso;
+             $usuario->login = $request->login;
+             $usuario->senha = $request->senha;
+             // Atualizar a senha apenas se foi fornecida
+
+ 
+             // Verificar se uma nova foto foi enviada
+             if ($request->hasFile('url_foto')) {
+                 // Remover a foto antiga se houver
+                 if ($usuario->url_foto) {
+                     Storage::delete('public/' . $usuario->url_foto);
+                 }
+ 
+                 // Salvar a nova foto e atualizar a URL
+                 $path = $request->file('url_foto')->store('fotos_usuarios', 'public');
+                 $usuario->url_foto = $path;
+             }
+ 
+             // Salvar as alterações no banco de dados
+             $usuario->save();
+ 
+             // Redirecionar com sucesso
+             return redirect()->route('pesquisaUsuario')->with('success', 'Usuário atualizado com sucesso!');
+         }
+ 
+         // Se o usuário não for encontrado, redirecionar com erro
+         return redirect()->back()->with('error', 'Usuário não encontrado.');
+     }
+ 
+     // Método para remover o usuário
+     public function removerUsuario(Request $request)
+     {
+         // Encontrar o usuário pelo ID (supondo que o usuário esteja autenticado)
+        $usuario = Usuario::where('login', $request->login)->firstOrFail();
+
+ 
+         if ($usuario) {
+             // Remover a foto de perfil se houver
+             if ($usuario->url_foto) {
+                 Storage::delete('public/' . $usuario->url_foto);
+             }
+ 
+             // Remover o usuário
+             $usuario->delete();
+ 
+             // Redirecionar com sucesso
+             return redirect()->route('pesquisaUsuario')->with('success', 'Usuário removido com sucesso!');
+         }
+ 
+         // Se o usuário não for encontrado
+         return redirect()->back()->with('error', 'Usuário não encontrado.');
+     }
 }

@@ -81,15 +81,27 @@ Route::get('/administrador/editarPrograma/{programa}', [AtivoController::class, 
 Route::post('/administador/editarPrograma', [AtivoController::class, 'editarPrograma'])->name('editarPrograma');
 
 Route::get('/administrador/editarEquipamento/{equipamento}', [AtivoController::class, 'exibirEditarEquipamento'])->name('exibirEditarEquipamento');
-Route::post('/administrador/editarEquipamento', [AtivoController::class, 'editarEquipamento'])->name('editarEquipamento');
+Route::post('/administrador/editarEquipamento', [AtivoController::class, 'editarEquipamento'])->name('atualizarEquipamento');
 
 // Interface Editar Setor
 Route::get('/administrador/editarSetor/{setor}', [SetorController::class, 'exibirEditarSetor'])->name('exibirEditarSetor');
-Route::post('/administador/editarSetor', [SetorController::class, 'editarSetor'])->name('editarSetor');
+Route::post('/administrador/editarSetor', [SetorController::class, 'editarSetor'])->name('editarSetor');
 
 // Interface Editar Servico
 Route::get('/administador/editarServico/{servico}', [ServicoController::class, 'exibireditarServico'])->name('exibirEditarServico');
 Route::post('/administador/editarServico', [ServicoController::class, 'editarServico'])->name('editarServico');
+
+// Remover:
+Route::post('/administador/removerSetor', [SetorController::class, 'removerSetor'])->name('removerSetor');
+
+Route::post('/administador/removerServico', [ServicoController::class, 'removerServico'])->name('removerServico');
+
+Route::post('/administrador/removerEquipamento', [AtivoController::class, 'removerEquipamento'])->name('removerEquipamento');
+
+Route::post('/administrador/removerPrograma', [AtivoController::class, 'removerPrograma'])->name('removerPrograma');
+
+Route::post('/administrador/removerUsuario', [UsuarioController::class, 'removerUsuario'])->name('removerUsuario');
+
 
 // Pesquisas
 Route::get('/administrador/pesquisaUsuario', [PesquisaController::class, 'pesquisaUsuario'])->name('pesquisaUsuario');

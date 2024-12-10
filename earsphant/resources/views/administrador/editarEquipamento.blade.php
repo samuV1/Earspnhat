@@ -14,11 +14,11 @@
 
         <h1>Editar Equipamento</h1>
 
-        <form id="formulario_editar_equipamento" action="{{ route('editarEquipamento') }}" method="POST">
+        <form id="formulario_editar_equipamento" action="{{ route('atualizarEquipamento') }}" method="POST">
             @csrf
             <div id="formatacao_formulario_ativo">
                 <label for="patrimonio">Código/Patrimônio:</label>
-                <input class="entrada_texto" id="patrimonio" name="patrimonio" type="text" value="{{$equipamento->patrimonio}}">
+                <input class="entrada_texto" id="patrimonio" name="patrimonio" type="text" value="{{$equipamento->patrimonio}}" readonly>
         
                 <label for="tipo">Tipo:</label>
                 <input class="entrada_texto" id="tipo" name="tipo" type="text" value="{{$equipamento->tipo}}">
@@ -49,7 +49,7 @@
             <section id="grupo_botao">
                 <input class="botao_adicao" type="submit" value="Alterar">
                 <input class="botao_cancelar" type="reset" value="Desistir">
-                <input class="botao_remover" type="submit" value="Remover">
+                <input class="botao_remover" type="submit" value="Remover" formmethod="POST" formaction="{{ route('removerEquipamento') }}">
             </section>
         </form>
         

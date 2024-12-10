@@ -22,7 +22,7 @@
                     <input class="entrada_texto" id="licenca" name="licenca" type="text" value="{{ $programa->licenca }}">
     
                     <label for="codigo">Numeração Interna:</label>
-                    <input class="entrada_texto" id="codigo" name="codigo" type="text" value="{{ $programa->codigo }}">
+                    <input class="entrada_texto" id="codigo" name="codigo" type="text" value="{{ $programa->codigo }}" readonly>
                     
                     <section  class="secao_formulario">
                         <label for="aquisicao">Data de aquisição:</label>
@@ -50,7 +50,7 @@
             <section id="grupo_botao">
                 <input class="botao_adicao" type="submit" value="Alterar">
                 <input class="botao_cancelar" type="reset" value="Desistir">
-                <input class="botao_remover" type="submit" value="Remover">
+                <input class="botao_remover" type="submit" value="Remover" formmethod="POST" formaction="{{ route('removerPrograma') }}">
             </section>
 
         </form>

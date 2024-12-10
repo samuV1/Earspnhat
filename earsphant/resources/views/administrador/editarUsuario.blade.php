@@ -45,7 +45,7 @@
                 </section>
                 <section class="formatacao_seções_formulario">
                     <label for="usuario_login">Usuário:</label>
-                    <input class="entrada_texto" id="usuario_login" name="login" type="text" value="{{$usuario->login}}">
+                    <input class="entrada_texto" id="usuario_login" name="login" type="text" value="{{$usuario->login}}" readonly>
                 
                     <label for="usuario_senha">Senha:</label>
                     <input class="entrada_texto" id="usuario_senha" name="senha" type="password" value="{{$usuario->senha}}">
@@ -87,7 +87,7 @@
         <section id="grupo_botao">
             <input class="botao_adicao" type="submit" value="Salvar Alterações">
             <input class="botao_cancelar" type="reset" value="Desistir">
-            <input class="botao_remover" type="submit" value="Remover">
+            <input class="botao_remover" type="submit" value="Remover" formmethod="POST" formaction="{{ route('removerUsuario') }}">
         </section>
     </form>
         

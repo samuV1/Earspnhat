@@ -41,4 +41,45 @@ class ServicoController extends Controller
 
         return view('administrador.editarServico', compact('servico'));
     }
+
+    // Método para editar o serviço
+    public function editarServico(Request $request)
+    {
+        // Validar os dados do formulário
+        $validated = $request->validate([
+            'servico' => 'required|string|max:255',
+            'ans' => 'required',
+            'status' => 'required|in:ativo,obsoleto',
+        ]);
+
+        // Encontrar o serviço pelo ID
+        $servico = Servico::where('servico', $request->servico)->first();
+
+        if (!$servico) {
+            return redirect()->back()->with('error', 'Serviço não encontrado.');
+        }
+
+        // Atualizar as informações do serviço
+        $servico->servico = $request->servico;
+        $servico->ans = $request->ans;
+        $servico->status = $request->status;
+        $servico->save();
+
+        // Redirecionar para uma página de sucesso ou lista de serviços
+        return redirect()->route('pesquisaServico')->with('success', 'Serviço atualizado com sucesso!');
+    }
+
+    // Método para remover o serviço
+    public function removerServico(Request $request)
+    {
+        $servico = Servico::where('servico', $request->servico)->first();
+
+        if (!$servico) {
+            return redirect()->back()->with('error', 'Serviço não encontrado.');
+        }
+
+        $servico->delete();
+
+        return redirect()->route('pesquisaServico')->with('success', 'Serviço removido com sucesso!');
+    }
 }

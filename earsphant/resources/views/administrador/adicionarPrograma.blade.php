@@ -18,8 +18,7 @@
         @endif
         
         <h1>Adicionar um Novo Programa</h1>
-
-        
+       
         <form id="form_active" action="{{ route('adicionarPrograma') }}" method="POST">
             @csrf
             <div id="formatacao_formulario_ativo">

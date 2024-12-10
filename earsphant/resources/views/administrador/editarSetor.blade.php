@@ -14,7 +14,19 @@
         
         <h1>Editar Setor</h1>
 
-        <form id="formulario_editar_setor" action={{ route('editarSetor') }} method="POST">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        <form id="formulario_editar_setor" action="{{ route('editarSetor') }}" method="POST">
             @csrf
 
             <section>
@@ -26,7 +38,7 @@
 
                     <section class="secao_formulario">
                         <label for="codigo">Identificação/Código do Setor:</label>
-                        <input class="entrada_texto" id="codigo" name="codigo" type="number" value="{{$setor->codigo}}">
+                        <input class="entrada_texto" id="codigo" name="codigo" type="number" value="{{$setor->codigo}}" readonly>
                     </section>
                 </section>
             </section>
@@ -34,7 +46,7 @@
                 <section id="grupo_botao">
                     <input class="botao_adicao" type="submit" value="Alterar">
                     <input class="botao_cancelar" type="reset" value="Desistir">
-                    <input class="botao_remover" type="submit" value="Remover">
+                    <input class="botao_remover" type="submit" value="Remover" formmethod="POST" formaction="{{ route('removerSetor') }}">
                 </section>            
 
         </form>

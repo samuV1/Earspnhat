@@ -39,4 +39,44 @@ class SetorController extends Controller
         // Redirecionar de volta com uma mensagem de sucesso
         return redirect()->route('adicionarSetor')->with('success', 'Setor adicionado com sucesso!');
     }
+
+        // Método para editar o setor
+        public function editarSetor(Request $request)
+        {
+            // Validar os dados do formulário (opcional, mas recomendado)
+            $validated = $request->validate([
+                'name' => 'required|string|max:255',
+                'codigo' => 'required|integer',
+            ]);
+    
+            // Encontrar o setor pelo ID ou outro critério (como 'codigo')
+            $setor = Setor::find($request->codigo); // Certifique-se de que 'id' está sendo passado no formulário ou na rota
+    
+            if (!$setor) {
+                return redirect()->back()->with('error', 'Setor não encontrado.');
+            }
+    
+            // Atualizar as informações do setor
+            $setor->nome = $request->name;
+            $setor->codigo = $request->codigo;
+            $setor->save();
+    
+            // Redirecionar para uma página de sucesso ou lista de setores
+            return redirect()->route('pesquisaSetor')->with('success', 'Setor atualizado com sucesso!');
+        }
+    
+        // Método para remover o setor
+        public function removerSetor(Request $request)
+        {
+            // Encontrar o setor pelo ID ou outro critério (como 'codigo')
+            $setor = Setor::find($request->codigo); // Certifique-se de que 'id' está sendo passado no formulário ou na rota
+    
+            if (!$setor) {
+                return redirect()->back()->with('error', 'Setor não encontrado.');
+            }
+    
+            $setor->delete();
+    
+            return redirect()->route('pesquisaSetor')->with('success', 'Setor removido com sucesso!');
+        }
 }
