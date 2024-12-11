@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Atendimento;
 use App\Models\Usuario;
@@ -16,13 +16,16 @@ class AtendimentoFactory extends Factory
             $status = $this->faker->randomElement(['Aberto', 'Fechado','Em Atendimento']);
             
             $fechamento = null;
+            $abertura = $this->faker->dateTimeBetween('-1 month', 'now');
 
             if ($status === 'Fechado') {
-                // Gera uma data de fechamento aleatória dentro de um ano a partir de 'abertura'
-                $fechamento = $this->faker->dateTimeBetween('-1 year', 'now');
+
+                $fechamento = clone $abertura; // Clone da data de abertura
+                $fechamento->modify('+' . rand(1, 15) . ' days');
                 $fila = "Fechado";
             } elseif ($status === 'Em Atendimento')
             {
+                $abertura = $this->faker->dateTimeBetween('-1 month', 'now');
                 $fila = $this->faker->randomElement([
                     
                     'Nível 1 - Técnicos',
@@ -32,7 +35,9 @@ class AtendimentoFactory extends Factory
                 ]);
             }else{
                 $fila = "Aberto";
+                $abertura = $this->faker->dateTimeBetween('-1 month', 'now');
             }
+
                        
         return [
          
@@ -41,9 +46,9 @@ class AtendimentoFactory extends Factory
             'status' => $status,
             'fila' => $fila, // A fila é selecionada aleatoriamente
             'descricao' => $this->faker->sentence, // Descrição aleatória do atendimento
-            'abertura' => now(),
+            'abertura' => $abertura,
             'fechamento' => $fechamento, // Preenche a data de fechamento com data aleatória, se necessário
-            'ans' => now()->addDays(rand(1, 5)),
+            'ans' => now()->addDays(rand(1, 15)),
             'encarregado' => $this->faker->name, // Nome aleatório para o encarregado
             'created_at' => now(),
             'updated_at' => now(),

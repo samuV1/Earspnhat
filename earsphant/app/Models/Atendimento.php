@@ -25,6 +25,10 @@ class Atendimento extends Model
         'encarregado',
     ]; // Campos permitidos para preenchimento
 
+    public function setor()
+    {
+    return $this->belongsTo(Setor::class);
+    }
 
     // gera o códgio da atendimento unico (chave primária)
     public static function gerarCodigoAtendimento()
@@ -36,6 +40,7 @@ class Atendimento extends Model
         if (!$ultimoAtendimento) {
             return '001';
         }
+
 
       
         $ultimoCodigo = $ultimoAtendimento->codigo_atendimento;
