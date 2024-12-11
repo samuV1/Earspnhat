@@ -17,7 +17,7 @@ class UsuarioFactory extends Factory
             'senha' => bcrypt('password123'), // Gera uma senha criptografada
             'nome' => $this->faker->name, // Gera um nome aleatório
             'setor' => $this->faker->numberBetween(1, 5), // setor aleatório de 1 a 5
-            'acesso' => $this->faker->numberBetween(1, 3), // Acesso aleatório de 1 a 3
+            'acesso' => $this->faker->numberBetween(0, 3), // Acesso aleatório de 1 a 3
             'url_foto' => $this->faker->imageUrl(), // Gera uma URL de imagem aleatória
         ];
     }
