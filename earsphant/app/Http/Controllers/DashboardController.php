@@ -23,6 +23,6 @@ class DashboardController extends Controller
     
 
         // Retorna a view com os dados
-        return view('administrador.inicio', compact( ,'recentAtendimentos', 'abertos', 'fechados', 'emAtendimento'));
+        return view('administrador.inicio', compact( 'recentAtendimentos', 'abertos', 'fechados', 'emAtendimento'));
     }
 }

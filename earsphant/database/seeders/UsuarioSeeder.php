@@ -40,8 +40,16 @@ class UsuarioSeeder extends Seeder
             'acesso' => '1',
             'url_foto' => null, // Campo opcional, pode ser null
         ]);
+        Usuario::create([
+            'nome' => 'Analista',
+            'login' => 'anlt',
+            'senha' => 'anlt', // Criptografa a senha
+            'setor' => '001',
+            'acesso' => '2',
+            'url_foto' => null, // Campo opcional, pode ser null
+        ]);
 
         // Geração de 50 registros adicionais com a factory
-        Usuario::factory(10)->create();
+        Usuario::factory(50)->create();
     }
 }
