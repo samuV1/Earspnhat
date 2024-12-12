@@ -4,6 +4,7 @@ body {
     align-items: center;
     align-content: space-between;
     justify-content: center;
+    overflow-x: hidden; /* Remove horizontal scroll */
     
 }
 

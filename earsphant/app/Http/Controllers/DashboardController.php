@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Atendimento;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -70,6 +71,19 @@ class DashboardController extends Controller
         $totalAtendimentosComSLA = $atendimentosComSLA->count();
         $percentualSLA = ($totalSLAComprovado / $totalAtendimentosComSLA) * 100;
 
+        // Chamados abertos ao longo do tempo
+        $chamadosAbertos = Atendimento::select(DB::raw('DATE(abertura) as data'), DB::raw('count(*) as quantidade'))
+            ->where('status', 'Aberto')
+            ->groupBy(DB::raw('DATE(abertura)'))
+            ->orderBy('data', 'asc')
+            ->get();
+
+        $fechadosAoLongoDoTempo = Atendimento::select(DB::raw('DATE(fechamento) as data'), DB::raw('count(*) as quantidade'))
+            ->where('status', 'Fechado')
+            ->groupBy(DB::raw('DATE(fechamento)'))
+            ->orderBy('data', 'asc')
+            ->get();
+
         // Retorna a view com os dados
         return view('administrador.inicio', compact(
             'recentAtendimentos',
@@ -82,7 +96,9 @@ class DashboardController extends Controller
             'totalResolvidosNoMes',
             'percentualSLA',
             'totalSLAComprovado',
-            'totalCriados'
+            'totalCriados',
+            'chamadosAbertos',
+            'fechadosAoLongoDoTempo'
         ));
     }
 }

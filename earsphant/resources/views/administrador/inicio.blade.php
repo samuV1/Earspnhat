@@ -4,6 +4,11 @@
 
 @section('estilo_pagina_css')
     <link rel="stylesheet" href={{ asset('css/modulo_administrador/home.css') }}>
+    <style>
+        body {
+            overflow-x: hidden; /* Remove horizontal scroll */
+        }
+    </style>
 @endsection
 
 @section('pagina')
@@ -53,6 +58,11 @@
     <div class="card">
     <div class="card-title"><h3>  <h3>Atendimentos por Setor</h3></div>
     <canvas id="setorChart"></canvas>
+    </div>
+
+    <div class="card">
+        <div class="card-title"><h3>Chamados Abertos ao Longo do Tempo</h3></div>
+        <canvas id="lineChart"></canvas>
     </div>
      
    
@@ -128,6 +138,46 @@
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const chamadosAbertos = @json($chamadosAbertos);
+    const datas = chamadosAbertos.map(item => item.data);
+    const quantidades = chamadosAbertos.map(item => item.quantidade);
+
+    const fechadosAoLongoDoTempo = @json($fechadosAoLongoDoTempo);
+    const datasFechados = fechadosAoLongoDoTempo.map(item => item.data);
+    const quantidadesFechados = fechadosAoLongoDoTempo.map(item => item.quantidade);
+
+    var ctx = document.getElementById('lineChart').getContext('2d');
+    var lineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: datas,
+            datasets: [{
+                label: 'Chamados Abertos',
+                data: quantidades,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                fill: true
+            },
+            {
+                label: 'Chamados Fechados',
+                data: quantidadesFechados,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1,
+                fill: true
             }]
         },
         options: {
